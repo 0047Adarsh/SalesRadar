@@ -1,0 +1,111 @@
+<footer>
+    <div class="footer">
+        <div class="footer-name">
+            <div class="footer-company">
+                <img class="footer-logo" src="/images/Uravu.png" alt="Uravu Logo">
+                <!-- <h1>Wesli</h1>  -->
+            </div>
+            <p>Bengaluru, Karnataka, India.</p>
+            <button class="quote" href="#">Contact Us</button>  
+        </div>
+        <div class="copy-right">
+            <p>© Uravu Labs Pvt Ltd 2024. All Rights Reserved.</p>
+            <div class="policy">
+                <p>Privacy Policy</p>
+                <p>Cookie Policy</p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-heading">     
+                <h2>Join the Water Revolution!</h2>
+            </div>
+            <div class="mail-heading">
+                <i class="fa-regular fa-envelope"></i>     
+                <input class="newsletter-email" type="email" placeholder="Enter your email address">
+                <button class="newsletter-button">Subscribe</button>
+            </div>   
+            <div class="separator"></div>
+            <div class="media-icons">
+                <a class="socialMedia" href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a class="socialMedia" href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></i></a>
+                <a class="socialMedia" href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a class="socialMedia" href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('analysisType').addEventListener('change', function() {
+       const selectedValue = this.value;
+       document.getElementById('revenueTable').style.display = selectedValue === 'revenue' ? 'block' : 'none';
+       document.getElementById('quantityTable').style.display = selectedValue === 'quantity' ? 'block' : 'none';
+   });
+
+//    document.getElementById('timeline').addEventListener('change', function() {
+//        const selectedTimeline = this.value;
+//        const loadingIndicator = document.getElementById('loading');
+
+//        loadingIndicator.style.display = 'block';
+
+//        let filteredMonths;
+//        const currentDate = new Date();
+
+//        if (selectedTimeline === 'thismonth') {
+//            filteredMonths = getLastNMonths(3, currentDate);
+//        } else if (selectedTimeline === 'previousmonth') {
+//            filteredMonths = getLastNMonths(6, currentDate);
+//        } else if (selectedTimeline === 'alltime') {
+//            // Handle all time logic
+//        }
+
+//        updateTables(filteredMonths).then(() => {
+//            loadingIndicator.style.display = 'none';
+//        });
+//    });
+
+//    document.getElementsByClassName('exportButton').addEventListener('click', function() {
+//     alert('Clicked');
+//     const table = document.querySelector('#' + (document.getElementById('analysisType').value === 'revenue' ? 'revenueTable' : 'quantityTable') + ' table');
+//     const workbook = XLSX.utils.table_to_book(table, { sheet: "Cohort Data" });
+//     XLSX.writeFile(workbook, 'Cohort_Analysis.xlsx');
+// });
+
+   document.getElementById('exportButton').addEventListener('click', function() {
+       const tableId = document.getElementById('analysisType').value === 'revenue' ? 'revenueTable' : 'quantityTable';
+       const table = document.querySelector(`#${tableId} table`);
+       
+       if (table) {
+           const workbook = XLSX.utils.table_to_book(table, { sheet: "Cohort Data" });
+           XLSX.writeFile(workbook, 'Cohort_Analysis.xlsx');
+       } else {
+           alert("No table found to export.");
+       }
+   });
+
+   document.getElementById('input-search').addEventListener('input', function() {
+        const searchValue = this.value.toLowerCase();
+        const tableId = document.getElementById('analysisType').value === 'revenue' ? 'revenueTable' : 'quantityTable';
+        const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+
+        rows.forEach(row => {
+            const brandName = row.cells[1].textContent.toLowerCase(); 
+            if (brandName.includes(searchValue)) {
+                row.style.display = ''; 
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+   
+    document.getElementById('scrollToBottomButton').addEventListener('click', function() {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+
+
+</script>
+</body>
+</html>

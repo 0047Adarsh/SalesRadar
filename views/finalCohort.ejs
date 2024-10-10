@@ -1,0 +1,209 @@
+<%- include ("partials/header.ejs")%>
+
+<div class="table-header">
+    <div>
+        <h1>Cohort Analysis</h1>
+    </div>
+    <!-- <label for="timeline">Select Timeline:</label>
+        <select id="timeline" aria-label="Select timeline">
+            <option value="thismonth">This Month</option>
+            <option value="previousmonth">Previous Month</option>
+            <option value="alltime">All Time</option>
+        </select> -->
+
+    <div class="input-group">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="input-search" type="search" placeholder="Search....">
+    </div>
+
+    
+    <select id="analysisType" aria-label="Select analysis type">
+        <option value="revenue">Revenue</option>
+        <option value="quantity">Bottle Quantity</option>
+    </select>
+
+    <button id="exportButton" aria-label="Export data to Excel"><i class="fa-solid fa-download"></i></button>
+</div>
+
+<div class="sticky-button-container" id="scrollToBottomButton">
+    <button><i class="fa-solid fa-arrow-down"></i></button>
+</div>
+
+<div class="table-container">
+    <div id="loading" style="display: none;">Loading...</div>
+
+    <div id="revenueTable">
+        <!-- <h2>Revenue Analysis</h2> -->
+        <table>
+            <thead>
+                <tr style="position: sticky; top: 0; z-index: 200;">
+                    <th>SlNo.</th>
+                    <th>Brand Name</th>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <% const options = { year: 'numeric', month: 'short' }; %>
+                        <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
+                        <th><%= revenueMonth %></th>
+                    <% }); %>
+                    <th class="fixed-total">Total Revenue</th>
+                    <th>Months Served</th>
+                    <th>Average Revenue</th>
+                    <th>LTV (1 year)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let slno = 0; %>
+                <% BrandMonthlyData.forEach((monthData, brandName) => { %>
+                    <tr>
+                        <% slno+=1 %>
+                        <td><%= slno %></td>
+                        <td class="fixed-column"><%= brandName %></td>
+                        <% let total = 0; %>
+                        <% let monthsServed = 0; %>
+                        <% sortedUniqueMonths.forEach((month, index) => { %>
+                            <% const revenue = monthData.get(month) || 0; %>
+                            <% const Revenue = revenue.revenue || 0; %>
+                            <% total += Revenue; %>
+                            <% if(Revenue>0){ %>
+                                <% monthsServed += 1 %>
+                            <% } %>
+                            <% 
+                                let previousRevenue = index > 0 ? (monthData.get(sortedUniqueMonths[index - 1]) || 0).revenue || 0 : 0; 
+                                let cellColor = Revenue > previousRevenue ? '#90EE90;' : Revenue < previousRevenue ? "#ff8a8a;" : '';
+                            %>
+                            <td style="text-align: right; padding-right: 0; background-color:<%= cellColor %>;">
+                                <%= Revenue.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                            </td>
+                        <% }); %>
+                        <td class="fixed-total" style="background-color: rgb(97, 183, 218); font-size: 18px;"><%= total.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
+                        <td><%= monthsServed %></td>
+                        <td><%= (total/monthsServed).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
+                        <td><%= ((total/monthsServed)*12).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td class="sticky-footer" style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Revenue</td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
+                            <% const monthlyRevenueTotal = monthlyTotal.revenue || 0; %>
+                            <%= monthlyRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                        <% 
+                            const grandRevenueTotal = Array.from(MonthlyTotals.values())
+                                .filter(item => item.revenue && !isNaN(item.revenue))
+                                .reduce((acc, val) => acc + (val.revenue || 0), 0); 
+                        %>
+                        <%= grandRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Tax Invoice Value</td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
+                            <% const monthlyRevenueTotal = monthlyTotal.revenue * 1.18 || 0; %>
+                            <%= monthlyRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                        <% 
+                            const grandrevenueTotal = Array.from(MonthlyTotals.values())
+                                .filter(item => item.revenue && !isNaN(item.revenue))
+                                .reduce((acc, val) => acc + (val.revenue || 0), 0); 
+                        %>
+                        <% Taxedrevenue = grandrevenueTotal * 1.18 %>
+                        <%= Taxedrevenue.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of customers who placed Order</td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <%= MonthlyTotals.get(month).customers.size %>
+                        </td>
+                    <% }); %>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div id="quantityTable" style="display: none;">
+        <!-- <h2>Bottle Cohort Analysis</h2> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Slno.</th>
+                    <th>Brand Name</th>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <% const options = { year: 'numeric', month: 'short' }; %>
+                        <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
+                        <th><%= revenueMonth %></th>
+                    <% }); %>
+                    <th>Total Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let Slno = 0; %>
+                <% BrandMonthlyData.forEach((monthData, brandName) => { %>
+                    <tr>
+                        <% Slno+=1 %>
+                        <td><%= Slno %></td>
+                        <td><%= brandName %></td>
+                        <% let total = 0; %>
+                        <% sortedUniqueMonths.forEach((month, index) => { %>
+                            <% const quantity = monthData.get(month) || 0; %>
+                            <% const Quantity = quantity.quantity || 0; %>
+                            <% total += Quantity; %>
+                            
+                            <% 
+                                let previousQuantity = index > 0 ? (monthData.get(sortedUniqueMonths[index - 1]) || 0).quantity || 0 : 0; 
+                                let cellColor = Quantity > previousQuantity ? '#90EE90;' : Quantity < previousQuantity ? "#ff8a8a;" : '';
+                            %>
+                            <td style="text-align: right; padding-right: 0; background-color: <%= cellColor %>;">
+                                <%= Quantity %>
+                            </td>
+                        <% }); %>
+                        <td><%= total %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+            <tfoot>
+                <tr class="fixed-column">
+                    <td>Total Quantity</td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td>
+                            <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
+                            <% const monthlyQuantityTotal = monthlyTotal.quantity || 0; %>
+                            <%= monthlyQuantityTotal %>
+                        </td>
+                    <% }); %>
+                    <td>
+                        <% const grandQuantityTotal = Array.from(MonthlyTotals.values()).filter(item =>
+                            item.quantity && !isNaN(item.quantity)
+                        ).reduce((acc, val) => acc + (val.quantity || 0), 0); %>
+                        <%= grandQuantityTotal %>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<%- include ("partials/footer.ejs")%>

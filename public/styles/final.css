@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+    background-color: #1157a1;
+    overflow-x: hidden;
+    background-color: #0c4af4;
+    background-color: black;
+}
+
+
+
+.table-header {
+    padding: 20px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    /* border-radius: 12px; */
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: white;   
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.table-header h1 {
+    font-size: 1.8rem;
+    color: #007BFF;
+    color: black;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 123, 255, 0.2);
+    color: white;
+    color: black;
+}
+
+.table-header label {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #555;
+}
+
+.table-header select, .table-header input {
+    padding: 12px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-header select:focus, .table-header input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+#exportButton {
+    background: linear-gradient(145deg, #007BFF, #0056b3);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 11px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#exportButton:hover {
+    background: linear-gradient(145deg, #0056b3, #004494);
+    transform: translateY(-2px);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* padding: 10px; */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* max-height: 1500px; */
+    /* max-height: 2500px; */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    border: 1px solid rgb(220, 220, 220);
+}
+
+th {
+    background-color: #007BFF;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    background-color:#91AEC1;
+    background-color: #0c4af4;
+    font-size: 1.2rem;
+    width: fit-content;
+    text-wrap: nowrap;
+}
+
+td {
+    background-color: #f8f9fa;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-wrap: nowrap;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f3f5; 
+}
+
+tr:hover td {
+    background-color: #e0f7fa;
+}
+
+tfoot {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+tfoot td {
+    border-top: 2px solid #007bff; 
+}
+
+
+.table-header .input-group {
+    width: 20%;
+    border-radius: 30px; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: width 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px; 
+}
+
+.table-header .input-group:hover {
+    width: 25%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.table-header .input-group i {
+    position: absolute; 
+    left: 10px; 
+    color: #aaa; 
+    pointer-events: none; 
+    font-size: 24px;
+    color: rgba(19, 18, 18, 0.932);
+}
+
+.table-header .input-group input {
+    flex: 1; 
+    padding: 12px 40px; 
+    border: none;
+    border-radius: 30px; 
+    outline: none;    
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; 
+    background-color: #ffffff; 
+}
+
+.table-header .input-group input:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    border: 2px solid rgba(0, 123, 255, 0.5); 
+}
+
+.table-header .input-group input::placeholder {
+    color: #aaa; 
+    opacity: 0.8; 
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .table-header .input-group {
+        width: 80%; 
+    }
+}
+
+.sticky-button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+#scrollToBottomButton i{
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 20%;
+    transition: opacity 1s ease;
+}
+
+#scrollToBottomButton i:hover {
+    background-color: #0056b3;
+    opacity: 100%;
+}
+
+
+.fixed-column {
+    position: sticky;
+    left: 0; 
+    z-index: 1; 
+}
+.fixed-total {  
+    position: sticky;
+    right: 0; 
+    z-index: 1;
+}
+
+.fixed-row {
+    position: sticky;
+    bottom: 0; 
+    z-index: 1; 
+}
+
+.sticky-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: rgb(97, 183, 218);
+    font-size: 18px;
+    z-index: 200; 
+}

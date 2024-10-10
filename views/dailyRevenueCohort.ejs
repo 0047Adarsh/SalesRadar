@@ -1,0 +1,157 @@
+<%- include("partials/header.ejs") %>
+<div class="table-header">
+    <h1>Daily Revenue Data</h1>
+    <div class="input-group">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="input-search" type="search" placeholder="Search....">
+    </div>
+        
+    <form id="filterForm" method="GET" action="/dailyRevenueCohort">
+        <label for="month">Select Month:</label>
+        <input type="month" id="month" name="month" min="2023-09" required onchange="this.form.submit()">
+    </form>
+    <label for="analysisType">Select Analysis Type:</label>
+    <select id="analysisType" aria-label="Select analysis type">
+        <option value="revenue">Revenue</option>
+        <option value="quantity">Bottle Quantity</option>
+    </select>
+
+    <button id="exportButton" class="exbotton" aria-label="Export data to Excel"><i class="fa-solid fa-download"></i></button>
+</div>
+
+<div class="table-container">
+    <div id="loading" style="display: none;">Loading...</div>
+
+    <div id="revenueTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>SlNo.</th>
+                    <th>Brand Name</th>
+                    <% sortedUniqueDays.forEach(day => { %>
+                        <th><%= day %></th>
+                    <% }); %>
+                    <th>Total Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let slno = 0; %>
+                <% BrandDailyData.forEach((dayData, brandName) => { %>
+                    <tr>
+                        <% slno += 1; %>
+                        <td><%= slno %></td>
+                        <td><%= brandName %></td>
+                        <% let totalRevenue = 0; %>
+                        <% sortedUniqueDays.forEach((day,index) => { %>
+                            <% const revenue = dayData.get(day) ? dayData.get(day).revenue : 0; %>
+                            <% totalRevenue += revenue; %>
+                            <td style="text-align: right; padding-right: 0;">
+                                <%= revenue.toFixed(2) %>
+                            </td>
+                        <% }); %>
+                        <td style="background-color: rgb(253, 235, 133); font-size: 24px;">
+                            <%= totalRevenue.toFixed(2) %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+            <tfoot>
+                <tr class="fixed-column">
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Revenue</td>
+                    <% sortedUniqueDays.forEach(day => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const dailyTotal = DailyTotals.get(day) || 0; %>
+                            <% const dailyRevenueTotal = dailyTotal.revenue || 0; %>
+                            <%= dailyRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                        <% 
+                            const grandRevenueTotal = Array.from(DailyTotals.values())
+                                .filter(item => item.revenue && !isNaN(item.revenue))
+                                .reduce((acc, val) => acc + (val.revenue || 0), 0); 
+                        %>
+                        <%= grandRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                    </td>
+               
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Tax Invoice Value</td>
+                    <% sortedUniqueDays.forEach(day => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const dailyTotal = DailyTotals.get(day) || 0; %>
+                            <% const dailyRevenueTotal = dailyTotal.revenue * 1.18 || 0; %>
+                            <%= dailyRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                        <% 
+                            const grandrevenueTotal = Array.from(DailyTotals.values())
+                                .filter(item => item.revenue && !isNaN(item.revenue))
+                                .reduce((acc, val) => acc + (val.revenue || 0), 0); 
+                        %>
+                        <% Taxedrevenue = grandrevenueTotal * 1.18 %>
+                        <%= Taxedrevenue.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
+                    </td>
+           
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of customers who placed Order</td>
+                    <% sortedUniqueDays.forEach(day => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <%= DailyTotals.get(day).customers %>
+                        </td>
+                    <% }); %>
+            
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div id="quantityTable" style="display: none;">
+        <!-- <h2>Bottle Cohort Analysis</h2> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>SlNo.</th>
+                    <th>Brand Name</th>
+                    <% sortedUniqueDays.forEach(day => { %>
+                        <th><%= day %></th>
+                    <% }); %>
+                    <th>Total Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let Slno = 0 %>
+                <% BrandDailyData.forEach((dayData, brandName) => { %>
+                    <tr>
+                        <% Slno +=1; %>
+                        <td><%= Slno %></td>
+                        <td><%= brandName %></td>
+                        <% let totalBottles = 0; %>
+                        <% sortedUniqueDays.forEach((day,index)=> { %>
+                            <% const quantity = dayData.get(day) ? dayData.get(day).quantity : 0; %>
+                            <% totalBottles += quantity; %>
+                            
+                            <% 
+                                let previousQuantity = index > 0 ? (dayData.get(sortedUniqueDays[index - 1]) || 0).quantity || 0 : 0; 
+                                let cellColor = quantity > previousQuantity ? '#90EE90;' : quantity < previousQuantity ? "#ff8a8a;" : '';
+                            %>
+                            <td style="text-align: right; padding-right: 0; background-color: <%= cellColor %>;">
+                                <%= quantity %>
+                            </td>
+                        <% }); %>
+                        <td><%= totalBottles %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+ 
+        </table>
+    </div>
+</div>
+
+
+<%- include("partials/footer.ejs") %>
