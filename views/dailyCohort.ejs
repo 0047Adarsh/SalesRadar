@@ -6,7 +6,7 @@
         <input id="input-search" type="search" placeholder="Search....">
     </div>
         
-    <form id="filterForm" method="GET" action="/dailyRevenueCohort">
+    <form id="filterForm" method="GET" action="/dailyCohort">
         <label for="month">Select Month:</label>
         <input type="month" id="month" name="month" min="2023-09" required onchange="this.form.submit()">
     </form>
@@ -28,6 +28,7 @@
                 <tr>
                     <th>SlNo.</th>
                     <th>Brand Name</th>
+                    <th>Days Since Last Order</th> 
                     <% sortedUniqueDays.forEach(day => { %>
                         <th><%= day %></th>
                     <% }); %>
@@ -41,8 +42,13 @@
                         <% slno += 1; %>
                         <td><%= slno %></td>
                         <td><%= brandName %></td>
+
+                        <td>
+                            <%= daysSinceLastOrder[brandName] !== undefined ? daysSinceLastOrder[brandName] : 'N/A' %>
+                        </td>
+                        
                         <% let totalRevenue = 0; %>
-                        <% sortedUniqueDays.forEach((day,index) => { %>
+                        <% sortedUniqueDays.forEach((day) => { %>
                             <% const revenue = dayData.get(day) ? dayData.get(day).revenue : 0; %>
                             <% totalRevenue += revenue; %>
                             <td style="text-align: right; padding-right: 0;">
@@ -74,7 +80,6 @@
                         %>
                         <%= grandRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
                     </td>
-               
                 </tr>
                 <tr>
                     <td></td>
@@ -95,7 +100,6 @@
                         <% Taxedrevenue = grandrevenueTotal * 1.18 %>
                         <%= Taxedrevenue.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
                     </td>
-           
                 </tr>
                 <tr>
                     <td></td>
@@ -105,14 +109,12 @@
                             <%= DailyTotals.get(day).customers %>
                         </td>
                     <% }); %>
-            
                 </tr>
             </tfoot>
         </table>
     </div>
 
     <div id="quantityTable" style="display: none;">
-        <!-- <h2>Bottle Cohort Analysis</h2> -->
         <table>
             <thead>
                 <tr>
@@ -128,19 +130,15 @@
                 <% let Slno = 0 %>
                 <% BrandDailyData.forEach((dayData, brandName) => { %>
                     <tr>
-                        <% Slno +=1; %>
+                        <% Slno += 1; %>
                         <td><%= Slno %></td>
                         <td><%= brandName %></td>
                         <% let totalBottles = 0; %>
-                        <% sortedUniqueDays.forEach((day,index)=> { %>
+                        <% sortedUniqueDays.forEach((day, index) => { %>
                             <% const quantity = dayData.get(day) ? dayData.get(day).quantity : 0; %>
                             <% totalBottles += quantity; %>
-                            
-                            <% 
-                                let previousQuantity = index > 0 ? (dayData.get(sortedUniqueDays[index - 1]) || 0).quantity || 0 : 0; 
-                                let cellColor = quantity > previousQuantity ? '#90EE90;' : quantity < previousQuantity ? "#ff8a8a;" : '';
-                            %>
-                            <td style="text-align: right; padding-right: 0; background-color: <%= cellColor %>;">
+                        
+                            <td style="text-align: right; padding-right: 0;">
                                 <%= quantity %>
                             </td>
                         <% }); %>
@@ -148,10 +146,8 @@
                     </tr>
                 <% }); %>
             </tbody>
- 
         </table>
     </div>
 </div>
-
 
 <%- include("partials/footer.ejs") %>

@@ -35,8 +35,7 @@ function buildRevenueCohorts(data) {
         if (!BrandDailyData.has(Name)) {
             BrandDailyData.set(Name, new Map());
         }
-        const BrandData = BrandMonthlyData.get(Name);
-        
+        const BrandData = BrandMonthlyData.get(Name);        
         const currentRevenue = BrandData.get(MonthKey) ? BrandData.get(MonthKey).revenue : 0;
         const currentQuantity = BrandData.get(MonthKey) ? BrandData.get(MonthKey).quantity : 0;
 
@@ -70,34 +69,31 @@ function buildDailyRevenueCohorts(data, month) {
     const [year, monthNum] = Month.split('-').map(Number) || now.split('-').map(Number);
     const startOfMonth = moment(`${year}-${monthNum}`, "YYYY-MM").startOf('month');
     const endOfMonth = moment(`${year}-${monthNum}`, "YYYY-MM").endOf('month');
-    // const isCurrentOrLastMonth = (date) => {
-    //     const today = moment();
-    //     const currentMonth = today.month();
-    //     const currentYear = today.year();
-    //     const lastMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-    //     const lastMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-
-    //     return (date.year() === currentYear && date.month() === currentMonth) ||
-    //            (date.year() === lastMonthYear && date.month() === lastMonth);
-    // };
-
+    const lastOrderDates = new Map();
+    const daysSinceLastOrder = {};
+    
     data.forEach(({ Name, Date, Revenue, Quantity }) => {
         const orderDate = moment(Date, "DD-MMM-YYYY");
-        // if (!isCurrentOrLastMonth(orderDate)) return;
+        if (!lastOrderDates.has(Name) || orderDate.isAfter(lastOrderDates.get(Name))) {
+            lastOrderDates.set(Name, orderDate);
+        }
+
+        lastOrderDates.forEach((lastOrderDate, customerName) => {
+            const daysDiff = moment().diff(lastOrderDate, 'days');
+            daysSinceLastOrder[customerName] = daysDiff;
+        });
         if (!orderDate.isBetween(startOfMonth, endOfMonth, null, '[]')) return;
 
         const DayKey = orderDate.format("DD-MM-YYYY");
-
         // if (!BrandDailyData.has(Name)) {
         //     BrandDailyData.set(Name, new Map());
         // }
-        
         const BrandData = BrandDailyData.get(Name);
         const currentRevenue = BrandData.get(DayKey) ? BrandData.get(DayKey).revenue : 0;
 
         BrandData.set(DayKey, {
             revenue: currentRevenue + parseFloat(Revenue),
-            quantity: (BrandData.get(DayKey)?.quantity || 0) + parseInt(Quantity, 10)
+            quantity: (BrandData.get(DayKey)?.quantity || 0) + parseInt(Quantity, 10),
         });
 
         const dailyTotal = DailyTotals.get(DayKey) || { revenue: 0, quantity: 0 };
@@ -108,8 +104,59 @@ function buildDailyRevenueCohorts(data, month) {
     });
 
     const sortedUniqueDays = Array.from(DailyTotals.keys()).sort();
-    return { BrandDailyData, sortedUniqueDays, DailyTotals };
+
+    return { BrandDailyData, sortedUniqueDays, DailyTotals, daysSinceLastOrder };
 }
+
+// function buildWeeklyCohorts(data, year)
+// {
+//     const Year = year || '2024';
+//     const weeklyData = new Map();
+//     const startofYear = moment(`${Year}-01-01`);
+//     const endofYear = moment(`${Year}-12-31`);
+
+//     data.forEach({Name, Quantity, Date})
+//     {
+//         const orderDate = moment(Date, 'DD-MMM-YYYY')
+//         if(!orderDate.isBetween(startofYear, endofYear, null, '[]')) return;
+//     }
+    
+// }
+
+function buildWeeklyCohorts(data, year) {
+    const Year = year || '2024';
+    const weeklyData = new Map();
+    const startOfYear = moment(`${Year}-01-01`);
+    const endOfYear = moment(`${Year}-12-31`);
+
+    data.forEach(({ Name, Quantity, Date }) => {
+        const orderDate = moment(Date, 'DD-MMM-YYYY');
+        if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
+
+        const weekStart = orderDate.clone().startOf('isoWeek');
+        const weekKey = weekStart.format("YYYY-WW");
+
+        if (!weeklyData.has(weekKey)) {
+            weeklyData.set(weekKey, {
+                Monday: { quantity: 0 },
+                Tuesday: { quantity: 0 },
+                Wednesday: { quantity: 0 },
+                Thursday: { quantity: 0 },
+                Friday: { quantity: 0 },
+                Saturday: { quantity: 0 },
+                Sunday: { quantity: 0 },
+            });
+        }
+
+        const weekData = weeklyData.get(weekKey);
+        const dayKey = orderDate.format("dddd");
+
+        weekData[dayKey].quantity += parseInt(Quantity, 10);
+    });
+
+    return weeklyData;
+}
+
 
 async function fetchData() {
     if (cachedData && (Date.now() - cacheTime < CACHE_EXPIRATION)) {
@@ -143,42 +190,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/revenueCohort', async (req, res) => {
-    try {
-        const data = await fetchData();
-
-        if (!Array.isArray(data)) {
-            console.error('Invalid data format received:', data);
-            return res.status(500).send('Unexpected data format');
-        }
-       
-        const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildRevenueCohorts(data);
-        res.render('revenueCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
-    } catch (error) {
-        console.error('Error fetching data:', error.message);
-        res.status(500).send('Internal Server Error');
-    }
-});
-
-
-app.get('/demo', async (req, res) => {
-    try {
-        const data = await fetchData();
-
-        if (!Array.isArray(data)) {
-            console.error('Invalid data format received:', data);
-            return res.status(500).send('Unexpected data format');
-        }
-       
-        const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildRevenueCohorts(data);
-        res.render('finalCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
-    } catch (error) {
-        console.error('Error fetching data:', error.message);
-        res.status(500).send('Internal Server Error');
-    }
-});
-
-// app.get('/dailyRevenueCohort', async (req, res) => {
+// app.get('/revenueCohort', async (req, res) => {
 //     try {
 //         const data = await fetchData();
 
@@ -186,85 +198,99 @@ app.get('/demo', async (req, res) => {
 //             console.error('Invalid data format received:', data);
 //             return res.status(500).send('Unexpected data format');
 //         }
+       
+//         const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildRevenueCohorts(data);
+//         res.render('revenueCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
+//     } catch (error) {
+//         console.error('Error fetching data:', error.message);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
 
-//         const { BrandDailyData, sortedUniqueDays, DailyTotals } = buildDailyRevenueCohorts(data);
-//         res.render('dailyRevenueCohort', { BrandDailyData, sortedUniqueDays, DailyTotals });
+app.get('/monthlyCohort', async (req, res) => {
+    try {
+        const data = await fetchData();
+
+        if (!Array.isArray(data)) {
+            console.error('Invalid data format received:', data);
+            return res.status(500).send('Unexpected data format');
+        }
+       
+        const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildRevenueCohorts(data);
+        res.render('monthlyCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// app.get('/monthlyCohort', async (req, res) => {
+//     try {
+//         const data = await fetchData();
+//         buildRevenueCohorts(data);
+//         if (!Array.isArray(data)) {
+//             console.error('Invalid data format received:', data);
+//             return res.status(500).send('Unexpected data format');
+//         }
+
+//         const {month} = req.query;
+//         let filteredData = data;
+//         const { BrandDailyData, sortedUniqueDays, DailyTotals } = buildDailyRevenueCohorts(filteredData, month);
+//         res.render('monthlyCohort', { BrandDailyData, sortedUniqueDays, DailyTotals });
 //     } catch (error) {
 //         console.error('Error fetching daily revenue data:', error.message);
 //         res.status(500).send('Internal Server Error');
 //     }
 // });
 
-app.get('/dailyRevenueCohort', async (req, res) => {
+app.get('/weeklyCohort', async (req, res) => {
     try {
         const data = await fetchData();
+        if (!Array.isArray(data)) {
+            console.error('Invalid data format received');
+        }
+        const {year} = req.query;
+        const yearlyData = buildWeeklyCohorts(data, year);
+        console.log(yearlyData);
+        // if (!Array.isArray(data)) {
+        //     return res.status(500).send('Unexpected data format');
+        // }
 
+        // const { month } = req.query;
+        // const WeeklyData = buildWeeklyRevenueCohorts(data, month);
+        
+        // const customers = Array.from(WeeklyData.keys());
+        // const weeks = Array.from(
+        //     WeeklyData.values()
+        //         .flatMap(customer => Array.from(customer.keys()))
+        //         .reduce((acc, week) => acc.add(week), new Set())
+        // ).sort();
+
+        res.render('weeklyCohort');
+    } catch (error) {
+        console.error('Error fetching weekly revenue data:', error.message);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+app.get('/dailyCohort', async (req, res) => {
+    try {
+        const data = await fetchData();
+        buildRevenueCohorts(data);
         if (!Array.isArray(data)) {
             console.error('Invalid data format received:', data);
             return res.status(500).send('Unexpected data format');
         }
 
         const {month} = req.query;
-        const { monthToggle } = req.query;
-
         let filteredData = data;
-
-        // if (monthToggle === 'current') {
-        //     const today = moment();
-        //     filteredData = data.filter(({ Date }) => {
-        //         const orderDate = moment(Date, "DD-MMM-YYYY");
-        //         return orderDate.month() === today.month() && orderDate.year() === today.year();
-        //     });
-        // } else if (monthToggle === 'previous') {
-        //     const today = moment();
-        //     filteredData = data.filter(({ Date }) => {
-        //         const orderDate = moment(Date, "DD-MMM-YYYY");
-        //         return orderDate.month() === today.month() - 1 && orderDate.year() === today.year();
-        //     });
-        // }
-
-        const { BrandDailyData, sortedUniqueDays, DailyTotals } = buildDailyRevenueCohorts(filteredData, month);
-        res.render('dailyRevenueCohort', { BrandDailyData, sortedUniqueDays, DailyTotals });
+        const { BrandDailyData, sortedUniqueDays, DailyTotals, daysSinceLastOrder } = buildDailyRevenueCohorts(filteredData, month);
+        res.render('dailyCohort', { BrandDailyData, sortedUniqueDays, DailyTotals, daysSinceLastOrder });
     } catch (error) {
         console.error('Error fetching daily revenue data:', error.message);
         res.status(500).send('Internal Server Error');
     }
 });
-
-// app.get('/revenueDayCohort', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received:', data);
-//             return res.status(500).send('Unexpected data format');
-//         }
-       
-//         const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildDayRevenueCohorts(data);
-//         res.render('revenueDayCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
-//     } catch (error) {
-//         console.error('Error fetching data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
-// app.get('/quantityCount', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received:', data);
-//             return res.status(500).send('Unexpected data format');
-//         }
-
-//         const { BrandMonthlyQuantities, sortedUniqueMonths, MonthlyTotals } = buildQuantityCohorts(data);
-        
-//         res.render('quantityCohort', { BrandMonthlyQuantities, sortedUniqueMonths, MonthlyTotals });
-//     } catch (error) {
-//         console.error('Error fetching data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

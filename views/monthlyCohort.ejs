@@ -39,6 +39,7 @@
                 <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>SlNo.</th>
                     <th>Brand Name</th>
+                    <th>Status</th>
                     <% sortedUniqueMonths.forEach(month => { %>
                         <% const options = { year: 'numeric', month: 'short' }; %>
                         <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
@@ -57,6 +58,7 @@
                         <% slno+=1 %>
                         <td><%= slno %></td>
                         <td class="fixed-column"><%= brandName %></td>
+                        <td>Active</td>
                         <% let total = 0; %>
                         <% let monthsServed = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>

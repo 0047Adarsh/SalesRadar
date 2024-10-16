@@ -31,6 +31,7 @@
                 <thead>
                     <tr>
                         <th>Brand Name</th>
+                        <th>Last Order</th>
                         <% sortedUniqueMonths.forEach(month => { %>
                             <% const options = { year: 'numeric', month: 'short' }; %>
                             <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
@@ -46,6 +47,7 @@
                     <% BrandMonthlyData.forEach((monthData, brandName) => { %>
                         <tr>
                             <td><%= brandName %></td>
+                            <td></td>
                             <% let total = 0; %>
                             <% let monthsServed = 0; %>
                             <% sortedUniqueMonths.forEach((month, index) => { %>
