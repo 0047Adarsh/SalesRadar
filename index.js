@@ -123,9 +123,44 @@ function buildDailyRevenueCohorts(data, month) {
     
 // }
 
+// function buildWeeklyCohorts(data, year) {
+//     const Year = year || '2024';
+//     const weeklyData = new Map();
+//     const startOfYear = moment(`${Year}-01-01`);
+//     const endOfYear = moment(`${Year}-12-31`);
+
+//     data.forEach(({ Name, Quantity, Date }) => {
+//         const orderDate = moment(Date, 'DD-MMM-YYYY');
+//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
+
+//         const weekStart = orderDate.clone().startOf('isoWeek');
+//         const weekKey = weekStart.format("YYYY-WW");
+
+//         if (!weeklyData.has(weekKey)) {
+//             weeklyData.set(weekKey, {
+//                 Monday: { quantity: 0 },
+//                 Tuesday: { quantity: 0 },
+//                 Wednesday: { quantity: 0 },
+//                 Thursday: { quantity: 0 },
+//                 Friday: { quantity: 0 },
+//                 Saturday: { quantity: 0 },
+//                 Sunday: { quantity: 0 },
+//             });
+//         }
+
+//         const weekData = weeklyData.get(weekKey);
+//         const dayKey = orderDate.format("dddd");
+
+//         weekData[dayKey].quantity += parseInt(Quantity, 10);
+//     });
+
+//     return weeklyData;
+// }
+
 function buildWeeklyCohorts(data, year) {
     const Year = year || '2024';
-    const weeklyData = new Map();
+    const brandWeelkyData = new Map();
+    const weeklyTotals = new Map();
     const startOfYear = moment(`${Year}-01-01`);
     const endOfYear = moment(`${Year}-12-31`);
 
@@ -136,8 +171,19 @@ function buildWeeklyCohorts(data, year) {
         const weekStart = orderDate.clone().startOf('isoWeek');
         const weekKey = weekStart.format("YYYY-WW");
 
-        if (!weeklyData.has(weekKey)) {
-            weeklyData.set(weekKey, {
+        if(!brandWeelkyData.has(Name))
+        {
+            brandWeelkyData.set(Name, new Map());
+        }
+        if (!weeklyData[weekKey]) {
+            weeklyData[weekKey] = {};
+        }
+
+        const weekData = weeklyData[weekKey];
+
+        // Initialize brand data if it doesn't exist
+        if (!weekData[Name]) {
+            weekData[Name] = {
                 Monday: { quantity: 0 },
                 Tuesday: { quantity: 0 },
                 Wednesday: { quantity: 0 },
@@ -145,17 +191,24 @@ function buildWeeklyCohorts(data, year) {
                 Friday: { quantity: 0 },
                 Saturday: { quantity: 0 },
                 Sunday: { quantity: 0 },
-            });
+            };
         }
 
-        const weekData = weeklyData.get(weekKey);
         const dayKey = orderDate.format("dddd");
-
-        weekData[dayKey].quantity += parseInt(Quantity, 10);
+        weekData[Name][dayKey].quantity += parseInt(Quantity, 10);
     });
 
-    return weeklyData;
+    // Extract sorted unique weeks and format BrandWeeklyData
+    const sortedUniqueWeeks = Object.keys(weeklyData).sort();
+    const BrandWeeklyData = sortedUniqueWeeks.map(week => ({
+        week,
+        brands: weeklyData[week],
+    }));
+
+    return { BrandWeeklyData, sortedUniqueWeeks };
 }
+
+
 
 
 async function fetchData() {
@@ -243,35 +296,55 @@ app.get('/monthlyCohort', async (req, res) => {
 //     }
 // });
 
+// app.get('/weeklyCohort', async (req, res) => {
+//     try {
+//         const data = await fetchData();
+//         if (!Array.isArray(data)) {
+//             console.error('Invalid data format received');
+//         }
+//         const {year} = req.query;
+//         const weeklyData = buildWeeklyCohorts(data, year);
+//         console.log(weeklyData);
+//         // if (!Array.isArray(data)) {
+//         //     return res.status(500).send('Unexpected data format');
+//         // }
+
+//         // const { month } = req.query;
+//         // const WeeklyData = buildWeeklyRevenueCohorts(data, month);
+        
+//         // const customers = Array.from(WeeklyData.keys());
+//         // const weeks = Array.from(
+//         //     WeeklyData.values()
+//         //         .flatMap(customer => Array.from(customer.keys()))
+//         //         .reduce((acc, week) => acc.add(week), new Set())
+//         // ).sort();
+
+//         res.render('weeklyCohort', {weeklyData});
+//     } catch (error) {
+//         console.error('Error fetching weekly revenue data:', error.message);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
+
 app.get('/weeklyCohort', async (req, res) => {
     try {
         const data = await fetchData();
         if (!Array.isArray(data)) {
             console.error('Invalid data format received');
+            return res.status(500).send('Unexpected data format');
         }
-        const {year} = req.query;
-        const yearlyData = buildWeeklyCohorts(data, year);
-        console.log(yearlyData);
-        // if (!Array.isArray(data)) {
-        //     return res.status(500).send('Unexpected data format');
-        // }
 
-        // const { month } = req.query;
-        // const WeeklyData = buildWeeklyRevenueCohorts(data, month);
-        
-        // const customers = Array.from(WeeklyData.keys());
-        // const weeks = Array.from(
-        //     WeeklyData.values()
-        //         .flatMap(customer => Array.from(customer.keys()))
-        //         .reduce((acc, week) => acc.add(week), new Set())
-        // ).sort();
+        const { year } = req.query;
+        const { weeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
+        console.log(weeklyData);
 
-        res.render('weeklyCohort');
+        res.render('weeklyCohort', { BrandWeeklyData:weeklyData, sortedUniqueWeeks });
     } catch (error) {
-        console.error('Error fetching weekly revenue data:', error.message);
+        console.error('Error fetching weekly cohort data:', error.message);
         res.status(500).send('Internal Server Error');
     }
 });
+
 
 app.get('/dailyCohort', async (req, res) => {
     try {
