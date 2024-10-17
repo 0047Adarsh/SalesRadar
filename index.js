@@ -22,6 +22,8 @@ let cacheTime = null;
 const CACHE_EXPIRATION = 60000000000;
 
 const BrandDailyData = new Map();
+const weeklyData = new Map();
+
 function buildRevenueCohorts(data) {
     const BrandMonthlyData = new Map();
     const MonthlyTotals = new Map();
@@ -32,8 +34,11 @@ function buildRevenueCohorts(data) {
         if (!BrandMonthlyData.has(Name)) {
             BrandMonthlyData.set(Name, new Map());
         }
-        if (!BrandDailyData.has(Name)) {
+        if (!BrandDailyData.has(Name))  {
             BrandDailyData.set(Name, new Map());
+        }
+        if (!weeklyData.has(Name)) {
+            weeklyData.set(Name, new Map());
         }
         const BrandData = BrandMonthlyData.get(Name);        
         const currentRevenue = BrandData.get(MonthKey) ? BrandData.get(MonthKey).revenue : 0;
@@ -108,105 +113,75 @@ function buildDailyRevenueCohorts(data, month) {
     return { BrandDailyData, sortedUniqueDays, DailyTotals, daysSinceLastOrder };
 }
 
-// function buildWeeklyCohorts(data, year)
-// {
-//     const Year = year || '2024';
-//     const weeklyData = new Map();
-//     const startofYear = moment(`${Year}-01-01`);
-//     const endofYear = moment(`${Year}-12-31`);
-
-//     data.forEach({Name, Quantity, Date})
-//     {
-//         const orderDate = moment(Date, 'DD-MMM-YYYY')
-//         if(!orderDate.isBetween(startofYear, endofYear, null, '[]')) return;
-//     }
-    
-// }
-
-// function buildWeeklyCohorts(data, year) {
-//     const Year = year || '2024';
-//     const weeklyData = new Map();
-//     const startOfYear = moment(`${Year}-01-01`);
-//     const endOfYear = moment(`${Year}-12-31`);
-
-//     data.forEach(({ Name, Quantity, Date }) => {
-//         const orderDate = moment(Date, 'DD-MMM-YYYY');
-//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
-
-//         const weekStart = orderDate.clone().startOf('isoWeek');
-//         const weekKey = weekStart.format("YYYY-WW");
-
-//         if (!weeklyData.has(weekKey)) {
-//             weeklyData.set(weekKey, {
-//                 Monday: { quantity: 0 },
-//                 Tuesday: { quantity: 0 },
-//                 Wednesday: { quantity: 0 },
-//                 Thursday: { quantity: 0 },
-//                 Friday: { quantity: 0 },
-//                 Saturday: { quantity: 0 },
-//                 Sunday: { quantity: 0 },
-//             });
-//         }
-
-//         const weekData = weeklyData.get(weekKey);
-//         const dayKey = orderDate.format("dddd");
-
-//         weekData[dayKey].quantity += parseInt(Quantity, 10);
-//     });
-
-//     return weeklyData;
-// }
 
 function buildWeeklyCohorts(data, year) {
-    const Year = year || '2024';
-    const brandWeelkyData = new Map();
-    const weeklyTotals = new Map();
-    const startOfYear = moment(`${Year}-01-01`);
-    const endOfYear = moment(`${Year}-12-31`);
+    const weeklyData = new Map();
+    const startOfYear = moment(`${year}-01-01`);
+    const endOfYear = moment(`${year}-12-31`);
 
     data.forEach(({ Name, Quantity, Date }) => {
         const orderDate = moment(Date, 'DD-MMM-YYYY');
         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
 
-        const weekStart = orderDate.clone().startOf('isoWeek');
-        const weekKey = weekStart.format("YYYY-WW");
+        const weekNumber = orderDate.isoWeek();
+        const weekKey = `Week ${weekNumber}`;
 
-        if(!brandWeelkyData.has(Name))
-        {
-            brandWeelkyData.set(Name, new Map());
-        }
-        if (!weeklyData[weekKey]) {
-            weeklyData[weekKey] = {};
+        if (!weeklyData.has(weekKey)) {
+            weeklyData.set(weekKey, new Map());
         }
 
-        const weekData = weeklyData[weekKey];
-
-        // Initialize brand data if it doesn't exist
-        if (!weekData[Name]) {
-            weekData[Name] = {
-                Monday: { quantity: 0 },
-                Tuesday: { quantity: 0 },
-                Wednesday: { quantity: 0 },
-                Thursday: { quantity: 0 },
-                Friday: { quantity: 0 },
-                Saturday: { quantity: 0 },
-                Sunday: { quantity: 0 },
-            };
+        const weekBrands = weeklyData.get(weekKey);
+        if (!weekBrands.has(Name)) {
+            weekBrands.set(Name, 0);
         }
 
-        const dayKey = orderDate.format("dddd");
-        weekData[Name][dayKey].quantity += parseInt(Quantity, 10);
+        weekBrands.set(Name, weekBrands.get(Name) + parseInt(Quantity, 10));
     });
 
-    // Extract sorted unique weeks and format BrandWeeklyData
-    const sortedUniqueWeeks = Object.keys(weeklyData).sort();
-    const BrandWeeklyData = sortedUniqueWeeks.map(week => ({
+    const BrandWeeklyData =Array.from(weeklyData.entries()).map(([week, brands]) => ({
         week,
-        brands: weeklyData[week],
+        brands: Object.fromEntries(brands)
     }));
-
-    return { BrandWeeklyData, sortedUniqueWeeks };
+    console.log(BrandWeeklyData);
+    return { 
+        BrandWeeklyData,
+        sortedUniqueWeeks: Array.from(weeklyData.keys())
+    };
 }
+
+
+
+
+
+// function buildWeeklyCohorts(data, year) {
+//     const startOfYear = moment(`${year}-01-01`);
+//     const endOfYear = moment(`${year}-12-31`);
+
+//     data.forEach(({ Name, Quantity, Date }) => {
+//         const orderDate = moment(Date, 'DD-MMM-YYYY');
+//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
+
+//         const weekNumber = orderDate.isoWeek();
+//         const weekKey = `Week ${weekNumber}`;
+
+//         const weekBrands = weeklyData.get(Name);
+//         if (!weekBrands.has(weekKey)) {
+//             weekBrands.set(weekKey, 0);
+//         }
+//         weekBrands.set(weekKey, weekBrands.get(weekKey) + parseInt(Quantity, 10));
+//     });
+//     const BrandWeeklyData = Array.from(weeklyData.entries()).map(([brandName, weeks]) => ({
+//         BrandName: brandName,
+//         Weeks: Object.fromEntries(weeks)
+//     }));
+
+//     return {
+//         BrandWeeklyData,
+//         sortedUniqueWeeks: Array.from(weeklyData.values()).flatMap(weekData => Array.from(weekData.keys())).filter((v, i, a) => a.indexOf(v) === i)
+//     };
+// }
+
+
 
 
 
@@ -326,6 +301,44 @@ app.get('/monthlyCohort', async (req, res) => {
 //     }
 // });
 
+// app.get('/weeklyCohort', async (req, res) => {
+//     try {
+//         const data = await fetchData();
+//         if (!Array.isArray(data)) {
+//             console.error('Invalid data format received');
+//             return res.status(500).send('Unexpected data format');
+//         }
+
+//         const { year } = req.query;
+//         const { weeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
+//         console.log(weeklyData);
+
+//         res.render('weeklyCohort', { BrandWeeklyData:weeklyData, sortedUniqueWeeks });
+//     } catch (error) {
+//         console.error('Error fetching weekly cohort data:', error.message);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
+
+// app.get('/weeklyCohort', async (req, res) => {
+//     try {
+//         const data = await fetchData();
+//         if (!Array.isArray(data)) {
+//             console.error('Invalid data format received');
+//             return res.status(500).send('Unexpected data format');
+//         }
+
+//         const year = req.query.year || moment().year(); // Default to current year
+//         const { BrandWeeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
+//         console.log('Weekly Data:', BrandWeeklyData); // Adjusted logging for clarity
+
+//         res.render('weeklyCohort', { BrandWeeklyData, sortedUniqueWeeks });
+//     } catch (error) {
+//         console.error('Error fetching weekly cohort data:', error.message);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
+
 app.get('/weeklyCohort', async (req, res) => {
     try {
         const data = await fetchData();
@@ -334,16 +347,15 @@ app.get('/weeklyCohort', async (req, res) => {
             return res.status(500).send('Unexpected data format');
         }
 
-        const { year } = req.query;
-        const { weeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
-        console.log(weeklyData);
-
-        res.render('weeklyCohort', { BrandWeeklyData:weeklyData, sortedUniqueWeeks });
+        const year = req.query.year || moment().year();
+        const { BrandWeeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
+        res.render('weeklyCohort', { BrandWeeklyData, sortedUniqueWeeks });
     } catch (error) {
         console.error('Error fetching weekly cohort data:', error.message);
         res.status(500).send('Internal Server Error');
     }
 });
+
 
 
 app.get('/dailyCohort', async (req, res) => {

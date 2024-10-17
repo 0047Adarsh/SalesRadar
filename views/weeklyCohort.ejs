@@ -30,61 +30,56 @@
     <div id="quantityTable">
         <table>
             <thead>
-                <tr style="position: sticky; top: 0; z-index: 200;">
-                    <th>SlNo.</th>
+                <tr>
                     <th>Brand Name</th>
                     <% sortedUniqueWeeks.forEach(week => { %>
-                        <th><%= week %></th>
+                        <th><%= week.replace('week', 'W') %></th>
                     <% }); %>
                     <th>Total Quantity</th>
                 </tr>
             </thead>
             <tbody>
-                <% let slno = 0; %>
-                <% BrandWeeklyData.forEach((weekData, brandName) => { %>
-                    <tr>
-                        <% slno += 1; %>
-                        <td><%= slno %></td>
-                        <td><%= brandName %></td>
-                        <% let total = 0; %>
-                        <% sortedUniqueWeeks.forEach((week, index) => { %>
-                            <% const quantity = weekData.get(week) || 0; %>
-                            <% const Quantity = quantity.quantity || 0; %>
-                            <% total += Quantity; %>
-
-                            <% 
-                                let previousQuantity = index > 0 ? (weekData.get(sortedUniqueWeeks[index - 1]) || 0).quantity || 0 : 0; 
-                                let cellColor = Quantity > previousQuantity ? '#90EE90;' : Quantity < previousQuantity ? "#ff8a8a;" : '';
-                            %>
-                            <td style="text-align: right; padding-right: 0; background-color: <%= cellColor %>;">
-                                <%= Quantity %>
-                            </td>
-                        <% }); %>
-                        <td><%= total %></td>
-                    </tr>
+                <% const brandsSet = new Set(); %>
+                <% BrandWeeklyData.forEach(({ week, brands }) => { %>
+                    <% Object.keys(brands).forEach(brandName => { %>
+                        <% if (!brandsSet.has(brandName)) { %>
+                            <tr>
+                                <td><%= brandName %></td>
+                                <% let totalForBrand = 0; %>
+                                <% sortedUniqueWeeks.forEach(week => { %>
+                                    <% const quantity = BrandWeeklyData.find(data => data.week === week).brands[brandName] || 0; %>
+                                    <td><%= quantity %></td>
+                                    <% totalForBrand += quantity; %>
+                                <% }); %>
+                                <td><%= totalForBrand %></td>
+                            </tr>
+                            <% brandsSet.add(brandName); %>
+                        <% } %>
+                    <% }); %>
                 <% }); %>
             </tbody>
             <tfoot>
-                <tr class="fixed-column">
+                <tr>
                     <td>Total Quantity</td>
                     <% sortedUniqueWeeks.forEach(week => { %>
                         <td>
-                            <% const weeklyTotal = WeeklyTotals.get(week) || 0; %>
-                            <% const weeklyQuantityTotal = weeklyTotal.quantity || 0; %>
-                            <%= weeklyQuantityTotal %>
+                            <% const weekTotal = BrandWeeklyData.reduce((acc, { brands }) => acc + (brands[week] || 0), 0); %>
+                            <%= weekTotal %>
                         </td>
                     <% }); %>
                     <td>
-                        <% const grandQuantityTotal = Array.from(WeeklyTotals.values()).filter(item => 
-                            item.quantity && !isNaN(item.quantity)
-                        ).reduce((acc, val) => acc + (val.quantity || 0), 0); %>
-                        <%= grandQuantityTotal %>
+                        <% const grandTotal = BrandWeeklyData.reduce((acc, { brands }) => acc + Object.values(brands).reduce((innerAcc, qty) => innerAcc + qty, 0), 0); %>
+                        <%= grandTotal %>
                     </td>
                 </tr>
             </tfoot>
         </table>
     </div>
+    
+    
+    
+    
+    
 </div>
-
 
 <%- include("partials/footer.ejs") %>
