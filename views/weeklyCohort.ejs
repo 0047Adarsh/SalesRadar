@@ -33,9 +33,18 @@
                 <tr>
                     <th>Brand Name</th>
                     <% sortedUniqueWeeks.forEach(week => { %>
-                        <th><%= week.replace('week', 'W') %></th>
+                        <th><%= week.replace('Week ', 'W') %></th>
                     <% }); %>
                     <th>Total Quantity</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th></th>
+                    <% BrandWeeklyData.forEach(({ dateRange }) => { %>
+                        <th><%= dateRange %></th>
+                    <% }); %>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -75,7 +84,8 @@
             </tfoot>
         </table>
     </div>
-    
+</div>
+
     
     
     

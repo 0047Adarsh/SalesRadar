@@ -68,7 +68,7 @@ function buildRevenueCohorts(data) {
 }
 
 function buildDailyRevenueCohorts(data, month) {
-    // const BrandDailyData = new Map();
+
     const Month = month || "2024-10";
     const DailyTotals = new Map();
     const [year, monthNum] = Month.split('-').map(Number) || now.split('-').map(Number);
@@ -90,9 +90,6 @@ function buildDailyRevenueCohorts(data, month) {
         if (!orderDate.isBetween(startOfMonth, endOfMonth, null, '[]')) return;
 
         const DayKey = orderDate.format("DD-MM-YYYY");
-        // if (!BrandDailyData.has(Name)) {
-        //     BrandDailyData.set(Name, new Map());
-        // }
         const BrandData = BrandDailyData.get(Name);
         const currentRevenue = BrandData.get(DayKey) ? BrandData.get(DayKey).revenue : 0;
 
@@ -114,6 +111,41 @@ function buildDailyRevenueCohorts(data, month) {
 }
 
 
+// function buildWeeklyCohorts(data, year) {
+//     const weeklyData = new Map();
+//     const startOfYear = moment(`${year}-01-01`);
+//     const endOfYear = moment(`${year}-12-31`);
+
+//     data.forEach(({ Name, Quantity, Date }) => {
+//         const orderDate = moment(Date, 'DD-MMM-YYYY');
+//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
+
+//         const weekNumber = orderDate.isoWeek();
+//         const weekKey = `Week ${weekNumber}`;
+
+//         if (!weeklyData.has(weekKey)) {
+//             weeklyData.set(weekKey, new Map());
+//         }
+
+//         const weekBrands = weeklyData.get(weekKey);
+//         if (!weekBrands.has(Name)) {
+//             weekBrands.set(Name, 0);
+//         }
+
+//         weekBrands.set(Name, weekBrands.get(Name) + parseInt(Quantity, 10));
+//     });
+
+//     const BrandWeeklyData =Array.from(weeklyData.entries()).map(([week, brands]) => ({
+//         week,
+//         brands: Object.fromEntries(brands)
+//     }));
+//     console.log(BrandWeeklyData);
+//     return { 
+//         BrandWeeklyData,
+//         sortedUniqueWeeks: Array.from(weeklyData.keys())
+//     };
+// }
+
 function buildWeeklyCohorts(data, year) {
     const weeklyData = new Map();
     const startOfYear = moment(`${year}-01-01`);
@@ -127,23 +159,34 @@ function buildWeeklyCohorts(data, year) {
         const weekKey = `Week ${weekNumber}`;
 
         if (!weeklyData.has(weekKey)) {
-            weeklyData.set(weekKey, new Map());
+            weeklyData.set(weekKey, {
+                brands: new Map(),
+        
+                startOfWeek: orderDate.clone().startOf('isoWeek'),
+                endOfWeek: orderDate.clone().endOf('isoWeek')
+            });
         }
 
-        const weekBrands = weeklyData.get(weekKey);
-        if (!weekBrands.has(Name)) {
-            weekBrands.set(Name, 0);
-        }
+        const weekEntry = weeklyData.get(weekKey);
+        const { brands } = weekEntry;
 
-        weekBrands.set(Name, weekBrands.get(Name) + parseInt(Quantity, 10));
+        if (!brands.has(Name)) {
+            brands.set(Name, 0);
+        }
+        brands.set(Name, brands.get(Name) + parseInt(Quantity, 10));
     });
 
-    const BrandWeeklyData =Array.from(weeklyData.entries()).map(([week, brands]) => ({
-        week,
-        brands: Object.fromEntries(brands)
-    }));
+    const BrandWeeklyData = Array.from(weeklyData.entries()).map(([week, { brands, startOfWeek, endOfWeek }]) => {
+        const formattedRange = `${startOfWeek.format('MMM D')} - ${endOfWeek.format('MMM D')}`;
+        return {
+            week,
+            brands: Object.fromEntries(brands),
+            dateRange: formattedRange
+        };
+    });
+
     console.log(BrandWeeklyData);
-    return { 
+    return {
         BrandWeeklyData,
         sortedUniqueWeeks: Array.from(weeklyData.keys())
     };
@@ -182,10 +225,6 @@ function buildWeeklyCohorts(data, year) {
 // }
 
 
-
-
-
-
 async function fetchData() {
     if (cachedData && (Date.now() - cacheTime < CACHE_EXPIRATION)) {
         return cachedData;
@@ -218,23 +257,6 @@ app.get('/', async (req, res) => {
     }
 });
 
-// app.get('/revenueCohort', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received:', data);
-//             return res.status(500).send('Unexpected data format');
-//         }
-       
-//         const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildRevenueCohorts(data);
-//         res.render('revenueCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
-//     } catch (error) {
-//         console.error('Error fetching data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
 app.get('/monthlyCohort', async (req, res) => {
     try {
         const data = await fetchData();
@@ -251,93 +273,6 @@ app.get('/monthlyCohort', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
-// app.get('/monthlyCohort', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-//         buildRevenueCohorts(data);
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received:', data);
-//             return res.status(500).send('Unexpected data format');
-//         }
-
-//         const {month} = req.query;
-//         let filteredData = data;
-//         const { BrandDailyData, sortedUniqueDays, DailyTotals } = buildDailyRevenueCohorts(filteredData, month);
-//         res.render('monthlyCohort', { BrandDailyData, sortedUniqueDays, DailyTotals });
-//     } catch (error) {
-//         console.error('Error fetching daily revenue data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
-// app.get('/weeklyCohort', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received');
-//         }
-//         const {year} = req.query;
-//         const weeklyData = buildWeeklyCohorts(data, year);
-//         console.log(weeklyData);
-//         // if (!Array.isArray(data)) {
-//         //     return res.status(500).send('Unexpected data format');
-//         // }
-
-//         // const { month } = req.query;
-//         // const WeeklyData = buildWeeklyRevenueCohorts(data, month);
-        
-//         // const customers = Array.from(WeeklyData.keys());
-//         // const weeks = Array.from(
-//         //     WeeklyData.values()
-//         //         .flatMap(customer => Array.from(customer.keys()))
-//         //         .reduce((acc, week) => acc.add(week), new Set())
-//         // ).sort();
-
-//         res.render('weeklyCohort', {weeklyData});
-//     } catch (error) {
-//         console.error('Error fetching weekly revenue data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
-// app.get('/weeklyCohort', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received');
-//             return res.status(500).send('Unexpected data format');
-//         }
-
-//         const { year } = req.query;
-//         const { weeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
-//         console.log(weeklyData);
-
-//         res.render('weeklyCohort', { BrandWeeklyData:weeklyData, sortedUniqueWeeks });
-//     } catch (error) {
-//         console.error('Error fetching weekly cohort data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
-// app.get('/weeklyCohort', async (req, res) => {
-//     try {
-//         const data = await fetchData();
-//         if (!Array.isArray(data)) {
-//             console.error('Invalid data format received');
-//             return res.status(500).send('Unexpected data format');
-//         }
-
-//         const year = req.query.year || moment().year(); // Default to current year
-//         const { BrandWeeklyData, sortedUniqueWeeks } = buildWeeklyCohorts(data, year);
-//         console.log('Weekly Data:', BrandWeeklyData); // Adjusted logging for clarity
-
-//         res.render('weeklyCohort', { BrandWeeklyData, sortedUniqueWeeks });
-//     } catch (error) {
-//         console.error('Error fetching weekly cohort data:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
 
 app.get('/weeklyCohort', async (req, res) => {
     try {
