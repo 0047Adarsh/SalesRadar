@@ -192,9 +192,58 @@ function buildDailyRevenueCohorts(data, month) {
 // }
 
 
+// function buildWeeklyCohorts(data, year) {
+//     const weeklyData = new Map();
+//     const weeklyTotal = {};
+//     const startOfYear = moment(`${year}-01-01`);
+//     const endOfYear = moment(`${year}-12-31`);
+
+//     data.forEach(({ Name, Quantity, Date }) => {
+//         const orderDate = moment(Date, 'DD-MMM-YYYY');
+//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
+
+//         const weekNumber = orderDate.isoWeek();
+//         const weekKey = `Week ${weekNumber}`;
+
+//         if (!weeklyData.has(weekKey)) {
+//             weeklyData.set(weekKey, {
+//                 brands: new Map(),
+//                 startOfWeek: orderDate.clone().startOf('isoWeek'),
+//                 endOfWeek: orderDate.clone().endOf('isoWeek')
+//             });
+//             weeklyTotal[weekKey] = 0;
+//         }
+//         const weekEntry = weeklyData.get(weekKey);
+//         const { brands } = weekEntry;
+
+//         if (!brands.has(Name)) {
+//             brands.set(Name, 0);
+//         }
+//         const quantity = parseInt(Quantity, 10);
+//         brands.set(Name, brands.get(Name) + quantity);
+        
+//         weeklyTotal[weekKey] += quantity;
+//     });
+
+//     const BrandWeeklyData = Array.from(weeklyData.entries()).map(([week, { brands, startOfWeek, endOfWeek }]) => {
+//         const formattedRange = `${startOfWeek.format('MMM D')} - ${endOfWeek.format('MMM D')}`;
+//         return {
+//             week,
+//             brands: Object.fromEntries(brands),
+//             dateRange: formattedRange
+//         };
+//     });
+
+//     return {
+//         BrandWeeklyData,
+//         sortedUniqueWeeks: Array.from(weeklyData.keys()),
+//         weeklyTotal
+//     };
+// }
+
 function buildWeeklyCohorts(data, year) {
     const weeklyData = new Map();
-    const weeklyTotal = {}; // Initialize an object to store weekly totals
+    const weeklyTotal = {};
     const startOfYear = moment(`${year}-01-01`);
     const endOfYear = moment(`${year}-12-31`);
 
@@ -211,9 +260,8 @@ function buildWeeklyCohorts(data, year) {
                 startOfWeek: orderDate.clone().startOf('isoWeek'),
                 endOfWeek: orderDate.clone().endOf('isoWeek')
             });
-            weeklyTotal[weekKey] = 0; // Initialize total for the week
+            weeklyTotal[weekKey] = 0;
         }
-
         const weekEntry = weeklyData.get(weekKey);
         const { brands } = weekEntry;
 
