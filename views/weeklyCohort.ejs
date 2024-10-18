@@ -36,6 +36,9 @@
                         <th><%= week.replace('Week ', 'W') %></th>
                     <% }); %>
                     <th>Total Quantity</th>
+                    <th>Annual Weekly Average</th>
+                    <th>Last 4 Average</th>
+                    <th>Last 12 Average</th>
                 </tr>
             </thead>
             <thead>
@@ -44,6 +47,9 @@
                     <% BrandWeeklyData.forEach(({ dateRange }) => { %>
                         <th><%= dateRange %></th>
                     <% }); %>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -61,27 +67,57 @@
                                     <% totalForBrand += quantity; %>
                                 <% }); %>
                                 <td><%= totalForBrand %></td>
+                                
+                                <td>
+                                    <%= (totalForBrand / sortedUniqueWeeks.length).toFixed(2) %>
+                                </td>
+                                <% let last4total = 0; %>
+                                <%    const last4Weeks = sortedUniqueWeeks.slice(-4);%>
+                                <%    last4Weeks.forEach(week =>{ %>
+                                     <%   const lastquantity = BrandWeeklyData.find(data => data.week === week).brands[brandName] || 0;%>
+                                     <%  last4total += lastquantity;%>
+                                    <%})%>
+                    
+                                <td>                                   
+                                    <%= (last4total/last4Weeks.length).toFixed(2) %>
+                                </td>
+                                <td>
+                                    <% let last12total = 0; %>
+                                    <% 
+                                    const last12Weeks = sortedUniqueWeeks.slice(-12);
+                                    last12Weeks.forEach(week=>{
+                                        const last12quantity = BrandWeeklyData.find(data => data.week === week).brands[brandName] || 0;
+                                        last12total += last12quantity;
+                                    })
+                                    %>
+                                    <%= (last12total / last12Weeks.length).toFixed(2) %>
+                                </td>
                             </tr>
                             <% brandsSet.add(brandName); %>
                         <% } %>
                     <% }); %>
                 <% }); %>
             </tbody>
+            
+            
             <tfoot>
                 <tr>
                     <td>Total Quantity</td>
                     <% sortedUniqueWeeks.forEach(week => { %>
                         <td>
-                            <% const weekTotal = BrandWeeklyData.reduce((acc, { brands }) => acc + (brands[week] || 0), 0); %>
-                            <%= weekTotal %>
+                            <%= weeklyTotal[week] || 0 %>
                         </td>
                     <% }); %>
                     <td>
-                        <% const grandTotal = BrandWeeklyData.reduce((acc, { brands }) => acc + Object.values(brands).reduce((innerAcc, qty) => innerAcc + qty, 0), 0); %>
+                        <% 
+                        const grandTotal = Object.values(weeklyTotal).reduce((acc, total) => acc + total, 0);
+                        %>
                         <%= grandTotal %>
                     </td>
                 </tr>
             </tfoot>
+            
+            
         </table>
     </div>
 </div>
