@@ -11,6 +11,15 @@
             <option value="alltime">All Time</option>
         </select> -->
 
+    <label for="statusFilter">Filter by Status:</label>
+    <select id="statusFilter" aria-label="Select status">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="offboarded">Offboarded</option>
+        <option value="deboarded">Deboarded</option>
+    </select>
+
+
     <div class="input-group">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input id="input-search" type="search" placeholder="Search....">
@@ -57,7 +66,7 @@
                         <% slno+=1 %>
                         <td><%= slno %></td>
                         <td class="fixed-column"><%= brandName %></td>
-                        <td>Active</td>
+                        <td><%= CustomerData.get(brandName.trim()) || 'Unknown'%></td>
                         <% let total = 0; %>
                         <% let monthsServed = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>

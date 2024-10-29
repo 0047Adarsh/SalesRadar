@@ -22,7 +22,6 @@ let cacheTime = null;
 const CACHE_EXPIRATION = 60000000000;
 
 const BrandDailyData = new Map();
-const weeklyData = new Map();
 
 function buildRevenueCohorts(data) {
     const BrandMonthlyData = new Map();
@@ -37,9 +36,7 @@ function buildRevenueCohorts(data) {
         if (!BrandDailyData.has(Name))  {
             BrandDailyData.set(Name, new Map());
         }
-        if (!weeklyData.has(Name)) {
-            weeklyData.set(Name, new Map());
-        }
+    
         const BrandData = BrandMonthlyData.get(Name);        
         const currentRevenue = BrandData.get(MonthKey) ? BrandData.get(MonthKey).revenue : 0;
         const currentQuantity = BrandData.get(MonthKey) ? BrandData.get(MonthKey).quantity : 0;
@@ -109,139 +106,7 @@ function buildDailyRevenueCohorts(data, month) {
     return { BrandDailyData, sortedUniqueDays, DailyTotals, daysSinceLastOrder };
 }
 
-
-// function buildWeeklyCohorts(data, year) {
-//     const weeklyData = new Map();
-//     const startOfYear = moment(`${year}-01-01`);
-//     const endOfYear = moment(`${year}-12-31`);
-
-//     data.forEach(({ Name, Quantity, Date }) => {
-//         const orderDate = moment(Date, 'DD-MMM-YYYY');
-//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
-
-//         const weekNumber = orderDate.isoWeek();
-//         const weekKey = `Week ${weekNumber}`;
-
-//         if (!weeklyData.has(weekKey)) {
-//             weeklyData.set(weekKey, new Map());
-//         }
-
-//         const weekBrands = weeklyData.get(weekKey);
-//         if (!weekBrands.has(Name)) {
-//             weekBrands.set(Name, 0);
-//         }
-
-//         weekBrands.set(Name, weekBrands.get(Name) + parseInt(Quantity, 10));
-//     });
-
-//     const BrandWeeklyData =Array.from(weeklyData.entries()).map(([week, brands]) => ({
-//         week,
-//         brands: Object.fromEntries(brands)
-//     }));
-//     console.log(BrandWeeklyData);
-//     return { 
-//         BrandWeeklyData,
-//         sortedUniqueWeeks: Array.from(weeklyData.keys())
-//     };
-// }
-
-// function buildWeeklyCohorts(data, year) {
-//     const weeklyData = new Map();
-//     const startOfYear = moment(`${year}-01-01`);
-//     const endOfYear = moment(`${year}-12-31`);
-
-//     data.forEach(({ Name, Quantity, Date }) => {
-//         const orderDate = moment(Date, 'DD-MMM-YYYY');
-//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
-
-//         const weekNumber = orderDate.isoWeek();
-//         const weekKey = `Week ${weekNumber}`;
-
-//         if (!weeklyData.has(weekKey)) {
-//             weeklyData.set(weekKey, {
-//                 brands: new Map(),
-        
-//                 startOfWeek: orderDate.clone().startOf('isoWeek'),
-//                 endOfWeek: orderDate.clone().endOf('isoWeek')
-//             });
-//         }
-
-//         const weekEntry = weeklyData.get(weekKey);
-//         const { brands } = weekEntry;
-
-//         if (!brands.has(Name)) {
-//             brands.set(Name, 0);
-//         }
-//         brands.set(Name, brands.get(Name) + parseInt(Quantity, 10));
-//     });
-
-//     const BrandWeeklyData = Array.from(weeklyData.entries()).map(([week, { brands, startOfWeek, endOfWeek }]) => {
-//         const formattedRange = `${startOfWeek.format('MMM D')} - ${endOfWeek.format('MMM D')}`;
-//         return {
-//             week,
-//             brands: Object.fromEntries(brands),
-//             dateRange: formattedRange
-//         };
-//     });
-
-//     console.log('BrandWeeklyData:', BrandWeeklyData); 
-//     return {
-//         BrandWeeklyData,
-//         sortedUniqueWeeks: Array.from(weeklyData.keys())
-//     };
-// }
-
-
-// function buildWeeklyCohorts(data, year) {
-//     const weeklyData = new Map();
-//     const weeklyTotal = {};
-//     const startOfYear = moment(`${year}-01-01`);
-//     const endOfYear = moment(`${year}-12-31`);
-
-//     data.forEach(({ Name, Quantity, Date }) => {
-//         const orderDate = moment(Date, 'DD-MMM-YYYY');
-//         if (!orderDate.isBetween(startOfYear, endOfYear, null, '[]')) return;
-
-//         const weekNumber = orderDate.isoWeek();
-//         const weekKey = `Week ${weekNumber}`;
-
-//         if (!weeklyData.has(weekKey)) {
-//             weeklyData.set(weekKey, {
-//                 brands: new Map(),
-//                 startOfWeek: orderDate.clone().startOf('isoWeek'),
-//                 endOfWeek: orderDate.clone().endOf('isoWeek')
-//             });
-//             weeklyTotal[weekKey] = 0;
-//         }
-//         const weekEntry = weeklyData.get(weekKey);
-//         const { brands } = weekEntry;
-
-//         if (!brands.has(Name)) {
-//             brands.set(Name, 0);
-//         }
-//         const quantity = parseInt(Quantity, 10);
-//         brands.set(Name, brands.get(Name) + quantity);
-        
-//         weeklyTotal[weekKey] += quantity;
-//     });
-
-//     const BrandWeeklyData = Array.from(weeklyData.entries()).map(([week, { brands, startOfWeek, endOfWeek }]) => {
-//         const formattedRange = `${startOfWeek.format('MMM D')} - ${endOfWeek.format('MMM D')}`;
-//         return {
-//             week,
-//             brands: Object.fromEntries(brands),
-//             dateRange: formattedRange
-//         };
-//     });
-
-//     return {
-//         BrandWeeklyData,
-//         sortedUniqueWeeks: Array.from(weeklyData.keys()),
-//         weeklyTotal
-//     };
-// }
-
-function buildWeeklyCohorts(data, year) {
+function buildWeeklyCohorts(data, year, names) {
     const weeklyData = new Map();
     const weeklyTotal = {};
     const startOfYear = moment(`${year}-01-01`);
@@ -262,27 +127,31 @@ function buildWeeklyCohorts(data, year) {
             });
             weeklyTotal[weekKey] = 0;
         }
+        
         const weekEntry = weeklyData.get(weekKey);
         const { brands } = weekEntry;
-
-        if (!brands.has(Name)) {
-            brands.set(Name, 0);
-        }
-        const quantity = parseInt(Quantity, 10);
-        brands.set(Name, brands.get(Name) + quantity);
         
+        names.forEach(name => {
+            if (!brands.has(name)) {
+                brands.set(name, 0);
+            }
+        });
+    
+        const quantity = parseInt(Quantity, 10) || 0;
+        brands.set(Name, (brands.get(Name) || 0) + quantity);
         weeklyTotal[weekKey] += quantity;
     });
-
+   
     const BrandWeeklyData = Array.from(weeklyData.entries()).map(([week, { brands, startOfWeek, endOfWeek }]) => {
         const formattedRange = `${startOfWeek.format('MMM D')} - ${endOfWeek.format('MMM D')}`;
+        const orderedBrands = Array.from(brands.entries());
         return {
             week,
-            brands: Object.fromEntries(brands),
+            brands: orderedBrands,
+            // brands: brands,
             dateRange: formattedRange
         };
     });
-
     return {
         BrandWeeklyData,
         sortedUniqueWeeks: Array.from(weeklyData.keys()),
@@ -290,7 +159,20 @@ function buildWeeklyCohorts(data, year) {
     };
 }
 
-
+async function ClientNames(data) {
+    const CustomerData = new Map();
+    const CustomerStatus = await getCustomerdata();
+    // console.log(CustomerStatus);
+    const AllNames = Array.from(new Set(data.map(({ Name }) => Name).filter(Boolean)));
+    AllNames.forEach(name=>{
+        const customer = CustomerStatus.find(customer=>customer.Brand_Name.display_value.trim() === name.trim())
+        if(customer)
+        {
+            CustomerData.set(customer.Brand_Name.display_value,customer.Customer_Status); 
+        }   
+    });
+    return {AllNames, CustomerData};
+}
 
 async function fetchData() {
     if (cachedData && (Date.now() - cacheTime < CACHE_EXPIRATION)) {
@@ -332,9 +214,9 @@ app.get('/monthlyCohort', async (req, res) => {
             console.error('Invalid data format received:', data);
             return res.status(500).send('Unexpected data format');
         }
-       
+        const { AllNames, CustomerData} = await ClientNames(data);
         const { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals } = buildRevenueCohorts(data);
-        res.render('monthlyCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals });
+        res.render('monthlyCohort', { BrandMonthlyData, sortedUniqueMonths, MonthlyTotals,CustomerData});
     } catch (error) {
         console.error('Error fetching data:', error.message);
         res.status(500).send('Internal Server Error');
@@ -348,17 +230,15 @@ app.get('/weeklyCohort', async (req, res) => {
             console.error('Invalid data format received');
             return res.status(500).send('Unexpected data format');
         }
-
+        const { AllNames, CustomerData} = await ClientNames(data);
         const year = req.query.year || moment().year();
-        const { BrandWeeklyData, sortedUniqueWeeks, weeklyTotal } = buildWeeklyCohorts(data, year);
-        res.render('weeklyCohort', { BrandWeeklyData, sortedUniqueWeeks, weeklyTotal });
+        const { BrandWeeklyData, sortedUniqueWeeks, weeklyTotal } = buildWeeklyCohorts(data, year, AllNames);
+        res.render('weeklyCohort', { BrandWeeklyData, sortedUniqueWeeks, weeklyTotal, CustomerData });
     } catch (error) {
         console.error('Error fetching weekly cohort data:', error.message);
         res.status(500).send('Internal Server Error');
     }
 });
-
-
 
 app.get('/dailyCohort', async (req, res) => {
     try {
@@ -378,6 +258,81 @@ app.get('/dailyCohort', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
+let accessToken = '1000.ca068ed763dfd4d70429096bce8aa12f.19f8beb5ffe5f30386652004d45ff9e9';
+let refreshToken = '1000.40edd439cbb238d1d05c045eaf193349.f28ffe2cb5d851b2636a80ed6e0b855b';
+// let tokenExpirationTime = Date.now() + 3600 * 1000;
+let tokenExpirationTime = Date.now();
+
+async function refreshAccessToken() {
+    try {
+        const response = await axios.post('https://accounts.zoho.in/oauth/v2/token', null, {
+            params: {
+                refresh_token: refreshToken,
+                // client_id: '1000.6IG80FF61MBP6GBD8K4ELC3CCKUGPD',
+                // client_secret: '43241181df9ea5d9926999a4acffa9eff138884148',
+                client_id: process.env.CLIENT_ID,
+                client_secret: process.env.CLIENT_SECRET,
+                grant_type: 'refresh_token'
+            }
+        });
+        accessToken = response.data.access_token;
+        console.log(accessToken);
+        tokenExpirationTime = Date.now() + response.data.expires_in * 1000;
+    } catch (error) {
+        console.error('Error refreshing access token:', error);
+        throw new Error('Unable to refresh access token');
+    }
+}
+
+async function getCustomerdata() {
+    const url = 'https://creator.zoho.in/api/v2/uravu_labs_pvt_ltd/uravu-bottling/report/Compact_Customer_List?field_config=custom';
+    const headers = {
+        'Authorization': `Zoho-oauthtoken ${accessToken}`,
+        'Content-Type': 'application/json'
+    };
+
+    try {
+        if (Date.now() >= tokenExpirationTime) {
+            await refreshAccessToken();
+        }
+        const response = await fetch(url, { method: 'GET', headers });
+        if (!response.ok) {
+            console.log("Error from database")
+        }
+        const data = await response.json();
+        // console.log(data.data);
+        return data.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        // res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+// app.get('/api/compact-customer-list', async (req, res) => {
+//     const url = 'https://creator.zoho.in/api/v2/uravu_labs_pvt_ltd/uravu-bottling/report/Compact_Customer_List';
+//     const headers = {
+//         'Authorization': `Zoho-oauthtoken ${accessToken}`,
+//         'Content-Type': 'application/json'
+//     };
+
+//     try {
+//         if (Date.now() >= tokenExpirationTime) {
+//             await refreshAccessToken();
+//         }
+//         const response = await fetch(url, { method: 'GET', headers });
+//         if (!response.ok) {
+//             return res.status(response.status).json({ error: 'Failed to fetch data from Database' });
+//         }
+//         const data = await response.json();
+//         res.json(data.data);
+//     } catch (error) {
+//         console.error('Error fetching data:', error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// });
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

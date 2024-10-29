@@ -96,8 +96,25 @@
             }
         });
     });
+    
+    document.getElementById('statusFilter').addEventListener('change', function() {
+    const selectedStatus = this.value;
+    const rows = document.querySelectorAll('#revenueTable tbody tr');
 
-   
+    rows.forEach(row => {
+        const statusCell = row.cells[2];
+        const status = statusCell.textContent.trim().toLowerCase();
+
+        if (selectedStatus === 'all' || status === selectedStatus) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});
+
+
+
     document.getElementById('scrollToBottomButton').addEventListener('click', function() {
         window.scrollTo({
             top: document.body.scrollHeight,

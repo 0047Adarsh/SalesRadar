@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %>
 <div class="table-header">
-    <h1>Weekly Revenue Data</h1>
+    <h1>Weekly Quantity Data</h1>
     <div class="input-group">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input id="input-search" type="search" placeholder="Search....">
@@ -15,12 +15,10 @@
         </select>
     </form>
     
-    
-    <!-- <label for="analysisType">Select Analysis Type:</label>
-    <select id="analysisType" aria-label="Select analysis type">
-        <option value="revenue">Revenue</option>
+    <select id="analysisType" aria-label="Select analysis type" hidden>
         <option value="quantity">Bottle Quantity</option>
-    </select> -->
+        <option value="revenue">Revenue</option>
+    </select>
     <button id="exportButton" class="exbotton" aria-label="Export data to Excel"><i class="fa-solid fa-download"></i></button>
 </div>
 
@@ -31,7 +29,9 @@
         <table>
             <thead>
                 <tr>
+                    <th>SlNo.</th>
                     <th>Brand Name</th>
+                    <th>Status</th>
                     <% sortedUniqueWeeks.forEach(week => { %>
                         <th><%= week.replace('Week ', 'W') %></th>
                     <% }); %>
@@ -44,6 +44,8 @@
             <thead>
                 <tr>
                     <th></th>
+                    <th></th>
+                    <th></th>
                     <% BrandWeeklyData.forEach(({ dateRange }) => { %>
                         <th><%= dateRange %></th>
                     <% }); %>
@@ -54,15 +56,20 @@
                 </tr>
             </thead>
             <tbody>
+                <% let slno = 0; %>
                 <% const brandsSet = new Set(); %>
                 <% BrandWeeklyData.forEach(({ week, brands }) => { %>
-                    <% Object.keys(brands).forEach(brandName => { %>
+                    <% brands.forEach(([brandName, quantity]) => { %>
                         <% if (!brandsSet.has(brandName)) { %>
                             <tr>
-                                <td><%= brandName %></td>
+                                <% slno += 1; %>
+                                <td><%= slno %></td>
+                                <td><%= brandName || 'Unknown'%></td>
+                                <td><%= CustomerData.get(brandName.trim()) || 'Unknown'%></td>
                                 <% let totalForBrand = 0; %>
                                 <% sortedUniqueWeeks.forEach(week => { %>
-                                    <% const quantity = BrandWeeklyData.find(data => data.week === week).brands[brandName] || 0; %>
+                                    <% const weeklyData = BrandWeeklyData.find(data => data.week === week); %>
+                                    <% const quantity = weeklyData ? weeklyData.brands.find(([name]) => name === brandName)?.[1] || 0 : 0; %>
                                     <td><%= quantity %></td>
                                     <% totalForBrand += quantity; %>
                                 <% }); %>
@@ -72,24 +79,24 @@
                                     <%= (totalForBrand / sortedUniqueWeeks.length).toFixed(2) %>
                                 </td>
                                 <% let last4total = 0; %>
-                                <%    const last4Weeks = sortedUniqueWeeks.slice(-4);%>
-                                <%    last4Weeks.forEach(week =>{ %>
-                                     <%   const lastquantity = BrandWeeklyData.find(data => data.week === week).brands[brandName] || 0;%>
-                                     <%  last4total += lastquantity;%>
-                                    <%})%>
-                    
+                                <% const last4Weeks = sortedUniqueWeeks.slice(-4); %>
+                                <% last4Weeks.forEach(week => { %>
+                                    <% const weeklyData = BrandWeeklyData.find(data => data.week === week); %>
+                                    <% const lastquantity = weeklyData ? weeklyData.brands.find(([name]) => name === brandName)?.[1] || 0 : 0; %>
+                                    <% last4total += lastquantity; %>
+                                <% }); %>
+                                
                                 <td>                                   
-                                    <%= (last4total/last4Weeks.length).toFixed(2) %>
+                                    <%= (last4total / last4Weeks.length).toFixed(2) %>
                                 </td>
                                 <td>
                                     <% let last12total = 0; %>
-                                    <% 
-                                    const last12Weeks = sortedUniqueWeeks.slice(-12);
-                                    last12Weeks.forEach(week=>{
-                                        const last12quantity = BrandWeeklyData.find(data => data.week === week).brands[brandName] || 0;
-                                        last12total += last12quantity;
-                                    })
-                                    %>
+                                    <% const last12Weeks = sortedUniqueWeeks.slice(-12); %>
+                                    <% last12Weeks.forEach(week => { %>
+                                        <% const weeklyData = BrandWeeklyData.find(data => data.week === week); %>
+                                        <% const last12quantity = weeklyData ? weeklyData.brands.find(([name]) => name === brandName)?.[1] || 0 : 0; %>
+                                        <% last12total += last12quantity; %>
+                                    <% }); %>
                                     <%= (last12total / last12Weeks.length).toFixed(2) %>
                                 </td>
                             </tr>
@@ -99,10 +106,11 @@
                 <% }); %>
             </tbody>
             
-            
             <tfoot>
                 <tr>
+                    <td></td>
                     <td>Total Quantity</td>
+                    <td></td>
                     <% sortedUniqueWeeks.forEach(week => { %>
                         <td>
                             <%= weeklyTotal[week] || 0 %>
