@@ -65,7 +65,7 @@
                                 <% slno += 1; %>
                                 <td><%= slno %></td>
                                 <td><%= brandName || 'Unknown'%></td>
-                                <td><%= CustomerData.get(brandName.trim()) || 'Unknown'%></td>
+                                <td><%= (brandName && brandName.trim()) ? CustomerData.get(brandName.trim()) : 'Unknown' %></td>
                                 <% let totalForBrand = 0; %>
                                 <% sortedUniqueWeeks.forEach(week => { %>
                                     <% const weeklyData = BrandWeeklyData.find(data => data.week === week); %>
