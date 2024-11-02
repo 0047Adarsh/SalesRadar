@@ -66,7 +66,7 @@
                         <% slno+=1 %>
                         <td><%= slno %></td>
                         <td class="fixed-column"><%= brandName %></td>
-                        <td><%= CustomerData.get(brandName.trim()) || 'Unknown'%></td>
+                        <td>Active</td>
                         <% let total = 0; %>
                         <% let monthsServed = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>
