@@ -64,7 +64,7 @@
                         <% slno+=1 %>
                         <td><%= slno %></td>
                         <td class="fixed-column"><%= brandName %></td>
-                        <td>Active</td>
+                        <td><%= customerDictionary[brandName.trim()] %></td>
                         <% let total = 0; %>
                         <% let monthsServed = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>
