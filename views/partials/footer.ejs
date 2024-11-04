@@ -115,12 +115,26 @@
 
 
 
-    document.getElementById('scrollToBottomButton').addEventListener('click', function() {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
+// document.getElementById('scrollToBottomButton').addEventListener('click', function() {
+//     const data = document.getElementsByClassName("table-container");
+//     data.scrollTo({
+//         top: data.scrollHeight,
+//         behavior: 'smooth'
+//     });
+// });
+
+document.getElementById('scrollToBottomButton').addEventListener('click', function() {
+    const table = document.querySelector('.table-container table');
+    if (table) {
+        table.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end',
+            inline: 'nearest'
         });
-    });
+    }
+});
+
+
 
 
 </script>

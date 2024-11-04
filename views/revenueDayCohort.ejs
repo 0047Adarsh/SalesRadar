@@ -75,6 +75,7 @@
                 <tfoot>
                     <tr class="fixed-column">
                         <td>Total Revenue</td>
+                        <td></td>
                         <% sortedUniqueMonths.forEach(month => { %>
                             <td>
                                 <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
@@ -94,6 +95,7 @@
                     </tr>
                     <tr>
                         <td>Tax Invoice Value</td>
+                        <td></td>
                         <% sortedUniqueMonths.forEach(month => { %>
                             <td>
                                 <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
@@ -113,6 +115,7 @@
                     </tr>
                     <tr>
                         <td>Number of customers who placed Order</td>
+                        <td></td>
                         <% sortedUniqueMonths.forEach(month => { %>
                             <td>
                                 <%= MonthlyTotals.get(month).customers.size %>

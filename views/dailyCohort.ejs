@@ -65,6 +65,7 @@
                 <tr class="fixed-column">
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Revenue</td>
+                    <td></td>
                     <% sortedUniqueDays.forEach(day => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <% const dailyTotal = DailyTotals.get(day) || 0; %>
@@ -84,6 +85,7 @@
                 <tr>
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Tax Invoice Value</td>
+                    <td></td>
                     <% sortedUniqueDays.forEach(day => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <% const dailyTotal = DailyTotals.get(day) || 0; %>
@@ -104,6 +106,7 @@
                 <tr>
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of customers who placed Order</td>
+                    <td></td>
                     <% sortedUniqueDays.forEach(day => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <%= DailyTotals.get(day).customers %>

@@ -12,6 +12,7 @@ body {
     overflow-x: hidden;
     background-color: #0c4af4;
     background-color: black;
+    overflow-y: hidden;
 }
 
 
@@ -90,7 +91,9 @@ body {
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     /* max-height: 1500px; */
-    /* max-height: 2500px; */
+    max-height: 550px;
+    overflow-y: auto;
+       
 }
 
 table {
@@ -240,4 +243,22 @@ tfoot td {
     background-color: rgb(97, 183, 218);
     font-size: 18px;
     z-index: 200; 
+}
+
+@media (min-width: 768px) {
+    .table-container {
+        max-height: 550px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .table-container {        
+        max-height: 550px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .table-container {
+        max-height: 800px;
+    }
 }

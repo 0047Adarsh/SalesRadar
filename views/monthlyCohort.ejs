@@ -39,8 +39,6 @@
 </div>
 
 <div class="table-container">
-    <div id="loading" style="display: none;">Loading...</div>
-
     <div id="revenueTable">
         <table>
             <thead>
@@ -95,8 +93,9 @@
                 <tr>
                     <td></td>
                     <td class="sticky-footer" style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Revenue</td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px; position: sticky; bottom: 0; z-index: 200;"></td>
                     <% sortedUniqueMonths.forEach(month => { %>
-                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px; position: sticky; bottom: 0; z-index: 200;">
                             <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
                             <% const monthlyRevenueTotal = monthlyTotal.revenue || 0; %>
                             <%= monthlyRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
@@ -117,6 +116,7 @@
                 <tr>
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Tax Invoice Value</td>
+                    <td></td>
                     <% sortedUniqueMonths.forEach(month => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
@@ -140,6 +140,7 @@
                 <tr>
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of customers who placed Order</td>
+                    <td></td>
                     <% sortedUniqueMonths.forEach(month => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <%= MonthlyTotals.get(month).customers.size %>
