@@ -64,7 +64,13 @@
                         <% slno+=1 %>
                         <td><%= slno %></td>
                         <td class="fixed-column"><%= brandName %></td>
-                        <td><%= customerDictionary[brandName.trim()] %></td>
+                        <td>
+                            <% if (brandName) { %>
+                              <%= customerDictionary[brandName.trim()] || 'Not Found' %>
+                            <% } else { %>
+                              Not Found
+                            <% } %>
+                          </td>
                         <% let total = 0; %>
                         <% let monthsServed = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>
