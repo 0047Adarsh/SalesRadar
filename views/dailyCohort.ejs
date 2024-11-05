@@ -19,6 +19,10 @@
     <button id="exportButton" class="exbotton" aria-label="Export data to Excel"><i class="fa-solid fa-download"></i></button>
 </div>
 
+<div class="sticky-button-container" id="scrollToBottomButton">
+    <button><i class="fa-solid fa-arrow-down"></i></button>
+</div>
+
 <div class="table-container">
     <div id="loading" style="display: none;">Loading...</div>
 
@@ -62,7 +66,7 @@
                 <% }); %>
             </tbody>
             <tfoot>
-                <tr class="fixed-column">
+                <tr style="position: sticky; bottom: 0; z-index: 200;">
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Revenue</td>
                     <td></td>
@@ -120,7 +124,7 @@
     <div id="quantityTable" style="display: none;">
         <table>
             <thead>
-                <tr>
+                <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>SlNo.</th>
                     <th>Brand Name</th>
                     <% sortedUniqueDays.forEach(day => { %>

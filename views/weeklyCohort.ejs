@@ -22,13 +22,16 @@
     <button id="exportButton" class="exbotton" aria-label="Export data to Excel"><i class="fa-solid fa-download"></i></button>
 </div>
 
-<div class="table-container">
-    <div id="loading" style="display: none;">Loading...</div>
+<div class="sticky-button-container" id="scrollToBottomButton">
+    <button><i class="fa-solid fa-arrow-down"></i></button>
+</div>
 
+<div class="table-container">
+    
     <div id="quantityTable">
         <table>
             <thead>
-                <tr>
+                <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>SlNo.</th>
                     <th>Brand Name</th>
                     <th>Status</th>
@@ -65,7 +68,13 @@
                                 <% slno += 1; %>
                                 <td><%= slno %></td>
                                 <td><%= brandName || 'Unknown'%></td>
-                                <td>Active</td>
+                                <td>
+                                    <% if (brandName) { %>
+                                      <%= customerDictionary[brandName.trim()] || 'Not Found' %>
+                                    <% } else { %>
+                                      Not Found
+                                    <% } %>
+                                </td>
                                 <% let totalForBrand = 0; %>
                                 <% sortedUniqueWeeks.forEach(week => { %>
                                     <% const weeklyData = BrandWeeklyData.find(data => data.week === week); %>
@@ -107,16 +116,16 @@
             </tbody>
             
             <tfoot>
-                <tr>
-                    <td></td>
-                    <td>Total Quantity</td>
-                    <td></td>
+                <tr style="background-color: rgb(97, 183, 218); font-size: 18px; position: sticky; bottom: 0; z-index: 200;">
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Quantity</td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
                     <% sortedUniqueWeeks.forEach(week => { %>
-                        <td>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <%= weeklyTotal[week] || 0 %>
                         </td>
                     <% }); %>
-                    <td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                         <% 
                         const grandTotal = Object.values(weeklyTotal).reduce((acc, total) => acc + total, 0);
                         %>

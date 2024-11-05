@@ -70,7 +70,7 @@
                             <% } else { %>
                               Not Found
                             <% } %>
-                          </td>
+                        </td>
                         <% let total = 0; %>
                         <% let monthsServed = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>
@@ -165,7 +165,7 @@
         <!-- <h2>Bottle Cohort Analysis</h2> -->
         <table>
             <thead>
-                <tr>
+                <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>Slno.</th>
                     <th>Brand Name</th>
                     <% sortedUniqueMonths.forEach(month => { %>
@@ -183,6 +183,13 @@
                         <% Slno+=1 %>
                         <td><%= Slno %></td>
                         <td><%= brandName %></td>
+                        <td>
+                            <% if (brandName) { %>
+                              <%= customerDictionary[brandName.trim()] || 'Not Found' %>
+                            <% } else { %>
+                              Not Found
+                            <% } %>
+                        </td>
                         <% let total = 0; %>
                         <% sortedUniqueMonths.forEach((month, index) => { %>
                             <% const quantity = monthData.get(month) || 0; %>
@@ -202,16 +209,18 @@
                 <% }); %>
             </tbody>
             <tfoot>
-                <tr class="fixed-column">
-                    <td>Total Quantity</td>
+                <tr style="position: sticky; bottom: 0; z-index: 200;">
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Quantity</td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
                     <% sortedUniqueMonths.forEach(month => { %>
-                        <td>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
                             <% const monthlyQuantityTotal = monthlyTotal.quantity || 0; %>
                             <%= monthlyQuantityTotal %>
                         </td>
                     <% }); %>
-                    <td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                         <% const grandQuantityTotal = Array.from(MonthlyTotals.values()).filter(item =>
                             item.quantity && !isNaN(item.quantity)
                         ).reduce((acc, val) => acc + (val.quantity || 0), 0); %>
