@@ -89,9 +89,7 @@
                             </td>
                         <% }); %>
                         <td class="fixed-total" style="background-color: rgb(97, 183, 218); font-size: 18px;"><%= total.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
-                        <td><%= monthsServed %></td>
-                        <td><%= (total/monthsServed).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
-                        <td><%= ((total/monthsServed)*12).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
+                        
                     </tr>
                 <% }); %>
             </tbody>
@@ -168,6 +166,7 @@
                 <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>Slno.</th>
                     <th>Brand Name</th>
+                    <th>Status</th>
                     <% sortedUniqueMonths.forEach(month => { %>
                         <% const options = { year: 'numeric', month: 'short' }; %>
                         <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
