@@ -4,18 +4,38 @@ import { fileURLToPath } from "url";
 import axios from "axios";
 import dotenv from "dotenv";
 import moment from "moment";
+import session from "express-session"
+import path from "path";
+import fs from "fs";
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const tokenFilePath = path.join(__dirname, 'accessToken.json');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', join(__dirname, 'views'));
 app.use(express.static('public'));
+
+app.use(session({
+    secret:'Adarsh',
+    resave:false,
+    saveUninitialized:true,
+    cookie:{secure:false},
+    maxAge: 1000 * 60 * 60 * 24
+}));
+
+function isAuthenticated(req, res, next) {
+    if (req.session.loggedIn) {
+        return next();
+    } else {
+        res.redirect('/');
+    }
+}
 
 let cachedData = null; 
 let cacheTime = null; 
@@ -301,8 +321,23 @@ async function ClientNames(data) {
 //     }
 // }
 
-let accessToken = '1000.ca068ed763dfd4d70429096bce8aa12f.19f8beb5ffe5f30386652004d45ff9e9';
+//let accessToken = '1000.ca068ed763dfd4d70429096bce8aa12f.19f8beb5ffe5f30386652004d45ff9e9';
 let refreshToken = '1000.40edd439cbb238d1d05c045eaf193349.f28ffe2cb5d851b2636a80ed6e0b855b';
+
+function loadAccessToken() {
+    try {
+        const data = fs.readFileSync(tokenFilePath, 'utf-8');
+        return JSON.parse(data).access_token;
+    } catch (error) {
+        console.log('No saved access token found or file does not exist.');
+        return null;
+    }
+}
+
+function saveAccessToken(token) {
+    fs.writeFileSync(tokenFilePath, JSON.stringify({ access_token: token }), 'utf-8');
+    console.log('Access token saved to file.');
+}
 
 async function refreshAccessToken() {
     try {
@@ -314,8 +349,11 @@ async function refreshAccessToken() {
                 grant_type: 'refresh_token'
             }
         });
-        accessToken = response.data.access_token;
-        return true;
+        // accessToken = response.data.access_token;
+        // return true;
+        const newAccessToken = response.data.access_token;
+        saveAccessToken(newAccessToken);
+        return newAccessToken;
     } catch (error) {
         console.error('Error refreshing access token:', error.response?.data || error.message);
         return false;
@@ -323,6 +361,13 @@ async function refreshAccessToken() {
 }
 
 async function getCustomerData() {
+
+    let accessToken = loadAccessToken();
+    if (!accessToken) {
+        console.log('Access token not found, refreshing...');
+        accessToken = await refreshAccessToken();
+    }
+
     const url = 'https://creator.zoho.in/api/v2/uravu_labs_pvt_ltd/uravu-bottling/report/Compact_Customer_List?field_config=custom';
     const headers = {
         'Authorization': `Zoho-oauthtoken ${accessToken}`,
@@ -351,10 +396,6 @@ async function getCustomerData() {
     }
 }
 
-
-
-
-
 async function fetchData() {
     if (cachedData && (Date.now() - cacheTime < CACHE_EXPIRATION)) {
         return cachedData;
@@ -380,6 +421,38 @@ async function fetchData() {
 }
 
 app.get('/', async (req, res) => {
+    // try {
+    //     res.render('login');
+    // } catch (error) {
+    //     res.status(500).send('Internal Server Error');
+    // }
+    if(req.session.loggedIn)
+    {
+        res.redirect('/dashboard');
+    }
+    else{
+        res.render('login');
+    }
+});
+
+app.post('/login', async (req, res) => {
+    try {
+        const {username, password} = req.body;
+        if(username==process.env.USER_NAME&&password==process.env.PASSWORD)
+        {
+            req.session.loggedIn = true;
+            res.redirect('/dashboard');
+        }
+        else
+        {
+            res.send('Invalid Credentials');
+        }
+    } catch (error) {
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+app.get('/dashboard', isAuthenticated,(req, res) => {
     try {
         res.render('index');
     } catch (error) {
@@ -387,7 +460,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/monthlyCohort', async (req, res) => {
+app.get('/monthlyCohort', isAuthenticated,async (req, res) => {
     try {
         const data = await fetchData();
         if (!Array.isArray(data)) {
@@ -403,7 +476,7 @@ app.get('/monthlyCohort', async (req, res) => {
     }
 });
 
-app.get('/weeklyCohort', async (req, res) => {
+app.get('/weeklyCohort', isAuthenticated,async (req, res) => {
     try {
         const data = await fetchData();
         if (!Array.isArray(data)) {
@@ -420,7 +493,7 @@ app.get('/weeklyCohort', async (req, res) => {
     }
 });
 
-app.get('/dailyCohort', async (req, res) => {
+app.get('/dailyCohort', isAuthenticated,async (req, res) => {
     try {
         const data = await fetchData();
         buildRevenueCohorts(data);
