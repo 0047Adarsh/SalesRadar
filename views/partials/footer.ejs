@@ -97,6 +97,107 @@
         });
     });
     
+    document.getElementById('scrollToBottomButton').addEventListener('click', function() {
+    const table = document.querySelector('.table-container table');
+    if (table) {
+        table.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end',
+            inline: 'nearest'
+        });
+    }
+    });
+
+    document.getElementById("sortLastOrdered").addEventListener('click', () => {
+    const table = document.querySelector('.table-container table');
+    let switching = true;
+    let dir = "asc";
+    let switchcount = 0;
+    const dataRows = table.rows;
+
+
+    while (switching) {
+        switching = false;
+        for (let i = 0; i < dataRows.length - 3; i++) { 
+            const lastOrdered = dataRows[i].cells[2].textContent.trim();
+            const currentOrdered = dataRows[i + 1].cells[2].textContent.trim();
+            
+            const lastOrderedValue = Number(lastOrdered);
+            const currentOrderedValue = Number(currentOrdered);
+            
+            let shouldSwitch = false;
+
+            if (dir === "asc") {
+                if (lastOrderedValue > currentOrderedValue) {
+                    shouldSwitch = true;
+                }
+            } else if (dir === "desc") {
+                if (lastOrderedValue < currentOrderedValue) {
+                    shouldSwitch = true;
+                }
+            }
+
+            if (shouldSwitch) {
+                table.tBodies[0].insertBefore(dataRows[i + 1], dataRows[i]);
+                switching = true;
+                switchcount++;
+                break;
+            }
+        }
+
+        if (switchcount === 0 && dir === "asc") {
+            dir = "desc";
+            switching = true;
+        }
+    }
+});
+
+document.getElementById("sortOrderMonth").addEventListener('click', () => {
+    const table = document.querySelector('.table-container table');
+    let switching = true;
+    let dir = "asc";
+    let switchcount = 0;
+    const dataRows = table.rows;
+
+
+    while (switching) {
+        switching = false;
+        for (let i = 0; i < dataRows.length - 3; i++) { 
+            const lastOrdered = dataRows[i].cells[3].textContent.trim();
+            const currentOrdered = dataRows[i + 1].cells[3].textContent.trim();
+            
+            const lastOrderedValue = Number(lastOrdered);
+            const currentOrderedValue = Number(currentOrdered);
+            
+            let shouldSwitch = false;
+
+            if (dir === "asc") {
+                if (lastOrderedValue > currentOrderedValue) {
+                    shouldSwitch = true;
+                }
+            } else if (dir === "desc") {
+                if (lastOrderedValue < currentOrderedValue) {
+                    shouldSwitch = true;
+                }
+            }
+
+            if (shouldSwitch) {
+                table.tBodies[0].insertBefore(dataRows[i + 1], dataRows[i]);
+                switching = true;
+                switchcount++;
+                break;
+            }
+        }
+
+        if (switchcount === 0 && dir === "asc") {
+            dir = "desc";
+            switching = true;
+        }
+    }
+});
+
+
+
     document.getElementById('statusFilter').addEventListener('change', function() {
     const selectedStatus = this.value;
     const rows = document.querySelectorAll('#revenueTable tbody tr');
@@ -115,6 +216,8 @@
 
 
 
+
+
 // document.getElementById('scrollToBottomButton').addEventListener('click', function() {
 //     const data = document.getElementsByClassName("table-container");
 //     data.scrollTo({
@@ -122,18 +225,6 @@
 //         behavior: 'smooth'
 //     });
 // });
-
-document.getElementById('scrollToBottomButton').addEventListener('click', function() {
-    const table = document.querySelector('.table-container table');
-    if (table) {
-        table.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest'
-        });
-    }
-});
-
 
 
 

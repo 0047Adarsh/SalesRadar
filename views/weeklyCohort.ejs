@@ -38,13 +38,14 @@
                     <% sortedUniqueWeeks.forEach(week => { %>
                         <th><%= week.replace('Week ', 'W') %></th>
                     <% }); %>
-                    <th>Total Quantity</th>
+                    <th>Projected Value</th>
+                    <th class="fixed-total">Total Quantity</th>
                     <th>Annual Weekly Average</th>
                     <th>Last 4 wk Avg</th>
                     <th>Last 12 wk Avg</th>
                 </tr>
             </thead>
-            <thead>
+            <tahead>
                 <tr>
                     <th></th>
                     <th></th>
@@ -52,7 +53,7 @@
                     <% BrandWeeklyData.forEach(({ dateRange }) => { %>
                         <th><%= dateRange %></th>
                     <% }); %>
-                    <th></th>
+                    <th class="fixed-total"></th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -67,10 +68,10 @@
                             <tr>
                                 <% slno += 1; %>
                                 <td><%= slno %></td>
-                                <td><%= brandName || 'Unknown'%></td>
+                                <td class="fixed-column"><%= brandName || 'Unknown'%></td>
                                 <td>
                                     <% if (brandName) { %>
-                                      <%= customerDictionary[brandName.trim()] || 'Not Found' %>
+                                      <%= customerDictionary[brandName.trim()].CustomerStatus || 'Not Found' %>
                                     <% } else { %>
                                       Not Found
                                     <% } %>
@@ -82,7 +83,7 @@
                                     <td><%= quantity %></td>
                                     <% totalForBrand += quantity; %>
                                 <% }); %>
-                                <td><%= totalForBrand %></td>
+                                <td class="fixed-total"><%= totalForBrand %></td>
                                 
                                 <td>
                                     <%= (totalForBrand / sortedUniqueWeeks.length).toFixed(2) %>

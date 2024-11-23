@@ -29,10 +29,11 @@
     <div id="revenueTable">
         <table>
             <thead>
-                <tr>
+                <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>SlNo.</th>
-                    <th>Brand Name</th>
-                    <th>Days Since Last Order</th> 
+                    <th class="fixed-column">Brand Name</th>
+                    <th class="sort" id="sortLastOrdered" style="cursor: pointer;">Last Ordered <i class="fa-solid fa-sort"></i></th>
+                    <th id="sortOrderMonth" style="cursor: pointer;">Orders this Month</th>
                     <% sortedUniqueDays.forEach(day => { %>
                         <th><%= day %></th>
                     <% }); %>
@@ -45,12 +46,16 @@
                     <tr>
                         <% slno += 1; %>
                         <td><%= slno %></td>
-                        <td><%= brandName %></td>
-
+                        <td class="fixed-column"><%= brandName %></td> 
                         <td>
                             <%= daysSinceLastOrder[brandName] !== undefined ? daysSinceLastOrder[brandName] : 'N/A' %>
                         </td>
-                        
+                        <td>
+                            <% if(brandName){ %>
+                                <% let trimName = brandName.trim() %>
+                                <%= orderCounts.get(trimName) !== undefined ? orderCounts.get(trimName) : 'N/A' %>
+                            <%}%>
+                        </td>
                         <% let totalRevenue = 0; %>
                         <% sortedUniqueDays.forEach((day) => { %>
                             <% const revenue = dayData.get(day) ? dayData.get(day).revenue : 0; %>
@@ -59,7 +64,7 @@
                                 <%= revenue.toFixed(2) %>
                             </td>
                         <% }); %>
-                        <td style="background-color: rgb(253, 235, 133); font-size: 24px;">
+                        <td class="fixed-total" style="background-color: rgb(253, 235, 133); font-size: 24px;">
                             <%= totalRevenue.toFixed(2) %>
                         </td>
                     </tr>
@@ -70,6 +75,7 @@
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Revenue</td>
                     <td></td>
+                    <td></td>
                     <% sortedUniqueDays.forEach(day => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                             <% const dailyTotal = DailyTotals.get(day) || 0; %>
@@ -77,7 +83,7 @@
                             <%= dailyRevenueTotal.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
                         </td>
                     <% }); %>
-                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                    <td class="fixed-total" style="background-color: rgb(97, 183, 218); font-size: 18px;">
                         <% 
                             const grandRevenueTotal = Array.from(DailyTotals.values())
                                 .filter(item => item.revenue && !isNaN(item.revenue))
@@ -89,6 +95,7 @@
                 <tr>
                     <td></td>
                     <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Tax Invoice Value</td>
+                    <td></td>
                     <td></td>
                     <% sortedUniqueDays.forEach(day => { %>
                         <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
@@ -106,16 +113,6 @@
                         <% Taxedrevenue = grandrevenueTotal * 1.18 %>
                         <%= Taxedrevenue.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %>
                     </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of customers who placed Order</td>
-                    <td></td>
-                    <% sortedUniqueDays.forEach(day => { %>
-                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
-                            <%= DailyTotals.get(day).customers %>
-                        </td>
-                    <% }); %>
                 </tr>
             </tfoot>
         </table>

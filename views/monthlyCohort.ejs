@@ -11,6 +11,14 @@
             <option value="alltime">All Time</option>
         </select> -->
 
+    <!-- <label for="statusFilter">Filter by Status:</label>
+    <select id="statusFilter" aria-label="Select status">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="offboarded">Offboarded</option>
+        <option value="deboarded">Deboarded</option>
+    </select> -->
+
     <label for="statusFilter">Filter by Status:</label>
     <select id="statusFilter" aria-label="Select status">
         <option value="all">All</option>
@@ -18,8 +26,7 @@
         <option value="offboarded">Offboarded</option>
         <option value="deboarded">Deboarded</option>
     </select>
-
-
+       
     <div class="input-group">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input id="input-search" type="search" placeholder="Search....">
@@ -44,7 +51,7 @@
             <thead>
                 <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>SlNo.</th>
-                    <th>Brand Name</th>
+                    <th class="fixed-column">Brand Name</th>
                     <th>Status</th>
                     <% sortedUniqueMonths.forEach(month => { %>
                         <% const options = { year: 'numeric', month: 'short' }; %>
@@ -66,7 +73,7 @@
                         <td class="fixed-column"><%= brandName %></td>
                         <td>
                             <% if (brandName) { %>
-                              <%= customerDictionary[brandName.trim()] || 'Not Found' %>
+                              <%= customerDictionary[brandName.trim()].CustomerStatus || 'Not Found' %>
                             <% } else { %>
                               Not Found
                             <% } %>
@@ -77,9 +84,6 @@
                             <% const revenue = monthData.get(month) || 0; %>
                             <% const Revenue = revenue.revenue || 0; %>
                             <% total += Revenue; %>
-                            <% if(Revenue>0){ %>
-                                <% monthsServed += 1 %>
-                            <% } %>
                             <% 
                                 let previousRevenue = index > 0 ? (monthData.get(sortedUniqueMonths[index - 1]) || 0).revenue || 0 : 0; 
                                 let cellColor = Revenue > previousRevenue ? '#90EE90;' : Revenue < previousRevenue ? "#ff8a8a;" : '';
@@ -89,7 +93,15 @@
                             </td>
                         <% }); %>
                         <td class="fixed-total" style="background-color: rgb(97, 183, 218); font-size: 18px;"><%= total.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
-                        
+
+                        <% if (brandName) { %>
+                            <% let monthsServed = customerDictionary[brandName.trim()].MonthsActive || 'Not Found' %>
+                            <td><%= monthsServed %></td>
+                            <td><%= (total/monthsServed).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
+                            <td><%= ((total/monthsServed)*12).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) %></td>
+                          <% } else { %>
+                            Not Found
+                          <% } %>
                     </tr>
                 <% }); %>
             </tbody>
@@ -155,6 +167,86 @@
                         <td>-</td>
                         <td>-</td>
                 </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Number of Customers onboarded till Date</td>
+                    <td></td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const option = { year: 'numeric', month: 'short' }; %>
+                            <% const orderMonths = new Date(month).toLocaleDateString('en-US', option) %>
+                            <%= totalOnboardedTillDate[orderMonths] %>
+                        </td>
+                    <% }); %>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Total Number of Active Customers</td>
+                    <td></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of New Customers Added this Month</td>
+                    <td></td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <% const options = { year: 'numeric', month: 'short' }; %>
+                        <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
+                        <td><%= onboardedByMonth[revenueMonth] || 0 %></td>
+                    <% }); %>
+                    <td></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">Number of Customers Dropped this Month</td>
+                    <td></td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <% const options = { year: 'numeric', month: 'short' }; %>
+                        <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
+                        <td><%= offboardedByMonth[revenueMonth] || 0 %></td>
+                    <% }); %>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">% Change in Revenue</td>
+                    <td></td>
+                    <% sortedUniqueMonths.forEach((month, index) => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% 
+                                const currentMonthRevenue = MonthlyTotals.get(month).revenue || 0;
+                                const previousMonthRevenue = index > 0 ? MonthlyTotals.get(sortedUniqueMonths[index - 1]).revenue || 0 : 0;
+                                let percentageChange = 0;
+                                if (previousMonthRevenue > 0) {
+                                    percentageChange = ((currentMonthRevenue - previousMonthRevenue) / previousMonthRevenue) * 100;
+                                }
+                            %>
+                            <% if (percentageChange !== 0) { %>
+                                <%= percentageChange.toFixed(2) %>%
+                            <% } else { %>
+                                N/A
+                            <% } %>
+                        </td>
+                    <% }); %>
+                    <td></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
             </tfoot>
         </table>
     </div>
@@ -172,7 +264,7 @@
                         <% const revenueMonth = new Date(month).toLocaleDateString('en-US', options) %>
                         <th><%= revenueMonth %></th>
                     <% }); %>
-                    <th>Total Quantity</th>
+                    <th class="fixed-total">Total Quantity</th>
                 </tr>
             </thead>
             <tbody>
@@ -181,10 +273,10 @@
                     <tr>
                         <% Slno+=1 %>
                         <td><%= Slno %></td>
-                        <td><%= brandName %></td>
+                        <td class="fixed-column"><%= brandName %></td>
                         <td>
                             <% if (brandName) { %>
-                              <%= customerDictionary[brandName.trim()] || 'Not Found' %>
+                              <%= customerDictionary[brandName.trim()].CustomerStatus || 'Not Found' %>
                             <% } else { %>
                               Not Found
                             <% } %>
@@ -203,7 +295,7 @@
                                 <%= Quantity %>
                             </td>
                         <% }); %>
-                        <td><%= total %></td>
+                        <td class="fixed-total"><%= total %></td>
                     </tr>
                 <% }); %>
             </tbody>
@@ -224,6 +316,50 @@
                             item.quantity && !isNaN(item.quantity)
                         ).reduce((acc, val) => acc + (val.quantity || 0), 0); %>
                         <%= grandQuantityTotal %>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">250ml</td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
+                            <% const monthlyQuantityTotal = monthlyTotal.volumes.get(250) || 0; %>
+                            <%= monthlyQuantityTotal %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+              
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">500ml</td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
+                            <% const monthlyQuantityTotal = monthlyTotal.volumes.get(500) || 0; %>
+                            <%= monthlyQuantityTotal %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">750ml</td>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;"></td>
+                    <% sortedUniqueMonths.forEach(month => { %>
+                        <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
+                            <% const monthlyTotal = MonthlyTotals.get(month) || 0; %>
+                            <% const monthlyQuantityTotal = monthlyTotal.volumes.get(750) || 0; %>
+                            <%= monthlyQuantityTotal %>
+                        </td>
+                    <% }); %>
+                    <td style="background-color: rgb(97, 183, 218); font-size: 18px;">
                     </td>
                 </tr>
             </tfoot>

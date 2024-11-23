@@ -12,7 +12,7 @@
         overflow-x: hidden;
         background-color: #0c4af4;
         background-color: black;
-        overflow-y: hidden;
+        /* overflow-y: hidden; */
     }
 
 
@@ -261,4 +261,18 @@
         .table-container {
             max-height: 760px;
         }
+    }
+
+
+    th i {
+        margin-left: 8px;
+    }
+    
+    th.sortable {
+        cursor: pointer;
+    }
+    
+    th i.fa-sort-up,
+    th i.fa-sort-down {
+        font-size: 0.9em;
     }

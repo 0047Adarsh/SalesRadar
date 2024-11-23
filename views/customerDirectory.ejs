@@ -1,0 +1,61 @@
+<%- include ("partials/header.ejs")%>
+
+<div class="table-header">
+    <div>
+        <h1>Customer Directory</h1>
+    </div>
+    <div>
+        <!-- <h3>Total Brands: 90</h3>
+        <h3>Total Outlets: 90</h3> -->
+    </div>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Sl No.</th>
+                <th>Brand Name</th>
+                <th>Status</th>
+                <th>Number of Outlets</th>
+                <th>Outlet Names</th>
+                <th>Unit Price</th>
+                <th>Buy Back Price</th>
+                <th>Total Revenue</th>
+                <th>Form Status</th>
+                <th>POC Name</th>
+                <th>POC Number</th>
+                <th>POC Name</th>
+                <th>Contracts</th>
+                <th>Onboard Date</th>
+                <th>Offboard Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let slno = 0; %>
+            <% customerData.forEach(Data=>{%>
+            <tr>
+                <% slno++; %>
+                <td><%= slno %></td>
+                <%if(Data){%>
+                    <td><%= Data.Brand_Name.display_value %></td>
+                    <td><%= Data.Customer_Status %></td>
+                    <td>1</td>
+                    <td><%= Data.Customer_Name.display_value %></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><%= Data.Customer_Contact %></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><%= Data.Onboarding_Date1 %></td>
+                    <td><%= Data.Cancelled_Date || "Active" %></td>
+                <%}%>
+                
+            </tr>
+            <%}) %>
+        </tbody>
+    </table>
+</div>
+<%- include ("partials/footer.ejs")%>

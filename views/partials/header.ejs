@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/header.css" rel="stylesheet">
+    <link href="/styles/dashboard.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <link href="/styles/final.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f4ede51a32.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <title>Uravu Dashboard</title>
 </head>
 <body>
@@ -23,7 +27,7 @@
             <!-- <div class="nav"><a href="/">Home</a></div> -->
             <div class="nav"><a class="main-nav" href="/dashboard" target="_blank">Dashboard</a>
                 <div class="dropdown">
-                    <a href="#"></a>
+                    <a href="customerDirectory">Customer Directory</a>
                 </div></div>
             <div class="nav"><a class="main-nav" href="/revenueDayCohort">Cohort Analysis</a>
                 <div class="dropdown">
@@ -31,11 +35,12 @@
                     <a href="/weeklyCohort">Weekly Analysis</a>
                     <a href="/monthlyCohort">Monthly Analysis</a>                 
                 </div></div>
-            <div class="nav"><a class="main-nav" href="/contact">Graphical Analysis</a>
+            <!-- <div class="nav"><a class="main-nav" href="/contact">Graphical Analysis</a>
                 <div class="dropdown">
-                    <a href="#">Revenue Chart</a>
+                    <a href="/quantityChart">Revenue Chart</a>
                     <a href="#">Bottly Quantity Chart</a>
-                </div></div>
+                </div>
+            </div> -->
             
     <div class="menu-icon">
         <i class='bx bx-menu'></i>

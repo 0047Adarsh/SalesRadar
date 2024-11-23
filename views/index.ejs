@@ -1,2 +1,77 @@
 <%- include ("partials/header.ejs")%>
+<div class="dashboard">
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Groundwater Saved</h3>
+        </div>
+        <div class="card-content">
+            <%= (totalVolume * 2.5).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Single use plastic Saved</h3>
+        </div>  
+        <div class="card-content">
+            <%= (totalQuantity).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Revenue Generated</h3>
+        </div>
+        <div class="card-content">
+            <%= (totalRevenue).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    </div>
+    <!-- <div class="card">
+        <div class="card-header">
+            <h3>Total Water Volume Sold</h3>
+        </div>
+        <div class="card-content">
+            <%= (totalVolume).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Average Monthly Volume</h3>
+        </div>
+        <div class="card-content">
+            <%= (totalVolume/25).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Average Monthly Revenue</h3>
+        </div>
+        <div class="card-content">
+            <%= (totalRevenue/25).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Average Monthly Cost per Lts</h3>
+        </div>
+        <div class="card-content">
+            <%= (totalQuantity).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+        </div>
+    </div> -->
+    <!-- <div class="card">
+        <div class="card-header">
+            <h3>Total Number Brands</h3>
+        </div>
+        <div class="card-content">
+            0
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Number of outlets</h3>
+        </div>
+        <div class="card-content">
+            0
+        </div>
+    </div> -->
+</div>
 <%- include ("partials/footer.ejs")%>

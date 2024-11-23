@@ -1,0 +1,92 @@
+<%- include ("partials/header.ejs")%>
+<!-- <div>
+
+    <label for="customerSelect">Select Customer:</label>
+    <select id="customerSelect" onchange="updateChart()">
+        <option value="customer1">Customer 1</option>
+        <option value="customer2">Customer 2</option>
+    </select>
+
+
+    <label for="yearSelect">Select Year:</label>
+    <select id="yearSelect" onchange="updateChart()">
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+    </select>
+</div>
+
+<canvas id="lineChart"></canvas>
+<div id="myPlot" style="width: 100%; height: 600px;"></div>
+<script>
+    
+    fetch('http://localhost:3000/data')
+      .then(response => response.json())
+      .then(data => {
+        
+        const trace = {
+          x: data[0].x,
+          y: data[0].y,
+          type: 'scatter',
+          mode: 'lines+markers', 
+          marker: { color: 'blue' }
+        };
+
+        const layout = {
+          title: 'Weekly Data',
+          xaxis: { title: 'Months' },
+          yaxis: { title: 'Quantity' }
+        };
+
+        Plotly.newPlot('myPlot', [trace], layout);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script> -->
+  <div class="container">
+    <h2 id="customerName"><% Customer: {{customersData[0].name}} %></h2>
+    <button id="toggleButton">Next Customer</button>
+    <div id="myPlot"></div>
+  </div>
+
+  <script>
+    // Get the customers data from the backend (rendered by EJS)
+    const customersData = <%- JSON.stringify(customersData) %>;  // This will render your data as JSON
+
+    let currentCustomerIndex = 0;  // Start with the first customer
+
+    // Function to update the graph
+    function updateGraph(customerName) {
+      const customer = customersData.find(cust => cust.name === customerName);
+      const data = {
+        x: customer.weeks,
+        y: customer.quantities,
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: customer.name
+      };
+
+      const layout = {
+        title: `${customer.name} - Weekly Quantities`,
+        xaxis: { title: 'Weeks' },
+        yaxis: { title: 'Quantity' }
+      };
+
+      // Update the plot with new customer data
+      Plotly.newPlot('myPlot', [data], layout);
+    }
+
+    // Initial graph for the first customer
+    updateGraph(customersData[currentCustomerIndex].name);
+
+    // Toggle functionality for switching customers
+    document.getElementById('toggleButton').addEventListener('click', () => {
+      currentCustomerIndex = (currentCustomerIndex + 1) % customersData.length;
+      const currentCustomerName = customersData[currentCustomerIndex].name;
+
+      // Update the customer name displayed
+      document.getElementById('customerName').innerText = `Customer: ${currentCustomerName}`;
+
+      // Update the graph with the new customer
+      updateGraph(currentCustomerName);
+    });
+  </script>
+<%- include ("partials/footer.ejs")%>
