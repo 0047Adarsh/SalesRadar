@@ -5,7 +5,7 @@
             <h3>Total Groundwater Saved</h3>
         </div>
         <div class="card-content">
-            <%= (totalVolume * 2.5).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+            <%= (totalVolume * 2.5).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %> Lts
         </div>
     
     </div>
@@ -14,7 +14,7 @@
             <h3>Single use plastic Saved</h3>
         </div>  
         <div class="card-content">
-            <%= (totalQuantity).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+            <%= (totalQuantity + 92191).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
         </div>
     </div>
     <div class="card">
@@ -22,7 +22,7 @@
             <h3>Total Revenue Generated</h3>
         </div>
         <div class="card-content">
-            <%= (totalRevenue).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
+            ₹ <%= (totalRevenue + 1993449).toLocaleString('en-IN',{minimumFractionDigits: 2, maximumFractionDigits: 2}) || 0 %>
         </div>
     </div>
     <!-- <div class="card">

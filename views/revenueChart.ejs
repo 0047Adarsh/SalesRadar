@@ -87,13 +87,13 @@
   <h2 id="customerName">Customer: <%= customersData[0].name %></h2>
   <div>
     <label for="customerSelect">Select Customer:</label>
-    <select id="toggleCustomer">
+    <select id="toggleCustomers">
       <% customersData.forEach(customer => { %>
         <option value="<%= customer.name %>"><%= customer.name %></option>
       <% }) %>
     </select>
 
-  <form method="get" action="/quantityChart">
+  <form method="get" action="/revenueChart">
     <label for="yearSelect">Select Year:</label>
     <select name="year" id="toggleYear" onchange="this.form.submit()">
       <% const currentYear = req.query.year || '2024' %>
@@ -123,10 +123,10 @@
       
       const trace = {
         x: customer.weeks,
-        y: customer.quantities,
+        y: customer.revenues,
         name: customer.name,
         mode: 'lines+markers+text',
-        text: customer.quantities,
+        text: customer.revenues,
         textposition: 'left center',
         marker: { size: 12 },
         textfont: {
@@ -150,7 +150,7 @@
 
       const layout = {
         title: {
-          text: `Weekly Quantities for <b>${customer.name}</b>`,
+          text: `Weekly Revenue for <b>${customer.name}</b>`,
           font: { size: 20, color: '#E5E5E5' },
         },
         xaxis: {
@@ -160,7 +160,7 @@
           color:"white"
         },
         yaxis: {
-          title: { text: 'Quantity', font: { size: 14, color: '#E5E5E5' } },
+          title: { text: 'Revenue', font: { size: 14, color: '#E5E5E5' } },
           gridcolor: '#333',
           tickcolor: '#E5E5E5',
           color:"white"
@@ -177,8 +177,8 @@
 
     renderGraph(customersData[0].name);
 
-    document.getElementById('toggleCustomer').onchange = () => {
-      const selectedCustomer = document.getElementById('toggleCustomer').value;
+    document.getElementById('toggleCustomers').onchange = () => {
+      const selectedCustomer = document.getElementById('toggleCustomers').value;
       renderGraph(selectedCustomer);
     }
 

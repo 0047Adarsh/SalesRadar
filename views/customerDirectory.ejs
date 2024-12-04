@@ -1,61 +1,240 @@
 <%- include ("partials/header.ejs")%>
 
 <div class="table-header">
+    <% let groupedData = {}; %>
+    <% let outletNumber = 0; %>
+    <% customerData.forEach(Data => { %>
+        <% outletNumber+= 1 %>
+        <% let brandName = Data.Brand_Name.display_value; %>
+        <% if (!groupedData[brandName]) { %>
+            <% groupedData[brandName] = []; %>
+        <% } %>
+        <% groupedData[brandName].push(Data); %>
+    <% }) %>
     <div>
         <h1>Customer Directory</h1>
     </div>
+    <div class="search-container">
+        <input type="text" id="outletSearch" placeholder="Search outlets..." onkeyup="filterTable()">
+        <select id="statusFilter" onchange="filterTable()">
+            <option value="">All Statuses</option>
+            <% let statuses = new Set(); %>
+            <% customerData.forEach(data => { statuses.add(data.Customer_Status); }); %>
+            <% Array.from(statuses).forEach(status => { %>
+                <option value="<%= status %>"><%= status %></option>
+            <% }); %>
+        </select>
+    </div>
+    <button id="toggle-all-outlets" onclick="toggleAllOutlets()">Toggle All Outlets</button>
     <div>
-        <!-- <h3>Total Brands: 90</h3>
-        <h3>Total Outlets: 90</h3> -->
+        <h3>Total Brands: <%= Object.keys(groupedData).length %></h3>
+        <h3>Total Outlets: <%= outletNumber %></h3>
     </div>
 </div>
 <div class="table-container">
     <table>
         <thead>
-            <tr>
+            <tr style="position: sticky; top: 0; z-index: 200;">
                 <th>Sl No.</th>
                 <th>Brand Name</th>
                 <th>Status</th>
                 <th>Number of Outlets</th>
-                <th>Outlet Names</th>
                 <th>Unit Price</th>
                 <th>Buy Back Price</th>
                 <th>Total Revenue</th>
-                <th>Form Status</th>
-                <th>POC Name</th>
+                <th>Total Quantity</th>
+                <th>Customer POC</th>
                 <th>POC Number</th>
-                <th>POC Name</th>
+                <th>Uravu POC</th>
+                <th>Form Status</th>
                 <th>Contracts</th>
+                <th>Contract Expiry</th>
                 <th>Onboard Date</th>
                 <th>Offboard Date</th>
             </tr>
         </thead>
         <tbody>
             <% let slno = 0; %>
-            <% customerData.forEach(Data=>{%>
-            <tr>
-                <% slno++; %>
-                <td><%= slno %></td>
-                <%if(Data){%>
-                    <td><%= Data.Brand_Name.display_value %></td>
-                    <td><%= Data.Customer_Status %></td>
-                    <td>1</td>
-                    <td><%= Data.Customer_Name.display_value %></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><%= Data.Customer_Contact %></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><%= Data.Onboarding_Date1 %></td>
-                    <td><%= Data.Cancelled_Date || "Active" %></td>
-                <%}%>
-                
-            </tr>
-            <%}) %>
+            <% Object.keys(groupedData).forEach(brandName => { %>
+                <% const outlets = groupedData[brandName]; %>
+                <% const firstOutlet = outlets[0]; %>
+                <tr class="brand-row">
+                    <% slno++; %>
+                    <td><%= slno %></td>
+                    <td>
+                        <div class="brand-name-container">
+                            <span><%= brandName %></span>
+                            <button class="toggle-outlets" onclick="toggleOutlets(this)">▼</button>
+                        </div>
+                    </td>
+                    <td><%= firstOutlet.Customer_Status %></td>
+                    <td><%= outlets.length %></td>
+                    <td></td>
+                    <td></td>
+                    <td>₹ <%= brandTotals[brandName]?.revenue?.toLocaleString('en-IN', { maximumFractionDigits: 2 }) || '0' %></td>
+                    <td><%= brandTotals[brandName]?.quantity?.toLocaleString('en-IN') || '0' %></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% outlets.forEach(outlet => { %>
+                    <tr class="outlet-row" style="display: none;">
+                        <td></td>
+                        <td style="padding-left: 30px;">└ <%= outlet.Customer_Name.display_value %></td>
+                        <td><%= outlet.Customer_Status %></td>
+                        <td></td>
+                        <td><% outlet.Unit_Price.forEach(Price=>{%>
+                            <%= Price.display_value %>
+                        <%}) %></td>
+                        <td><% outlet.Reverse_Logistics.forEach(RL=>{%>
+                            <%= RL.display_value %>
+                        <%}) %></td>
+                        <td><%= outletTotals[outlet.Customer_Name.display_value]?.revenue?.toLocaleString('en-IN', { maximumFractionDigits: 2 }) || '0' %></td>
+                        <td><%= outletTotals[outlet.Customer_Name.display_value]?.quantity?.toLocaleString('en-IN') || '0' %></td>
+                        <td><%= outlet.POC.display_value %></td>                
+                        <td><%= outlet.Customer_Contact %></td>
+                        <td><%= outlet.Uravu_POC.display_value %></td>
+                        <td><%= outlet.Form_Status %></td>
+                        <td><%= outlet.Contract_Status %></td>
+                        <td>29-03-2021</td>
+                        <td><%= outlet.Onboarding_Date1 %></td>
+                        <td><%= outlet.Cancelled_Date || "Active" %></td>
+                    </tr>
+                <% }); %>
+            <% }); %>
         </tbody>
     </table>
 </div>
-<%- include ("partials/footer.ejs")%>
+
+<style>
+    .brand-name-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .toggle-outlets {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0 5px;
+    }
+    
+    .outlet-row {
+        background-color: #e0e0e0;
+    }
+
+    #toggle-all-outlets {
+        background-color: #14229c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #toggle-all-outlets:hover {
+        background-color: #1a2cce;
+    }
+
+    #toggle-all-outlets:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .search-container {
+        display: flex;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .search-container input,
+    .search-container select {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 200px;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    td:nth-child(7), /* Revenue column */
+    td:nth-child(8) { /* Quantity column */
+        text-align: right;
+        padding-right: 15px;
+    }
+    
+    .brand-row td:nth-child(7),
+    .brand-row td:nth-child(8) {
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    function toggleOutlets(button) {
+        const brandRow = button.closest('tr');
+        let row = brandRow.nextElementSibling;
+        
+        while (row && row.classList.contains('outlet-row')) {
+            row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+            button.textContent = row.style.display === 'none' ? '▼' : '▲';
+            row = row.nextElementSibling;
+        }
+    }
+
+    function toggleAllOutlets() {
+        const outletRows = document.querySelectorAll('.outlet-row');
+        const allVisible = Array.from(outletRows).every(row => row.style.display === 'table-row');
+        
+        outletRows.forEach(row => {
+            row.style.display = allVisible ? 'none' : 'table-row';
+        });
+
+        const toggleButtons = document.querySelectorAll('.toggle-outlets');
+        toggleButtons.forEach(button => {
+            button.textContent = allVisible ? '▼' : '▲';
+        });
+    }
+
+    function filterTable() {
+        const outletSearch = document.getElementById('outletSearch').value.toLowerCase();
+        const statusFilter = document.getElementById('statusFilter').value;
+        
+        const brandRows = document.querySelectorAll('.brand-row');
+        
+        brandRows.forEach(brandRow => {
+            const brandStatus = brandRow.querySelector('td:nth-child(3)').textContent;
+            let hasVisibleOutlets = false;
+            
+            // Get all outlet rows until next brand
+            let row = brandRow.nextElementSibling;
+            
+            while (row && row.classList.contains('outlet-row')) {
+                const outletName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const outletStatus = row.querySelector('td:nth-child(3)').textContent;
+                
+                const showOutlet = outletName.includes(outletSearch) && 
+                                 (statusFilter === '' || outletStatus === statusFilter);
+                
+                row.classList.toggle('hidden', !showOutlet);
+                if (showOutlet) hasVisibleOutlets = true;
+                
+                row = row.nextElementSibling;
+            }
+            
+            // Show brand row only if it has matching outlets
+            brandRow.classList.toggle('hidden', !hasVisibleOutlets);
+        });
+    }
+</script>
+
+<%- include ("partials/footer.ejs")%> -->

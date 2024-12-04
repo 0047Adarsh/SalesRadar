@@ -70,7 +70,7 @@
 //     XLSX.writeFile(workbook, 'Cohort_Analysis.xlsx');
 // });
 
-   document.getElementById('exportButton').addEventListener('click', function() {
+    document.getElementById('exportButton').addEventListener('click', function() {
        const tableId = document.getElementById('analysisType').value === 'revenue' ? 'revenueTable' : 'quantityTable';
        const table = document.querySelector(`#${tableId} table`);
        
@@ -80,9 +80,9 @@
        } else {
            alert("No table found to export.");
        }
-   });
+    });
 
-   document.getElementById('input-search').addEventListener('input', function() {
+    document.getElementById('input-search').addEventListener('input', function() {
         const searchValue = this.value.toLowerCase();
         const tableId = document.getElementById('analysisType').value === 'revenue' ? 'revenueTable' : 'quantityTable';
         const rows = document.querySelectorAll(`#${tableId} tbody tr`);

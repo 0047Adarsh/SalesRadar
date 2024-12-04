@@ -1,0 +1,10 @@
+.chart-container
+{
+    height: 100vh;
+}
+
+#myPlot
+{
+    height: 80%;
+}
+

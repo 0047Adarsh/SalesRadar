@@ -1,0 +1,138 @@
+<%- include ("partials/header.ejs")%>
+
+<div class="table-header">
+    <% let groupedData = {}; %>
+    <% let outletNumber = 0; %>
+    <% customerData.forEach(Data => { %>
+        <% outletNumber+= 1 %>
+        <% let brandName = Data.Brand_Name.display_value; %>
+        <% if (!groupedData[brandName]) { %>
+            <% groupedData[brandName] = []; %>
+        <% } %>
+        <% groupedData[brandName].push(Data); %>
+    <% }) %>
+    <div>
+        <h1>Customer Directory</h1>
+    </div>
+    <div>
+        <h3>Total Brands: <%= Object.keys(groupedData).length %></h3>
+        <h3>Total Outlets: <%= outletNumber %></h3>
+    </div>
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Sl No.</th>
+                <th>Brand Name</th>
+                <th>Status</th>
+                <th>Number of Outlets</th>
+                <th>Outlet Names</th>
+                <th>Unit Price</th>
+                <th>Buy Back Price</th>
+                <th>Total Revenue</th>
+                <th>Customer POC</th>
+                <th>POC Number</th>
+                <th>Uravu POC</th>
+                <th>Form Status</th>
+                <th>Contracts</th>
+                <th>Contract Expiry</th>
+                <th>Onboard Date</th>
+                <th>Offboard Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let slno = 0; %>
+            <% Object.keys(groupedData).forEach(brandName => { %>
+                <% const outlets = groupedData[brandName]; %>
+                <% const firstOutlet = outlets[0]; %>
+                <tr class="brand-row">
+                    <% slno++; %>
+                    <td><%= slno %></td>
+                    <td>
+                        <div class="brand-name-container">
+                            <span><%= brandName %></span>
+                            <button class="toggle-outlets" onclick="toggleOutlets(this)">▼</button>
+                        </div>
+                    </td>
+                    <td><%= firstOutlet.Customer_Status %></td>
+                    <td><%= outlets.length %></td>
+                    <td>-</td>
+                    <td><% firstOutlet.Unit_Price.forEach(Price=>{ %>
+                        <%= Price.display_value %>
+                    <% }) %></td>
+                    <td><% firstOutlet.Reverse_Logistics.forEach(RL=>{%>
+                        <%= RL.display_value %>
+                    <%}) %></td>
+                    <td>-</td>
+                    <td><%= firstOutlet.POC.display_value %></td>                
+                    <td><%= firstOutlet.Customer_Contact %></td>
+                    <td><%= firstOutlet.Uravu_POC.display_value %></td>
+                    <td><%= firstOutlet.Form_Status %></td>
+                    <td><%= firstOutlet.Contract_Status %></td>
+                    <td>29-03-2021</td>
+                    <td><%= firstOutlet.Onboarding_Date1 %></td>
+                    <td><%= firstOutlet.Cancelled_Date || "Active" %></td>
+                </tr>
+                <% outlets.forEach(outlet => { %>
+                    <tr class="outlet-row" style="display: none;">
+                        <td></td>
+                        <td style="padding-left: 30px;">└ <%= outlet.Customer_Name.display_value %></td>
+                        <td><%= outlet.Customer_Status %></td>
+                        <td>1</td>
+                        <td><%= outlet.Customer_Name.display_value %></td>
+                        <td><% outlet.Unit_Price.forEach(Price=>{%>
+                            <%= Price.display_value %>
+                        <%}) %></td>
+                        <td><% outlet.Reverse_Logistics.forEach(RL=>{%>
+                            <%= RL.display_value %>
+                        <%}) %></td>
+                        <td>-</td>
+                        <td><%= outlet.POC.display_value %></td>                
+                        <td><%= outlet.Customer_Contact %></td>
+                        <td><%= outlet.Uravu_POC.display_value %></td>
+                        <td><%= outlet.Form_Status %></td>
+                        <td><%= outlet.Contract_Status %></td>
+                        <td>29-03-2021</td>
+                        <td><%= outlet.Onboarding_Date1 %></td>
+                        <td><%= outlet.Cancelled_Date || "Active" %></td>
+                    </tr>
+                <% }); %>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .brand-name-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .toggle-outlets {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0 5px;
+    }
+    
+    .outlet-row {
+        background-color: #e0e0e0;
+    }
+</style>
+
+<script>
+    function toggleOutlets(button) {
+        const brandRow = button.closest('tr');
+        let row = brandRow.nextElementSibling;
+        
+        while (row && row.classList.contains('outlet-row')) {
+            row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+            button.textContent = row.style.display === 'none' ? '▼' : '▲';
+            row = row.nextElementSibling;
+        }
+    }
+</script>
+
+<%- include ("partials/footer.ejs")%> -->
