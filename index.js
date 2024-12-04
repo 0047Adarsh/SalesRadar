@@ -22,24 +22,24 @@ app.set('view engine', 'ejs');
 app.set('views', join(__dirname, 'views'));
 app.use(express.static('public'));
 
-// app.use(session({
-//     secret:'Adarsh',
-//     resave:false,
-//     saveUninitialized:true,
-//     cookie:{secure:false},
-//     maxAge: 1000 * 60 * 60 * 24
-// }));
-
 app.use(session({
-    secret: process.env.SESSION_SECRET || 'Adarsh',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === 'production', 
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000
-    }
+    secret:'Adarsh',
+    resave:false,
+    saveUninitialized:true,
+    cookie:{secure:false},
+    maxAge: 1000 * 60 * 60 * 24
 }));
+
+// app.use(session({
+//     secret: process.env.SESSION_SECRET || 'Adarsh',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         secure: process.env.NODE_ENV === 'production', 
+//         httpOnly: true,
+//         maxAge: 24 * 60 * 60 * 1000
+//     }
+// }));
 
 const logger = winston.createLogger({
     level: 'info',
