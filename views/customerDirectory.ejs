@@ -3,9 +3,17 @@
 <div class="table-header">
     <% let groupedData = {}; %>
     <% let outletNumber = 0; %>
+    <% let ActiveBrands = {}; %>
+    <% let ActiveoutletNumber = 0; %>
     <% customerData.forEach(Data => { %>
         <% outletNumber+= 1 %>
         <% let brandName = Data.Brand_Name.display_value; %>
+        <% if(Data.Customer_Status === "Active"){%>
+            <% ActiveoutletNumber+= 1 %>
+            <% if (!groupedData[brandName]) { %>
+                <% groupedData[brandName] = []; %>
+            <% } %>
+        <%} %>
         <% if (!groupedData[brandName]) { %>
             <% groupedData[brandName] = []; %>
         <% } %>
@@ -27,8 +35,8 @@
     </div>
     <button id="toggle-all-outlets" onclick="toggleAllOutlets()">Toggle All Outlets</button>
     <div>
-        <h3>Total Brands: <%= Object.keys(groupedData).length %></h3>
-        <h3>Total Outlets: <%= outletNumber %></h3>
+        <h3>Total Brands: <%= Object.keys(groupedData).length %> (Active Brands: <%= Object.keys(ActiveBrands).length %>)</h3>
+        <h3>Total Outlets: <%= outletNumber %> (Active Outlets: <%= ActiveoutletNumber %>)</h3>
     </div>
 </div>
 <div class="table-container">
@@ -46,8 +54,8 @@
                 <th>Customer POC</th>
                 <th>POC Number</th>
                 <th>Uravu POC</th>
-                <th>Form Status</th>
-                <th>Contracts</th>
+                <th><a href="https://docs.google.com/spreadsheets/d/1cGxB_gFhO9UyfuOyTwCrE1m6maj2P81GwvvldNHYgoE/edit?gid=1915941292#gid=1915941292" target="_blank">Form Status</a></th>
+                <th><a href="https://docs.google.com/spreadsheets/d/1cSamy4JWSJHl8-quxmyLZXURNdnDXB-h/edit?usp=sharing&ouid=110885592181652207646&rtpof=true&sd=true" target="_blank">Contracts</a></th>
                 <th>Contract Expiry</th>
                 <th>Onboard Date</th>
                 <th>Offboard Date</th>
