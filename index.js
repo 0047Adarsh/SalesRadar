@@ -59,7 +59,7 @@
 
     let cachedData = null; 
     let cacheTime = null; 
-    const CACHE_EXPIRATION = 60000000000;
+    const CACHE_EXPIRATION = 600;
 
     const BrandDailyData = new Map();
 
@@ -487,7 +487,8 @@
         const onboardedByMonth = {};
         const offboardedByMonth = {};
         let totalOnboardedTillDate = {};
-
+        const monthlyActive = {};
+        
         function calculateMonthsBetweenDates(startDate, endDate)
             {
                 if(!startDate||!endDate) return 0;
@@ -598,7 +599,9 @@
                 }); 
                 }             
             });
-        return { AllNames, customerDictionary: formattedCustomerData, onboardedByMonth, offboardedByMonth,totalOnboardedTillDate };
+
+        
+        return { AllNames, customerDictionary: formattedCustomerData, onboardedByMonth, offboardedByMonth,totalOnboardedTillDate};
     }
 
     let refreshToken = '1000.40edd439cbb238d1d05c045eaf193349.f28ffe2cb5d851b2636a80ed6e0b855b';
@@ -903,8 +906,6 @@
             res.status(500).send('Internal Server Error');
         }
     });
-
-    // ... existing code ...
 
     app.listen(port, () => {
         console.log(`Server is running on port: ${port}`);
