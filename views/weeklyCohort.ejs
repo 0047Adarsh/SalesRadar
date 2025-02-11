@@ -34,7 +34,7 @@
                 <tr style="position: sticky; top: 0; z-index: 200;">
                     <th>SlNo.</th>
                     <th>Brand Name</th>
-                    <th>Status</th>
+                    <th>Status</th> 
                     <% sortedUniqueWeeks.forEach(week => { %>
                         <th><%= week.replace('Week ', 'W') %></th>
                     <% }); %>
@@ -137,12 +137,7 @@
             
         </table>
     </div>
-</div>
-
-    
-    
-    
-    
+</div>  
 </div>
 
 <%- include("partials/footer.ejs") %>
