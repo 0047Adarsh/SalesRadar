@@ -11,6 +11,7 @@ body {
     overflow-y:hidden; 
     background-color: #182e81; */
     min-height: 100vh;
+    text-decoration: none;
 }
 
 
@@ -397,4 +398,8 @@ i {
 .footer-company{
     display: flex;
     align-items: center;
+}
+
+h1{
+    text-decoration: none;
 }
