@@ -687,15 +687,3514 @@
             return cachedData;
         }
 
-        const apiUrl = `https://www.zohoapis.in/creator/custom/uravu_labs_pvt_ltd/Fetch_Bottle_Data?publickey=${process.env.ZOHO_API_KEY}`;
-        const response = await axios.get(apiUrl);
+        // const apiUrl = `https://www.zohoapis.in/creator/custom/uravu_labs_pvt_ltd/Fetch_Bottle_Data?publickey=${process.env.ZOHO_API_KEY}`;
+        // const response = await axios.get(apiUrl);
         
-        console.log("API Response:", response.data);
-        const rawData = response.data.result;
+        // console.log("API Response:", response.data);
+        // const rawData = response.data.result;
 
-    //const result = 
-    "[{\"Name\":\"LEELA BC\",\"Date\":\"01-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Oct-2023\",\"Volume\":500,\"Revenue\":\"8208.00\",\"Quantity\":\"684\"},{\"Name\":\"EVOMA\",\"Date\":\"03-Oct-2023\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"EVOMA\",\"Date\":\"03-Oct-2023\",\"Volume\":750,\"Revenue\":\"10560.00\",\"Quantity\":\"480\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Oct-2023\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Oct-2023\",\"Volume\":500,\"Revenue\":\"9960.00\",\"Quantity\":\"830\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"06-Oct-2023\",\"Volume\":750,\"Revenue\":\"26220.00\",\"Quantity\":\"570\"},{\"Name\":\"ROXIE \",\"Date\":\"06-Oct-2023\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Oct-2023\",\"Volume\":500,\"Revenue\":\"6600.00\",\"Quantity\":\"550\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Oct-2023\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"700\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"KAMPOT \",\"Date\":\"10-Oct-2023\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"11-Oct-2023\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Oct-2023\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Oct-2023\",\"Volume\":500,\"Revenue\":\"4800.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"13-Oct-2023\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-Oct-2023\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"900\"},{\"Name\":\"GCBC \",\"Date\":\"13-Oct-2023\",\"Volume\":750,\"Revenue\":\"16950.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-Oct-2023\",\"Volume\":500,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Oct-2023\",\"Volume\":500,\"Revenue\":\"9960.00\",\"Quantity\":\"830\"},{\"Name\":\"EVOMA\",\"Date\":\"14-Oct-2023\",\"Volume\":750,\"Revenue\":\"13000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Oct-2023\",\"Volume\":500,\"Revenue\":\"3600.00\",\"Quantity\":\"300\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"16-Oct-2023\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Oct-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Oct-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Oct-2023\",\"Volume\":500,\"Revenue\":\"6048.00\",\"Quantity\":\"504\"},{\"Name\":\"ROXIE \",\"Date\":\"18-Oct-2023\",\"Volume\":750,\"Revenue\":\"28000.00\",\"Quantity\":\"700\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Oct-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"19-Oct-2023\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"20-Oct-2023\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"20-Oct-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"21-Oct-2023\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"ROXIE \",\"Date\":\"21-Oct-2023\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Oct-2023\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Oct-2023\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"900\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Oct-2023\",\"Volume\":500,\"Revenue\":\"4800.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Oct-2023\",\"Volume\":500,\"Revenue\":\"4320.00\",\"Quantity\":\"360\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Oct-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"26-Oct-2023\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"GCBC \",\"Date\":\"26-Oct-2023\",\"Volume\":750,\"Revenue\":\"16950.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"27-Oct-2023\",\"Volume\":750,\"Revenue\":\"32000.00\",\"Quantity\":\"800\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Oct-2023\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"900\"},{\"Name\":\"EVOMA\",\"Date\":\"28-Oct-2023\",\"Volume\":750,\"Revenue\":\"13000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"28-Oct-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"GCBC \",\"Date\":\"30-Oct-2023\",\"Volume\":750,\"Revenue\":\"16950.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Oct-2023\",\"Volume\":500,\"Revenue\":\"9000.00\",\"Quantity\":\"750\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-Oct-2023\",\"Volume\":500,\"Revenue\":\"6600.00\",\"Quantity\":\"550\"},{\"Name\":\"ROXIE \",\"Date\":\"31-Oct-2023\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Nov-2023\",\"Volume\":500,\"Revenue\":\"5640.00\",\"Quantity\":\"470\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Nov-2023\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Nov-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"TUDUM\",\"Date\":\"03-Nov-2023\",\"Volume\":750,\"Revenue\":\"35200.00\",\"Quantity\":\"800\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Nov-2023\",\"Volume\":500,\"Revenue\":\"6480.00\",\"Quantity\":\"540\"},{\"Name\":\"ROXIE \",\"Date\":\"04-Nov-2023\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"04-Nov-2023\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Nov-2023\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Nov-2023\",\"Volume\":500,\"Revenue\":\"14400.00\",\"Quantity\":\"1200\"},{\"Name\":\"EVOMA\",\"Date\":\"07-Nov-2023\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Nov-2023\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"700\"},{\"Name\":\"LONG BOAT \",\"Date\":\"08-Nov-2023\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"KAMPOT \",\"Date\":\"08-Nov-2023\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Nov-2023\",\"Volume\":500,\"Revenue\":\"6480.00\",\"Quantity\":\"540\"},{\"Name\":\"ROXIE \",\"Date\":\"10-Nov-2023\",\"Volume\":750,\"Revenue\":\"32000.00\",\"Quantity\":\"800\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Nov-2023\",\"Volume\":500,\"Revenue\":\"8640.00\",\"Quantity\":\"720\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"11-Nov-2023\",\"Volume\":750,\"Revenue\":\"27600.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Nov-2023\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Nov-2023\",\"Volume\":500,\"Revenue\":\"4800.00\",\"Quantity\":\"400\"},{\"Name\":\"GCBC \",\"Date\":\"15-Nov-2023\",\"Volume\":750,\"Revenue\":\"16950.00\",\"Quantity\":\"500\"},{\"Name\":\"HYATT \",\"Date\":\"15-Nov-2023\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"EVOMA\",\"Date\":\"15-Nov-2023\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Nov-2023\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"16-Nov-2023\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LONG BOAT \",\"Date\":\"17-Nov-2023\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"18-Nov-2023\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"TUDUM\",\"Date\":\"18-Nov-2023\",\"Volume\":750,\"Revenue\":\"35200.00\",\"Quantity\":\"800\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Nov-2023\",\"Volume\":500,\"Revenue\":\"7344.00\",\"Quantity\":\"612\"},{\"Name\":\"ROXIE \",\"Date\":\"20-Nov-2023\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"YUCCA \",\"Date\":\"20-Nov-2023\",\"Volume\":750,\"Revenue\":\"1755.00\",\"Quantity\":\"44\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Nov-2023\",\"Volume\":500,\"Revenue\":\"9720.00\",\"Quantity\":\"810\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"21-Nov-2023\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Nov-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Nov-2023\",\"Volume\":500,\"Revenue\":\"4200.00\",\"Quantity\":\"350\"},{\"Name\":\"GCBC \",\"Date\":\"23-Nov-2023\",\"Volume\":750,\"Revenue\":\"30510.00\",\"Quantity\":\"900\"},{\"Name\":\"154 BC \",\"Date\":\"24-Nov-2023\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"24-Nov-2023\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"24-Nov-2023\",\"Volume\":500,\"Revenue\":\"6600.00\",\"Quantity\":\"550\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"25-Nov-2023\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Nov-2023\",\"Volume\":500,\"Revenue\":\"11664.00\",\"Quantity\":\"972\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Nov-2023\",\"Volume\":500,\"Revenue\":\"9000.00\",\"Quantity\":\"750\"},{\"Name\":\"EVOMA\",\"Date\":\"28-Nov-2023\",\"Volume\":750,\"Revenue\":\"15400.00\",\"Quantity\":\"700\"},{\"Name\":\"LEELA BC\",\"Date\":\"28-Nov-2023\",\"Volume\":500,\"Revenue\":\"8640.00\",\"Quantity\":\"720\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Nov-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"TUDUM\",\"Date\":\"29-Nov-2023\",\"Volume\":750,\"Revenue\":\"35200.00\",\"Quantity\":\"800\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"29-Nov-2023\",\"Volume\":750,\"Revenue\":\"32200.00\",\"Quantity\":\"700\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Nov-2023\",\"Volume\":500,\"Revenue\":\"7344.00\",\"Quantity\":\"612\"},{\"Name\":\"HYATT \",\"Date\":\"30-Nov-2023\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"30-Nov-2023\",\"Volume\":750,\"Revenue\":\"60000.00\",\"Quantity\":\"1500\"},{\"Name\":\"ACRE\",\"Date\":\"30-Nov-2023\",\"Volume\":750,\"Revenue\":\"31280.00\",\"Quantity\":\"680\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Dec-2023\",\"Volume\":500,\"Revenue\":\"4800.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Dec-2023\",\"Volume\":500,\"Revenue\":\"4800.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Dec-2023\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"LONG BOAT \",\"Date\":\"02-Dec-2023\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"KAMPOT \",\"Date\":\"02-Dec-2023\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Dec-2023\",\"Volume\":500,\"Revenue\":\"3264.00\",\"Quantity\":\"272\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Dec-2023\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"04-Dec-2023\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Dec-2023\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"URU\",\"Date\":\"06-Dec-2023\",\"Volume\":750,\"Revenue\":\"17200.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Dec-2023\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"07-Dec-2023\",\"Volume\":750,\"Revenue\":\"32200.00\",\"Quantity\":\"700\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Dec-2023\",\"Volume\":500,\"Revenue\":\"6576.00\",\"Quantity\":\"548\"},{\"Name\":\"154 BC \",\"Date\":\"08-Dec-2023\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"08-Dec-2023\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Dec-2023\",\"Volume\":500,\"Revenue\":\"9600.00\",\"Quantity\":\"800\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Dec-2023\",\"Volume\":500,\"Revenue\":\"15600.00\",\"Quantity\":\"1300\"},{\"Name\":\"LONG BOAT \",\"Date\":\"06-Dec-2023\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"11-Dec-2023\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"11-Dec-2023\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Dec-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"12-Dec-2023\",\"Volume\":500,\"Revenue\":\"10500.00\",\"Quantity\":\"300\"},{\"Name\":\"URU\",\"Date\":\"12-Dec-2023\",\"Volume\":750,\"Revenue\":\"5160.00\",\"Quantity\":\"120\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"12-Dec-2023\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-Dec-2023\",\"Volume\":500,\"Revenue\":\"13200.00\",\"Quantity\":\"1100\"},{\"Name\":\"GCBC \",\"Date\":\"13-Dec-2023\",\"Volume\":750,\"Revenue\":\"8136.00\",\"Quantity\":\"240\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Dec-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"14-Dec-2023\",\"Volume\":750,\"Revenue\":\"23520.00\",\"Quantity\":\"560\"},{\"Name\":\"LONG BOAT \",\"Date\":\"15-Dec-2023\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"15-Dec-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"16-Dec-2023\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Dec-2023\",\"Volume\":500,\"Revenue\":\"9600.00\",\"Quantity\":\"800\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Dec-2023\",\"Volume\":500,\"Revenue\":\"2400.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Dec-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"19-Dec-2023\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"URU\",\"Date\":\"19-Dec-2023\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Dec-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROXIE \",\"Date\":\"19-Dec-2023\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"20-Dec-2023\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LONG BOAT \",\"Date\":\"20-Dec-2023\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"ROXIE \",\"Date\":\"20-Dec-2023\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Dec-2023\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"700\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"21-Dec-2023\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"UTK\",\"Date\":\"21-Dec-2023\",\"Volume\":500,\"Revenue\":\"15190.00\",\"Quantity\":\"490\"},{\"Name\":\"LONG BOAT \",\"Date\":\"22-Dec-2023\",\"Volume\":750,\"Revenue\":\"9880.00\",\"Quantity\":\"260\"},{\"Name\":\"FISHERMAN\",\"Date\":\"22-Dec-2023\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"HYATT \",\"Date\":\"22-Dec-2023\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Dec-2023\",\"Volume\":500,\"Revenue\":\"9936.00\",\"Quantity\":\"828\"},{\"Name\":\"ROXIE \",\"Date\":\"22-Dec-2023\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"GCBC \",\"Date\":\"22-Dec-2023\",\"Volume\":750,\"Revenue\":\"13560.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Dec-2023\",\"Volume\":500,\"Revenue\":\"13200.00\",\"Quantity\":\"1100\"},{\"Name\":\"INANNA TAPROOM\",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"2394.00\",\"Quantity\":\"57\"},{\"Name\":\"EVOMA\",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"24-Dec-2023\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"700\"},{\"Name\":\"154 BC \",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"9360.00\",\"Quantity\":\"260\"},{\"Name\":\"154 BC \",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"27600.00\",\"Quantity\":\"600\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"23-Dec-2023\",\"Volume\":500,\"Revenue\":\"9450.00\",\"Quantity\":\"270\"},{\"Name\":\"ROXIE \",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"13600.00\",\"Quantity\":\"340\"},{\"Name\":\"EVOMA\",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"ACRE\",\"Date\":\"23-Dec-2023\",\"Volume\":750,\"Revenue\":\"11040.00\",\"Quantity\":\"240\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Dec-2023\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"900\"},{\"Name\":\"KAMPOT \",\"Date\":\"26-Dec-2023\",\"Volume\":750,\"Revenue\":\"11480.00\",\"Quantity\":\"280\"},{\"Name\":\"ROXIE \",\"Date\":\"26-Dec-2023\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"FISHERMAN\",\"Date\":\"26-Dec-2023\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"ROXIE \",\"Date\":\"27-Dec-2023\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"URU\",\"Date\":\"27-Dec-2023\",\"Volume\":750,\"Revenue\":\"9460.00\",\"Quantity\":\"220\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"27-Dec-2023\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Dec-2023\",\"Volume\":500,\"Revenue\":\"12960.00\",\"Quantity\":\"1080\"},{\"Name\":\"ROXIE \",\"Date\":\"28-Dec-2023\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LONG BOAT \",\"Date\":\"28-Dec-2023\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"LEELA BC\",\"Date\":\"28-Dec-2023\",\"Volume\":500,\"Revenue\":\"5400.00\",\"Quantity\":\"450\"},{\"Name\":\"GCBC \",\"Date\":\"29-Dec-2023\",\"Volume\":750,\"Revenue\":\"13560.00\",\"Quantity\":\"400\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"29-Dec-2023\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Dec-2023\",\"Volume\":500,\"Revenue\":\"3804.00\",\"Quantity\":\"317\"},{\"Name\":\"UTK\",\"Date\":\"30-Dec-2023\",\"Volume\":500,\"Revenue\":\"3100.00\",\"Quantity\":\"100\"},{\"Name\":\"ACRE\",\"Date\":\"30-Dec-2023\",\"Volume\":750,\"Revenue\":\"19320.00\",\"Quantity\":\"420\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Dec-2023\",\"Volume\":500,\"Revenue\":\"2448.00\",\"Quantity\":\"204\"},{\"Name\":\"LONG BOAT \",\"Date\":\"30-Dec-2023\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"30-Dec-2023\",\"Volume\":750,\"Revenue\":\"27600.00\",\"Quantity\":\"600\"},{\"Name\":\"ROXIE \",\"Date\":\"30-Dec-2023\",\"Volume\":750,\"Revenue\":\"21600.00\",\"Quantity\":\"540\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"30-Dec-2023\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"30-Dec-2023\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"GXI \",\"Date\":\"30-Dec-2023\",\"Volume\":500,\"Revenue\":\"760.00\",\"Quantity\":\"20\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-Dec-2023\",\"Volume\":500,\"Revenue\":\"6048.00\",\"Quantity\":\"504\"},{\"Name\":\"ROXIE \",\"Date\":\"31-Dec-2023\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"UTK\",\"Date\":\"30-Dec-2023\",\"Volume\":500,\"Revenue\":\"15035.00\",\"Quantity\":\"485\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Jan-2024\",\"Volume\":500,\"Revenue\":\"9600.00\",\"Quantity\":\"800\"},{\"Name\":\"UTK\",\"Date\":\"03-Jan-2024\",\"Volume\":500,\"Revenue\":\"7595.00\",\"Quantity\":\"245\"},{\"Name\":\"154 BC \",\"Date\":\"03-Jan-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"03-Jan-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Jan-2024\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROXIE \",\"Date\":\"03-Jan-2024\",\"Volume\":750,\"Revenue\":\"19200.00\",\"Quantity\":\"480\"},{\"Name\":\"FISHERMAN\",\"Date\":\"04-Jan-2024\",\"Volume\":750,\"Revenue\":\"6880.00\",\"Quantity\":\"172\"},{\"Name\":\"URU\",\"Date\":\"04-Jan-2024\",\"Volume\":750,\"Revenue\":\"16340.00\",\"Quantity\":\"380\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Jan-2024\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"05-Jan-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"UTK\",\"Date\":\"05-Jan-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"05-Jan-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"05-Jan-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Jan-2024\",\"Volume\":500,\"Revenue\":\"11664.00\",\"Quantity\":\"972\"},{\"Name\":\"ROXIE \",\"Date\":\"05-Jan-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"460\"},{\"Name\":\"GCBC \",\"Date\":\"05-Jan-2024\",\"Volume\":750,\"Revenue\":\"8814.00\",\"Quantity\":\"260\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Jan-2024\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"FISHERMAN\",\"Date\":\"08-Jan-2024\",\"Volume\":750,\"Revenue\":\"6000.00\",\"Quantity\":\"150\"},{\"Name\":\"LONG BOAT \",\"Date\":\"08-Jan-2024\",\"Volume\":750,\"Revenue\":\"13680.00\",\"Quantity\":\"360\"},{\"Name\":\"UTK\",\"Date\":\"08-Jan-2024\",\"Volume\":500,\"Revenue\":\"13950.00\",\"Quantity\":\"450\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"09-Jan-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Jan-2024\",\"Volume\":500,\"Revenue\":\"8640.00\",\"Quantity\":\"720\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"09-Jan-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"ROXIE \",\"Date\":\"09-Jan-2024\",\"Volume\":750,\"Revenue\":\"14000.00\",\"Quantity\":\"350\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Jan-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Jan-2024\",\"Volume\":500,\"Revenue\":\"8184.00\",\"Quantity\":\"682\"},{\"Name\":\"GCBC \",\"Date\":\"10-Jan-2024\",\"Volume\":750,\"Revenue\":\"4983.30\",\"Quantity\":\"147\"},{\"Name\":\"URAVU HOME \",\"Date\":\"10-Jan-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Jan-2024\",\"Volume\":500,\"Revenue\":\"4200.00\",\"Quantity\":\"350\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"11-Jan-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"UTK\",\"Date\":\"11-Jan-2024\",\"Volume\":500,\"Revenue\":\"12400.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Jan-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"252\"},{\"Name\":\"EVOMA\",\"Date\":\"12-Jan-2024\",\"Volume\":750,\"Revenue\":\"14760.00\",\"Quantity\":\"580\"},{\"Name\":\"FISHERMAN\",\"Date\":\"13-Jan-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Jan-2024\",\"Volume\":500,\"Revenue\":\"3600.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"12-Jan-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-Jan-2024\",\"Volume\":500,\"Revenue\":\"4320.00\",\"Quantity\":\"360\"},{\"Name\":\"ROXIE \",\"Date\":\"13-Jan-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"16-Jan-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"URU\",\"Date\":\"16-Jan-2024\",\"Volume\":750,\"Revenue\":\"16340.00\",\"Quantity\":\"380\"},{\"Name\":\"FISHERMAN\",\"Date\":\"16-Jan-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Jan-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"GCBC \",\"Date\":\"16-Jan-2024\",\"Volume\":750,\"Revenue\":\"12882.00\",\"Quantity\":\"380\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"17-Jan-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"17-Jan-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"17-Jan-2024\",\"Volume\":750,\"Revenue\":\"5400.00\",\"Quantity\":\"150\"},{\"Name\":\"154 BC \",\"Date\":\"17-Jan-2024\",\"Volume\":750,\"Revenue\":\"5400.00\",\"Quantity\":\"150\"},{\"Name\":\"ACRE\",\"Date\":\"18-Jan-2024\",\"Volume\":750,\"Revenue\":\"12880.00\",\"Quantity\":\"280\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Jan-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"UTK\",\"Date\":\"18-Jan-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Jan-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Jan-2024\",\"Volume\":500,\"Revenue\":\"11640.00\",\"Quantity\":\"970\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"19-Jan-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"LONG BOAT \",\"Date\":\"20-Jan-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"20-Jan-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"20-Jan-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"TUDUM\",\"Date\":\"20-Jan-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"400\"},{\"Name\":\"ROXIE \",\"Date\":\"20-Jan-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Jan-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"ACRE\",\"Date\":\"22-Jan-2024\",\"Volume\":750,\"Revenue\":\"22080.00\",\"Quantity\":\"480\"},{\"Name\":\"GCBC \",\"Date\":\"22-Jan-2024\",\"Volume\":750,\"Revenue\":\"6780.00\",\"Quantity\":\"200\"},{\"Name\":\"JUGNI\",\"Date\":\"14-Jan-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"SALLY \",\"Date\":\"22-Jan-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"ITC\",\"Date\":\"22-Jan-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"CANDLES \",\"Date\":\"21-Jan-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"22-Jan-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"380\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Jan-2024\",\"Volume\":500,\"Revenue\":\"9936.00\",\"Quantity\":\"828\"},{\"Name\":\"HYATT \",\"Date\":\"23-Jan-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"23-Jan-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"23-Jan-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"23-Jan-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Jan-2024\",\"Volume\":500,\"Revenue\":\"5184.00\",\"Quantity\":\"432\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"24-Jan-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"UTK\",\"Date\":\"24-Jan-2024\",\"Volume\":500,\"Revenue\":\"22320.00\",\"Quantity\":\"720\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"24-Jan-2024\",\"Volume\":750,\"Revenue\":\"10920.00\",\"Quantity\":\"260\"},{\"Name\":\"YUCCA \",\"Date\":\"24-Jan-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"260\"},{\"Name\":\"LEELA BC\",\"Date\":\"24-Jan-2024\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"600\"},{\"Name\":\"CANDLES \",\"Date\":\"25-Jan-2024\",\"Volume\":750,\"Revenue\":\"18480.00\",\"Quantity\":\"420\"},{\"Name\":\"EVOMA\",\"Date\":\"25-Jan-2024\",\"Volume\":750,\"Revenue\":\"12120.00\",\"Quantity\":\"460\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Jan-2024\",\"Volume\":500,\"Revenue\":\"9936.00\",\"Quantity\":\"828\"},{\"Name\":\"GCBC \",\"Date\":\"24-Jan-2024\",\"Volume\":750,\"Revenue\":\"4068.00\",\"Quantity\":\"120\"},{\"Name\":\"ITC\",\"Date\":\"25-Jan-2024\",\"Volume\":750,\"Revenue\":\"5600.00\",\"Quantity\":\"140\"},{\"Name\":\"FISHERMAN\",\"Date\":\"25-Jan-2024\",\"Volume\":750,\"Revenue\":\"1600.00\",\"Quantity\":\"40\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"26-Jan-2024\",\"Volume\":500,\"Revenue\":\"7350.00\",\"Quantity\":\"210\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"26-Jan-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"26-Jan-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Jan-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"252\"},{\"Name\":\"FISHERMAN\",\"Date\":\"26-Jan-2024\",\"Volume\":750,\"Revenue\":\"800.00\",\"Quantity\":\"20\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Jan-2024\",\"Volume\":500,\"Revenue\":\"7800.00\",\"Quantity\":\"650\"},{\"Name\":\"ROXIE \",\"Date\":\"27-Jan-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"FISHERMAN\",\"Date\":\"27-Jan-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"LONG BOAT \",\"Date\":\"27-Jan-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"27-Jan-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Jan-2024\",\"Volume\":500,\"Revenue\":\"7344.00\",\"Quantity\":\"612\"},{\"Name\":\"LONG BOAT \",\"Date\":\"29-Jan-2024\",\"Volume\":750,\"Revenue\":\"13680.00\",\"Quantity\":\"360\"},{\"Name\":\"URU\",\"Date\":\"29-Jan-2024\",\"Volume\":750,\"Revenue\":\"19780.00\",\"Quantity\":\"460\"},{\"Name\":\"KAMPOT \",\"Date\":\"29-Jan-2024\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Jan-2024\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"900\"},{\"Name\":\"154 BC \",\"Date\":\"30-Jan-2024\",\"Volume\":750,\"Revenue\":\"5760.00\",\"Quantity\":\"160\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"30-Jan-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"30-Jan-2024\",\"Volume\":500,\"Revenue\":\"23188.00\",\"Quantity\":\"748\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-Jan-2024\",\"Volume\":500,\"Revenue\":\"5184.00\",\"Quantity\":\"432\"},{\"Name\":\"FISHERMAN\",\"Date\":\"31-Jan-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Feb-2024\",\"Volume\":500,\"Revenue\":\"5184.00\",\"Quantity\":\"432\"},{\"Name\":\"SALLY \",\"Date\":\"31-Jan-2024\",\"Volume\":750,\"Revenue\":\"9600.00\",\"Quantity\":\"240\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"31-Jan-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"31-Jan-2024\",\"Volume\":750,\"Revenue\":\"24800.00\",\"Quantity\":\"620\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"31-Jan-2024\",\"Volume\":750,\"Revenue\":\"15120.00\",\"Quantity\":\"360\"},{\"Name\":\"GCBC \",\"Date\":\"01-Feb-2024\",\"Volume\":750,\"Revenue\":\"6780.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"01-Feb-2024\",\"Volume\":500,\"Revenue\":\"17500.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Feb-2024\",\"Volume\":500,\"Revenue\":\"3456.00\",\"Quantity\":\"288\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"02-Feb-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Feb-2024\",\"Volume\":500,\"Revenue\":\"3456.00\",\"Quantity\":\"288\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Feb-2024\",\"Volume\":500,\"Revenue\":\"3456.00\",\"Quantity\":\"288\"},{\"Name\":\"URU\",\"Date\":\"05-Feb-2024\",\"Volume\":750,\"Revenue\":\"9460.00\",\"Quantity\":\"220\"},{\"Name\":\"HYATT \",\"Date\":\"05-Feb-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LONG BOAT \",\"Date\":\"05-Feb-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"03-Feb-2024\",\"Volume\":750,\"Revenue\":\"10120.00\",\"Quantity\":\"460\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"05-Feb-2024\",\"Volume\":750,\"Revenue\":\"15580.00\",\"Quantity\":\"380\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Feb-2024\",\"Volume\":500,\"Revenue\":\"5616.00\",\"Quantity\":\"468\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"06-Feb-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"06-Feb-2024\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"ROXIE \",\"Date\":\"07-Feb-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"07-Feb-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"154 BC \",\"Date\":\"07-Feb-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Feb-2024\",\"Volume\":500,\"Revenue\":\"3372.00\",\"Quantity\":\"281\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Feb-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"251\"},{\"Name\":\"154 BC \",\"Date\":\"08-Feb-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"08-Feb-2024\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"LONG BOAT \",\"Date\":\"08-Feb-2024\",\"Volume\":750,\"Revenue\":\"20520.00\",\"Quantity\":\"540\"},{\"Name\":\"CANDLES \",\"Date\":\"08-Feb-2024\",\"Volume\":750,\"Revenue\":\"7040.00\",\"Quantity\":\"160\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Feb-2024\",\"Volume\":500,\"Revenue\":\"3576.00\",\"Quantity\":\"298\"},{\"Name\":\"ACRE\",\"Date\":\"09-Feb-2024\",\"Volume\":750,\"Revenue\":\"22080.00\",\"Quantity\":\"480\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"09-Feb-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"ROXIE \",\"Date\":\"09-Feb-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"460\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Feb-2024\",\"Volume\":500,\"Revenue\":\"3888.00\",\"Quantity\":\"324\"},{\"Name\":\"GCBC \",\"Date\":\"10-Feb-2024\",\"Volume\":750,\"Revenue\":\"14238.00\",\"Quantity\":\"420\"},{\"Name\":\"SALLY \",\"Date\":\"11-Feb-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"CANDLES \",\"Date\":\"10-Feb-2024\",\"Volume\":750,\"Revenue\":\"14960.00\",\"Quantity\":\"340\"},{\"Name\":\"ROXIE \",\"Date\":\"10-Feb-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Feb-2024\",\"Volume\":500,\"Revenue\":\"3000.00\",\"Quantity\":\"250\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-Feb-2024\",\"Volume\":500,\"Revenue\":\"5460.00\",\"Quantity\":\"455\"},{\"Name\":\"EVOMA\",\"Date\":\"13-Feb-2024\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"LONG BOAT \",\"Date\":\"13-Feb-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Feb-2024\",\"Volume\":500,\"Revenue\":\"3888.00\",\"Quantity\":\"324\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"14-Feb-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"14-Feb-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"URU\",\"Date\":\"14-Feb-2024\",\"Volume\":750,\"Revenue\":\"12040.00\",\"Quantity\":\"280\"},{\"Name\":\"ROXIE \",\"Date\":\"14-Feb-2024\",\"Volume\":750,\"Revenue\":\"39200.00\",\"Quantity\":\"980\"},{\"Name\":\"SUAY\",\"Date\":\"14-Feb-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"14-Feb-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"154 BC \",\"Date\":\"15-Feb-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"15-Feb-2024\",\"Volume\":750,\"Revenue\":\"5760.00\",\"Quantity\":\"160\"},{\"Name\":\"LEELA BC\",\"Date\":\"15-Feb-2024\",\"Volume\":500,\"Revenue\":\"2508.00\",\"Quantity\":\"209\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Feb-2024\",\"Volume\":500,\"Revenue\":\"3456.00\",\"Quantity\":\"288\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"16-Feb-2024\",\"Volume\":750,\"Revenue\":\"36800.00\",\"Quantity\":\"800\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"16-Feb-2024\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"17-Feb-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"GCBC \",\"Date\":\"17-Feb-2024\",\"Volume\":750,\"Revenue\":\"6102.00\",\"Quantity\":\"180\"},{\"Name\":\"ACRE\",\"Date\":\"17-Feb-2024\",\"Volume\":750,\"Revenue\":\"10120.00\",\"Quantity\":\"220\"},{\"Name\":\"154 BC \",\"Date\":\"17-Feb-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Feb-2024\",\"Volume\":500,\"Revenue\":\"6144.00\",\"Quantity\":\"512\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"17-Feb-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"17-Feb-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Feb-2024\",\"Volume\":500,\"Revenue\":\"4512.00\",\"Quantity\":\"376\"},{\"Name\":\"UTK\",\"Date\":\"19-Feb-2024\",\"Volume\":500,\"Revenue\":\"31000.00\",\"Quantity\":\"1000\"},{\"Name\":\"TUDUM\",\"Date\":\"18-Feb-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"400\"},{\"Name\":\"ROXIE \",\"Date\":\"18-Feb-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"JUGNI\",\"Date\":\"19-Feb-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"LEELA BC\",\"Date\":\"20-Feb-2024\",\"Volume\":500,\"Revenue\":\"5112.00\",\"Quantity\":\"426\"},{\"Name\":\"EVOMA\",\"Date\":\"20-Feb-2024\",\"Volume\":750,\"Revenue\":\"13880.00\",\"Quantity\":\"540\"},{\"Name\":\"FISHERMAN\",\"Date\":\"20-Feb-2024\",\"Volume\":750,\"Revenue\":\"6400.00\",\"Quantity\":\"160\"},{\"Name\":\"ROXIE \",\"Date\":\"20-Feb-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Feb-2024\",\"Volume\":500,\"Revenue\":\"2880.00\",\"Quantity\":\"240\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Feb-2024\",\"Volume\":500,\"Revenue\":\"3408.00\",\"Quantity\":\"284\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"21-Feb-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"GCBC \",\"Date\":\"22-Feb-2024\",\"Volume\":750,\"Revenue\":\"4746.00\",\"Quantity\":\"140\"},{\"Name\":\"SALLY \",\"Date\":\"22-Feb-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"LONG BOAT \",\"Date\":\"22-Feb-2024\",\"Volume\":750,\"Revenue\":\"13680.00\",\"Quantity\":\"360\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Feb-2024\",\"Volume\":500,\"Revenue\":\"3696.00\",\"Quantity\":\"308\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Feb-2024\",\"Volume\":500,\"Revenue\":\"2592.00\",\"Quantity\":\"216\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"LONG BOAT \",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"HYATT \",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"GCBC \",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"4746.00\",\"Quantity\":\"140\"},{\"Name\":\"SALLY \",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"3200.00\",\"Quantity\":\"80\"},{\"Name\":\"FISHERMAN\",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"5600.00\",\"Quantity\":\"140\"},{\"Name\":\"CANDLES \",\"Date\":\"24-Feb-2024\",\"Volume\":750,\"Revenue\":\"14960.00\",\"Quantity\":\"340\"},{\"Name\":\"LEELA BC\",\"Date\":\"24-Feb-2024\",\"Volume\":500,\"Revenue\":\"3456.00\",\"Quantity\":\"288\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Feb-2024\",\"Volume\":500,\"Revenue\":\"1728.00\",\"Quantity\":\"144\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"26-Feb-2024\",\"Volume\":750,\"Revenue\":\"11440.00\",\"Quantity\":\"260\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"26-Feb-2024\",\"Volume\":750,\"Revenue\":\"9840.00\",\"Quantity\":\"240\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"27-Feb-2024\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"27-Feb-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"27-Feb-2024\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"FISHERMAN\",\"Date\":\"27-Feb-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"28-Feb-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Feb-2024\",\"Volume\":500,\"Revenue\":\"2568.00\",\"Quantity\":\"214\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"28-Feb-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"URU\",\"Date\":\"28-Feb-2024\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"28-Feb-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"CANDLES \",\"Date\":\"28-Feb-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"28-Feb-2024\",\"Volume\":750,\"Revenue\":\"8200.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"28-Feb-2024\",\"Volume\":500,\"Revenue\":\"2952.00\",\"Quantity\":\"246\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"29-Feb-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"LONG BOAT \",\"Date\":\"29-Feb-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"GCBC \",\"Date\":\"29-Feb-2024\",\"Volume\":750,\"Revenue\":\"10170.00\",\"Quantity\":\"300\"},{\"Name\":\"46 OUNCES\",\"Date\":\"29-Feb-2024\",\"Volume\":750,\"Revenue\":\"48000.00\",\"Quantity\":\"1200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"02-Mar-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"SALLY \",\"Date\":\"02-Mar-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"01-Mar-2024\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"154 BC \",\"Date\":\"01-Mar-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"01-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"01-Mar-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"LONG BOAT \",\"Date\":\"02-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Mar-2024\",\"Volume\":500,\"Revenue\":\"1644.00\",\"Quantity\":\"137\"},{\"Name\":\"URU\",\"Date\":\"02-Mar-2024\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"200\"},{\"Name\":\"ACRE\",\"Date\":\"02-Mar-2024\",\"Volume\":750,\"Revenue\":\"26680.00\",\"Quantity\":\"580\"},{\"Name\":\"SALLY \",\"Date\":\"04-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"GCBC \",\"Date\":\"04-Mar-2024\",\"Volume\":750,\"Revenue\":\"16272.00\",\"Quantity\":\"480\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Mar-2024\",\"Volume\":500,\"Revenue\":\"2124.00\",\"Quantity\":\"177\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"04-Mar-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"KAMPOT \",\"Date\":\"04-Mar-2024\",\"Volume\":750,\"Revenue\":\"11480.00\",\"Quantity\":\"280\"},{\"Name\":\"ROXIE \",\"Date\":\"05-Mar-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"420\"},{\"Name\":\"LONG BOAT \",\"Date\":\"05-Mar-2024\",\"Volume\":750,\"Revenue\":\"10640.00\",\"Quantity\":\"280\"},{\"Name\":\"FISHERMAN\",\"Date\":\"05-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"06-Mar-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"FISHERMAN\",\"Date\":\"05-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"GCBC \",\"Date\":\"05-Mar-2024\",\"Volume\":750,\"Revenue\":\"10170.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Mar-2024\",\"Volume\":500,\"Revenue\":\"4752.00\",\"Quantity\":\"396\"},{\"Name\":\"BOBS BAR\",\"Date\":\"06-Mar-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"06-Mar-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"06-Mar-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"07-Mar-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"CANDLES \",\"Date\":\"07-Mar-2024\",\"Volume\":750,\"Revenue\":\"10560.00\",\"Quantity\":\"240\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Mar-2024\",\"Volume\":500,\"Revenue\":\"1296.00\",\"Quantity\":\"108\"},{\"Name\":\"ROXIE \",\"Date\":\"07-Mar-2024\",\"Volume\":750,\"Revenue\":\"19200.00\",\"Quantity\":\"480\"},{\"Name\":\"EVOMA\",\"Date\":\"07-Mar-2024\",\"Volume\":750,\"Revenue\":\"8360.00\",\"Quantity\":\"380\"},{\"Name\":\"EVOMA\",\"Date\":\"07-Mar-2024\",\"Volume\":750,\"Revenue\":\"2178.00\",\"Quantity\":\"99\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"08-Mar-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"09-Mar-2024\",\"Volume\":750,\"Revenue\":\"18480.00\",\"Quantity\":\"440\"},{\"Name\":\"154 BC \",\"Date\":\"09-Mar-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"10-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"YUCCA \",\"Date\":\"10-Mar-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"240\"},{\"Name\":\"GCBC \",\"Date\":\"10-Mar-2024\",\"Volume\":750,\"Revenue\":\"13560.00\",\"Quantity\":\"400\"},{\"Name\":\"154 BC \",\"Date\":\"10-Mar-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"10-Mar-2024\",\"Volume\":750,\"Revenue\":\"14760.00\",\"Quantity\":\"360\"},{\"Name\":\"BYG\",\"Date\":\"10-Mar-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"11-Mar-2024\",\"Volume\":750,\"Revenue\":\"9600.00\",\"Quantity\":\"240\"},{\"Name\":\"EVOMA\",\"Date\":\"11-Mar-2024\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"11-Mar-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"ROXIE \",\"Date\":\"11-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LONG BOAT \",\"Date\":\"11-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Mar-2024\",\"Volume\":500,\"Revenue\":\"1224.00\",\"Quantity\":\"102\"},{\"Name\":\"BOBS BAR\",\"Date\":\"12-Mar-2024\",\"Volume\":750,\"Revenue\":\"9120.00\",\"Quantity\":\"240\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"12-Mar-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Mar-2024\",\"Volume\":500,\"Revenue\":\"4620.00\",\"Quantity\":\"385\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"13-Mar-2024\",\"Volume\":750,\"Revenue\":\"11440.00\",\"Quantity\":\"260\"},{\"Name\":\"URU\",\"Date\":\"13-Mar-2024\",\"Volume\":750,\"Revenue\":\"9460.00\",\"Quantity\":\"220\"},{\"Name\":\"BYG\",\"Date\":\"13-Mar-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"13-Mar-2024\",\"Volume\":750,\"Revenue\":\"8360.00\",\"Quantity\":\"220\"},{\"Name\":\"BYG\",\"Date\":\"13-Mar-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"11040.00\",\"Quantity\":\"240\"},{\"Name\":\"154 BC \",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"BOMBAY BRASSERIE\",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"BOBS BAR\",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"15-Mar-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"380\"},{\"Name\":\"LONG BOAT \",\"Date\":\"15-Mar-2024\",\"Volume\":750,\"Revenue\":\"17480.00\",\"Quantity\":\"460\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"15-Mar-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"14-Mar-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"460\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"15-Mar-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"15-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"16-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"16-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"SALLY \",\"Date\":\"16-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"16-Mar-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"URU\",\"Date\":\"17-Mar-2024\",\"Volume\":750,\"Revenue\":\"12900.00\",\"Quantity\":\"300\"},{\"Name\":\"CANDLES \",\"Date\":\"17-Mar-2024\",\"Volume\":750,\"Revenue\":\"8536.00\",\"Quantity\":\"194\"},{\"Name\":\"GCBC \",\"Date\":\"17-Mar-2024\",\"Volume\":750,\"Revenue\":\"6780.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"16-Mar-2024\",\"Volume\":750,\"Revenue\":\"16560.00\",\"Quantity\":\"360\"},{\"Name\":\"LONG BOAT \",\"Date\":\"18-Mar-2024\",\"Volume\":750,\"Revenue\":\"13680.00\",\"Quantity\":\"360\"},{\"Name\":\"BYG\",\"Date\":\"18-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"16-Mar-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"ROXIE \",\"Date\":\"17-Mar-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"EVOMA\",\"Date\":\"18-Mar-2024\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"18-Mar-2024\",\"Volume\":750,\"Revenue\":\"8200.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"19-Mar-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"19-Mar-2024\",\"Volume\":750,\"Revenue\":\"6400.00\",\"Quantity\":\"160\"},{\"Name\":\"UTK\",\"Date\":\"19-Mar-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"19-Mar-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"19-Mar-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"TALES OF FLAMINGO\",\"Date\":\"19-Mar-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Mar-2024\",\"Volume\":500,\"Revenue\":\"3792.00\",\"Quantity\":\"316\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"20-Mar-2024\",\"Volume\":750,\"Revenue\":\"8200.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"20-Mar-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"20-Mar-2024\",\"Volume\":750,\"Revenue\":\"32000.00\",\"Quantity\":\"800\"},{\"Name\":\"IBH \",\"Date\":\"21-Mar-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"21-Mar-2024\",\"Volume\":500,\"Revenue\":\"15500.00\",\"Quantity\":\"500\"},{\"Name\":\"LONG BOAT \",\"Date\":\"21-Mar-2024\",\"Volume\":750,\"Revenue\":\"12920.00\",\"Quantity\":\"340\"},{\"Name\":\"URU\",\"Date\":\"21-Mar-2024\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-Mar-2024\",\"Volume\":500,\"Revenue\":\"5772.00\",\"Quantity\":\"481\"},{\"Name\":null,\"Date\":\"21-Mar-2024\",\"Volume\":500,\"Revenue\":\"3700.00\",\"Quantity\":\"100\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"21-Mar-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"21-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Mar-2024\",\"Volume\":500,\"Revenue\":\"5820.00\",\"Quantity\":\"485\"},{\"Name\":\"FISHERMAN\",\"Date\":\"22-Mar-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"22-Mar-2024\",\"Volume\":750,\"Revenue\":\"11440.00\",\"Quantity\":\"260\"},{\"Name\":\"GCBC \",\"Date\":\"22-Mar-2024\",\"Volume\":750,\"Revenue\":\"10170.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"22-Mar-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"22-Mar-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"22-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Mar-2024\",\"Volume\":500,\"Revenue\":\"4320.00\",\"Quantity\":\"360\"},{\"Name\":\"LONG BOAT \",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Mar-2024\",\"Volume\":500,\"Revenue\":\"5040.00\",\"Quantity\":\"420\"},{\"Name\":\"CANDLES \",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"SALLY \",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"23-Mar-2024\",\"Volume\":750,\"Revenue\":\"57000.00\",\"Quantity\":\"1500\"},{\"Name\":\"BHUMIPUTRA PROJECTS \",\"Date\":\"23-Mar-2024\",\"Volume\":500,\"Revenue\":\"1632.00\",\"Quantity\":\"48\"},{\"Name\":\"BHUMIPUTRA PROJECTS \",\"Date\":\"23-Mar-2024\",\"Volume\":250,\"Revenue\":\"6250.00\",\"Quantity\":\"250\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"24-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"24-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"IBH \",\"Date\":\"25-Mar-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Mar-2024\",\"Volume\":500,\"Revenue\":\"3768.00\",\"Quantity\":\"314\"},{\"Name\":\"CANDLES \",\"Date\":\"25-Mar-2024\",\"Volume\":750,\"Revenue\":\"2640.00\",\"Quantity\":\"60\"},{\"Name\":\"ACRE\",\"Date\":\"25-Mar-2024\",\"Volume\":750,\"Revenue\":\"5520.00\",\"Quantity\":\"120\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"25-Mar-2024\",\"Volume\":750,\"Revenue\":\"5200.00\",\"Quantity\":\"130\"},{\"Name\":\"BYG\",\"Date\":\"25-Mar-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"FISHERMAN\",\"Date\":\"26-Mar-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"180\"},{\"Name\":\"ROXIE \",\"Date\":\"26-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"26-Mar-2024\",\"Volume\":750,\"Revenue\":\"8200.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Mar-2024\",\"Volume\":500,\"Revenue\":\"5928.00\",\"Quantity\":\"494\"},{\"Name\":\"CANDLES \",\"Date\":\"26-Mar-2024\",\"Volume\":750,\"Revenue\":\"6160.00\",\"Quantity\":\"140\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"26-Mar-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"LONG BOAT \",\"Date\":\"26-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"27-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"IBH \",\"Date\":\"27-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Mar-2024\",\"Volume\":500,\"Revenue\":\"3828.00\",\"Quantity\":\"319\"},{\"Name\":\"SALLY \",\"Date\":\"27-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"27-Mar-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"154 BC \",\"Date\":\"27-Mar-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"14760.00\",\"Quantity\":\"360\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"ACRE\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"15640.00\",\"Quantity\":\"340\"},{\"Name\":\"EVOMA\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"28-Mar-2024\",\"Volume\":500,\"Revenue\":\"3612.00\",\"Quantity\":\"301\"},{\"Name\":\"BYG\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"BOBS BAR\",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"9880.00\",\"Quantity\":\"260\"},{\"Name\":\"GCBC \",\"Date\":\"28-Mar-2024\",\"Volume\":750,\"Revenue\":\"6780.00\",\"Quantity\":\"200\"},{\"Name\":\"HYATT \",\"Date\":\"28-Mar-2024\",\"Volume\":500,\"Revenue\":\"112000.00\",\"Quantity\":\"3500\"},{\"Name\":\"LONG BOAT \",\"Date\":\"29-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Mar-2024\",\"Volume\":500,\"Revenue\":\"4080.00\",\"Quantity\":\"340\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"29-Mar-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"29-Mar-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"29-Mar-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"29-Mar-2024\",\"Volume\":750,\"Revenue\":\"9600.00\",\"Quantity\":\"240\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"30-Mar-2024\",\"Volume\":500,\"Revenue\":\"3500.00\",\"Quantity\":\"100\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"30-Mar-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"30-Mar-2024\",\"Volume\":750,\"Revenue\":\"7920.00\",\"Quantity\":\"180\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Mar-2024\",\"Volume\":500,\"Revenue\":\"7992.00\",\"Quantity\":\"666\"},{\"Name\":\"BHUMIPUTRA PROJECTS \",\"Date\":\"30-Mar-2024\",\"Volume\":250,\"Revenue\":\"1500.00\",\"Quantity\":\"60\"},{\"Name\":\"IBH \",\"Date\":\"30-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"30-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-Mar-2024\",\"Volume\":500,\"Revenue\":\"3888.00\",\"Quantity\":\"324\"},{\"Name\":\"ROXIE \",\"Date\":\"31-Mar-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"CANDLES \",\"Date\":\"31-Mar-2024\",\"Volume\":750,\"Revenue\":\"3520.00\",\"Quantity\":\"80\"},{\"Name\":\"BYG\",\"Date\":\"01-Apr-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"FISHERMAN\",\"Date\":\"01-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Apr-2024\",\"Volume\":500,\"Revenue\":\"4320.00\",\"Quantity\":\"360\"},{\"Name\":\"FISHERMAN\",\"Date\":\"02-Apr-2024\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"URU\",\"Date\":\"02-Apr-2024\",\"Volume\":750,\"Revenue\":\"17200.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"02-Apr-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Apr-2024\",\"Volume\":500,\"Revenue\":\"4752.00\",\"Quantity\":\"396\"},{\"Name\":\"BYG\",\"Date\":\"02-Apr-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"02-Apr-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"460\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"02-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"03-Apr-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"03-Apr-2024\",\"Volume\":750,\"Revenue\":\"34200.00\",\"Quantity\":\"900\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Apr-2024\",\"Volume\":500,\"Revenue\":\"3000.00\",\"Quantity\":\"250\"},{\"Name\":\"GCBC \",\"Date\":\"03-Apr-2024\",\"Volume\":750,\"Revenue\":\"10170.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Apr-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"252\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"04-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"04-Apr-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"04-Apr-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"URU\",\"Date\":\"04-Apr-2024\",\"Volume\":750,\"Revenue\":\"17200.00\",\"Quantity\":\"400\"},{\"Name\":\"CANDLES \",\"Date\":\"04-Apr-2024\",\"Volume\":750,\"Revenue\":\"21120.00\",\"Quantity\":\"480\"},{\"Name\":\"SALLY \",\"Date\":\"04-Apr-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"THE WEEKLY \",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"3392.00\",\"Quantity\":\"80\"},{\"Name\":\"ROXIE \",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"05-Apr-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"LONG BOAT \",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"16720.00\",\"Quantity\":\"440\"},{\"Name\":\"FISHERMAN\",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"6400.00\",\"Quantity\":\"160\"},{\"Name\":\"FISHERMAN\",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"6400.00\",\"Quantity\":\"160\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"06-Apr-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"EVOMA\",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"GCBC \",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"4746.00\",\"Quantity\":\"140\"},{\"Name\":\"ACRE\",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"11040.00\",\"Quantity\":\"240\"},{\"Name\":\"IBH \",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"05-Apr-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"154 BC \",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"IBH \",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"06-Apr-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Apr-2024\",\"Volume\":500,\"Revenue\":\"6048.00\",\"Quantity\":\"504\"},{\"Name\":\"JUGNI\",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"1600.00\",\"Quantity\":\"40\"},{\"Name\":\"BYG\",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BOBS BAR\",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"BYG\",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"FISHERMAN\",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"ROXIE \",\"Date\":\"07-Apr-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"460\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"08-Apr-2024\",\"Volume\":750,\"Revenue\":\"11600.00\",\"Quantity\":\"290\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Apr-2024\",\"Volume\":500,\"Revenue\":\"12096.00\",\"Quantity\":\"1008\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"09-Apr-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"400\"},{\"Name\":\"JUGNI\",\"Date\":\"09-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BOMBAY BRASSERIE\",\"Date\":\"09-Apr-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"THE WEEKLY \",\"Date\":\"09-Apr-2024\",\"Volume\":750,\"Revenue\":\"8480.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"09-Apr-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"LONG BOAT \",\"Date\":\"09-Apr-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"10-Apr-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Apr-2024\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BOBS BAR\",\"Date\":\"10-Apr-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"10-Apr-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Apr-2024\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"11-Apr-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"FISHERMAN\",\"Date\":\"11-Apr-2024\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"154 BC \",\"Date\":\"11-Apr-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"11-Apr-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"11-Apr-2024\",\"Volume\":500,\"Revenue\":\"10500.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"11-Apr-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Apr-2024\",\"Volume\":500,\"Revenue\":\"12960.00\",\"Quantity\":\"1080\"},{\"Name\":\"ACRE\",\"Date\":\"12-Apr-2024\",\"Volume\":750,\"Revenue\":\"9200.00\",\"Quantity\":\"200\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"12-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-Apr-2024\",\"Volume\":500,\"Revenue\":\"10260.00\",\"Quantity\":\"855\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"240\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"16200.00\",\"Quantity\":\"360\"},{\"Name\":\"BYG\",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"CANDLES \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"14760.00\",\"Quantity\":\"360\"},{\"Name\":\"ROXIE \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"25600.00\",\"Quantity\":\"640\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"10920.00\",\"Quantity\":\"260\"},{\"Name\":\"154 BC \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"UTK\",\"Date\":\"13-Apr-2024\",\"Volume\":500,\"Revenue\":\"12400.00\",\"Quantity\":\"400\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"14-Apr-2024\",\"Volume\":750,\"Revenue\":\"9240.00\",\"Quantity\":\"220\"},{\"Name\":\"FISHERMAN\",\"Date\":\"14-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"LONG BOAT \",\"Date\":\"14-Apr-2024\",\"Volume\":750,\"Revenue\":\"23560.00\",\"Quantity\":\"620\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"14-Apr-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"IBH \",\"Date\":\"12-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"12-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"15-Apr-2024\",\"Volume\":500,\"Revenue\":\"12096.00\",\"Quantity\":\"1008\"},{\"Name\":\"SALLY \",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"13-Apr-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"IBH \",\"Date\":\"15-Apr-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"90\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"15-Apr-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"440\"},{\"Name\":\"FISHERMAN\",\"Date\":\"15-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-Apr-2024\",\"Volume\":500,\"Revenue\":\"12096.00\",\"Quantity\":\"1008\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"16-Apr-2024\",\"Volume\":750,\"Revenue\":\"19320.00\",\"Quantity\":\"460\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"16-Apr-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"EVOMA\",\"Date\":\"16-Apr-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"16-Apr-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"46 OUNCES\",\"Date\":\"16-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Apr-2024\",\"Volume\":500,\"Revenue\":\"12960.00\",\"Quantity\":\"1080\"},{\"Name\":\"BYG\",\"Date\":\"17-Apr-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"BYG\",\"Date\":\"17-Apr-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"17-Apr-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"17-Apr-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"BOBS BAR\",\"Date\":\"17-Apr-2024\",\"Volume\":750,\"Revenue\":\"9120.00\",\"Quantity\":\"240\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Apr-2024\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"900\"},{\"Name\":\"ROXIE \",\"Date\":\"18-Apr-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"EVOMA\",\"Date\":\"18-Apr-2024\",\"Volume\":750,\"Revenue\":\"9240.00\",\"Quantity\":\"220\"},{\"Name\":\"CANDLES \",\"Date\":\"18-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"URVI \",\"Date\":\"18-Apr-2024\",\"Volume\":1000,\"Revenue\":\"625.00\",\"Quantity\":\"50\"},{\"Name\":\"IBH \",\"Date\":\"19-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"19-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Apr-2024\",\"Volume\":500,\"Revenue\":\"7344.00\",\"Quantity\":\"612\"},{\"Name\":\"LONG BOAT \",\"Date\":\"19-Apr-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"19-Apr-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BOMBAY BRASSERIE\",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"BOBS BAR\",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"BOBS BAR\",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"20-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"FISHERMAN\",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"20-Apr-2024\",\"Volume\":750,\"Revenue\":\"15640.00\",\"Quantity\":\"340\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"21-Apr-2024\",\"Volume\":750,\"Revenue\":\"4400.00\",\"Quantity\":\"100\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"21-Apr-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"21-Apr-2024\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"240\"},{\"Name\":\"ROXIE \",\"Date\":\"21-Apr-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Apr-2024\",\"Volume\":500,\"Revenue\":\"8496.00\",\"Quantity\":\"708\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"LONG BOAT \",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"IBH \",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"GCBC \",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"16272.00\",\"Quantity\":\"480\"},{\"Name\":\"FISHERMAN\",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"UTK\",\"Date\":\"22-Apr-2024\",\"Volume\":500,\"Revenue\":\"6200.00\",\"Quantity\":\"200\"},{\"Name\":\"EVOMA\",\"Date\":\"22-Apr-2024\",\"Volume\":750,\"Revenue\":\"8360.00\",\"Quantity\":\"380\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Apr-2024\",\"Volume\":500,\"Revenue\":\"13704.00\",\"Quantity\":\"1142\"},{\"Name\":\"CANDLES \",\"Date\":\"23-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"SALLY \",\"Date\":\"23-Apr-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"23-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"23-Apr-2024\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"23-Apr-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"UTK\",\"Date\":\"24-Apr-2024\",\"Volume\":500,\"Revenue\":\"15500.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"24-Apr-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"46 OUNCES\",\"Date\":\"24-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"EVOMA\",\"Date\":\"24-Apr-2024\",\"Volume\":750,\"Revenue\":\"7040.00\",\"Quantity\":\"320\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"24-Apr-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"24-Apr-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"24-Apr-2024\",\"Volume\":500,\"Revenue\":\"12096.00\",\"Quantity\":\"1008\"},{\"Name\":\"ROXIE \",\"Date\":\"25-Apr-2024\",\"Volume\":750,\"Revenue\":\"32800.00\",\"Quantity\":\"820\"},{\"Name\":\"154 BC \",\"Date\":\"25-Apr-2024\",\"Volume\":750,\"Revenue\":\"6480.00\",\"Quantity\":\"180\"},{\"Name\":\"154 BC \",\"Date\":\"25-Apr-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Apr-2024\",\"Volume\":500,\"Revenue\":\"6000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"25-Apr-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"25-Apr-2024\",\"Volume\":750,\"Revenue\":\"13500.00\",\"Quantity\":\"300\"},{\"Name\":\"EVOMA\",\"Date\":\"25-Apr-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"27-Apr-2024\",\"Volume\":500,\"Revenue\":\"4900.00\",\"Quantity\":\"140\"},{\"Name\":\"GCBC \",\"Date\":\"27-Apr-2024\",\"Volume\":750,\"Revenue\":\"8814.00\",\"Quantity\":\"260\"},{\"Name\":\"46 OUNCES\",\"Date\":\"27-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"27-Apr-2024\",\"Volume\":750,\"Revenue\":\"10640.00\",\"Quantity\":\"280\"},{\"Name\":\"FISHERMAN\",\"Date\":\"27-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Apr-2024\",\"Volume\":500,\"Revenue\":\"12096.00\",\"Quantity\":\"1008\"},{\"Name\":\"SUAY\",\"Date\":\"29-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"CANDLES \",\"Date\":\"29-Apr-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"TALES OF FLAMINGO\",\"Date\":\"29-Apr-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"300\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"29-Apr-2024\",\"Volume\":750,\"Revenue\":\"25600.00\",\"Quantity\":\"640\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Apr-2024\",\"Volume\":500,\"Revenue\":\"10524.00\",\"Quantity\":\"877\"},{\"Name\":\"URVI \",\"Date\":\"27-Apr-2024\",\"Volume\":1000,\"Revenue\":\"750.00\",\"Quantity\":\"60\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"27-Apr-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"29-Apr-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Apr-2024\",\"Volume\":500,\"Revenue\":\"13200.00\",\"Quantity\":\"1100\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Apr-2024\",\"Volume\":500,\"Revenue\":\"6432.00\",\"Quantity\":\"536\"},{\"Name\":\"UTK\",\"Date\":\"30-Apr-2024\",\"Volume\":500,\"Revenue\":\"14880.00\",\"Quantity\":\"480\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"30-Apr-2024\",\"Volume\":750,\"Revenue\":\"17640.00\",\"Quantity\":\"420\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"30-Apr-2024\",\"Volume\":750,\"Revenue\":\"11440.00\",\"Quantity\":\"260\"},{\"Name\":\"ROXIE \",\"Date\":\"30-Apr-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"380\"},{\"Name\":\"FISHERMAN\",\"Date\":\"30-Apr-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"01-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"01-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"154 BC \",\"Date\":\"01-May-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"01-May-2024\",\"Volume\":750,\"Revenue\":\"8200.00\",\"Quantity\":\"200\"},{\"Name\":\"LONG BOAT \",\"Date\":\"01-May-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"01-May-2024\",\"Volume\":250,\"Revenue\":\"34000.00\",\"Quantity\":\"1700\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-May-2024\",\"Volume\":500,\"Revenue\":\"6480.00\",\"Quantity\":\"540\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-May-2024\",\"Volume\":500,\"Revenue\":\"5580.00\",\"Quantity\":\"465\"},{\"Name\":\"BYG\",\"Date\":\"02-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"02-May-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"02-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"02-May-2024\",\"Volume\":500,\"Revenue\":\"3500.00\",\"Quantity\":\"100\"},{\"Name\":\"BOBS BAR\",\"Date\":\"02-May-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"URU\",\"Date\":\"02-May-2024\",\"Volume\":750,\"Revenue\":\"9460.00\",\"Quantity\":\"220\"},{\"Name\":\"ROXIE \",\"Date\":\"02-May-2024\",\"Volume\":750,\"Revenue\":\"14400.00\",\"Quantity\":\"360\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-May-2024\",\"Volume\":500,\"Revenue\":\"7512.00\",\"Quantity\":\"626\"},{\"Name\":\"SALLY \",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"400\"},{\"Name\":\"URU\",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"17200.00\",\"Quantity\":\"400\"},{\"Name\":\"LONG BOAT \",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"BOMBAY BRASSERIE\",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"11760.00\",\"Quantity\":\"280\"},{\"Name\":\"154 BC \",\"Date\":\"03-May-2024\",\"Volume\":750,\"Revenue\":\"11232.00\",\"Quantity\":\"312\"},{\"Name\":\"URVI \",\"Date\":\"03-May-2024\",\"Volume\":1000,\"Revenue\":\"750.00\",\"Quantity\":\"60\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-May-2024\",\"Volume\":500,\"Revenue\":\"6132.00\",\"Quantity\":\"511\"},{\"Name\":\"BYG\",\"Date\":\"04-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROXIE \",\"Date\":\"04-May-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"04-May-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"IBH \",\"Date\":\"04-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"04-May-2024\",\"Volume\":250,\"Revenue\":\"20000.00\",\"Quantity\":\"1000\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"04-May-2024\",\"Volume\":750,\"Revenue\":\"5600.00\",\"Quantity\":\"140\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"04-May-2024\",\"Volume\":500,\"Revenue\":\"4400.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"04-May-2024\",\"Volume\":500,\"Revenue\":\"6600.00\",\"Quantity\":\"600\"},{\"Name\":\"JUGNI\",\"Date\":\"05-May-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"MR. NISHYARTH\",\"Date\":\"05-May-2024\",\"Volume\":500,\"Revenue\":\"33890.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"05-May-2024\",\"Volume\":750,\"Revenue\":\"9240.00\",\"Quantity\":\"220\"},{\"Name\":\"CANDLES \",\"Date\":\"05-May-2024\",\"Volume\":750,\"Revenue\":\"9680.00\",\"Quantity\":\"220\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"06-May-2024\",\"Volume\":250,\"Revenue\":\"40000.00\",\"Quantity\":\"2000\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-May-2024\",\"Volume\":500,\"Revenue\":\"8100.00\",\"Quantity\":\"675\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-May-2024\",\"Volume\":500,\"Revenue\":\"5520.00\",\"Quantity\":\"460\"},{\"Name\":\"BYG\",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"LONG BOAT \",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-May-2024\",\"Volume\":500,\"Revenue\":\"6684.00\",\"Quantity\":\"557\"},{\"Name\":\"ITC\",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"IBH \",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"07-May-2024\",\"Volume\":750,\"Revenue\":\"5600.00\",\"Quantity\":\"140\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-May-2024\",\"Volume\":500,\"Revenue\":\"5988.00\",\"Quantity\":\"499\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"08-May-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"08-May-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"SALLY \",\"Date\":\"08-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"CANDLES \",\"Date\":\"08-May-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"08-May-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"08-May-2024\",\"Volume\":750,\"Revenue\":\"9020.00\",\"Quantity\":\"220\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"08-May-2024\",\"Volume\":250,\"Revenue\":\"54720.00\",\"Quantity\":\"2736\"},{\"Name\":\"BYG\",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"10080.00\",\"Quantity\":\"240\"},{\"Name\":\"BOBS BAR\",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"4400.00\",\"Quantity\":\"100\"},{\"Name\":\"BYG\",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"20520.00\",\"Quantity\":\"540\"},{\"Name\":\"IBH \",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"URVI \",\"Date\":\"09-May-2024\",\"Volume\":1000,\"Revenue\":\"1250.00\",\"Quantity\":\"100\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"09-May-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-May-2024\",\"Volume\":500,\"Revenue\":\"6912.00\",\"Quantity\":\"576\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"10-May-2024\",\"Volume\":250,\"Revenue\":\"44140.00\",\"Quantity\":\"2207\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"8280.00\",\"Quantity\":\"180\"},{\"Name\":\"FISHERMAN\",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"10-May-2024\",\"Volume\":500,\"Revenue\":\"2800.00\",\"Quantity\":\"80\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"11760.00\",\"Quantity\":\"280\"},{\"Name\":\"EVOMA\",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"6160.00\",\"Quantity\":\"280\"},{\"Name\":\"BOBS BAR\",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"7488.00\",\"Quantity\":\"208\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-May-2024\",\"Volume\":500,\"Revenue\":\"12264.00\",\"Quantity\":\"1022\"},{\"Name\":\"46 OUNCES\",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"10-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"30400.00\",\"Quantity\":\"760\"},{\"Name\":\"IBH \",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"280\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"9680.00\",\"Quantity\":\"220\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-May-2024\",\"Volume\":500,\"Revenue\":\"8208.00\",\"Quantity\":\"684\"},{\"Name\":\"CANDLES \",\"Date\":\"12-May-2024\",\"Volume\":750,\"Revenue\":\"12320.00\",\"Quantity\":\"280\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"12-May-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"12-May-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"UTK\",\"Date\":\"12-May-2024\",\"Volume\":500,\"Revenue\":\"14880.00\",\"Quantity\":\"480\"},{\"Name\":\"SALLY \",\"Date\":\"13-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"EVOMA\",\"Date\":\"13-May-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"13-May-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"13-May-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"JUGNI\",\"Date\":\"11-May-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"BYG\",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BOBS BAR\",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-May-2024\",\"Volume\":500,\"Revenue\":\"6480.00\",\"Quantity\":\"540\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"FISHERMAN\",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"154 BC \",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"LONG BOAT \",\"Date\":\"15-May-2024\",\"Volume\":750,\"Revenue\":\"18240.00\",\"Quantity\":\"480\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-May-2024\",\"Volume\":500,\"Revenue\":\"12096.00\",\"Quantity\":\"1008\"},{\"Name\":\"LEELA BC\",\"Date\":\"13-May-2024\",\"Volume\":500,\"Revenue\":\"5832.00\",\"Quantity\":\"486\"},{\"Name\":\"ACRE\",\"Date\":\"14-May-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"300\"},{\"Name\":\"IBH \",\"Date\":\"15-May-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"15-May-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"15-May-2024\",\"Volume\":750,\"Revenue\":\"37240.00\",\"Quantity\":\"980\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"15-May-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"15-May-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"URVI \",\"Date\":\"15-May-2024\",\"Volume\":1000,\"Revenue\":\"1250.00\",\"Quantity\":\"100\"},{\"Name\":\"LEELA BC\",\"Date\":\"15-May-2024\",\"Volume\":500,\"Revenue\":\"5112.00\",\"Quantity\":\"426\"},{\"Name\":\"LEELA BC\",\"Date\":\"16-May-2024\",\"Volume\":500,\"Revenue\":\"6564.00\",\"Quantity\":\"547\"},{\"Name\":\"URU\",\"Date\":\"16-May-2024\",\"Volume\":750,\"Revenue\":\"11180.00\",\"Quantity\":\"260\"},{\"Name\":\"GCBC \",\"Date\":\"16-May-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"NAMDHARI\",\"Date\":\"16-May-2024\",\"Volume\":250,\"Revenue\":\"240.00\",\"Quantity\":\"4\"},{\"Name\":\"NAMDHARI\",\"Date\":\"16-May-2024\",\"Volume\":750,\"Revenue\":\"1200.00\",\"Quantity\":\"24\"},{\"Name\":\"IBH \",\"Date\":\"17-May-2024\",\"Volume\":750,\"Revenue\":\"32000.00\",\"Quantity\":\"800\"},{\"Name\":\"BRAHMA BREWS \",\"Date\":\"17-May-2024\",\"Volume\":750,\"Revenue\":\"32000.00\",\"Quantity\":\"800\"},{\"Name\":\"BYG\",\"Date\":\"17-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"154 BC \",\"Date\":\"17-May-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"FISHERMAN\",\"Date\":\"17-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"17-May-2024\",\"Volume\":750,\"Revenue\":\"19320.00\",\"Quantity\":\"460\"},{\"Name\":\"BYG\",\"Date\":\"20-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"46 OUNCES\",\"Date\":\"20-May-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"18-May-2024\",\"Volume\":750,\"Revenue\":\"13600.00\",\"Quantity\":\"340\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"18-May-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"18-May-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"18-May-2024\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"GCBC \",\"Date\":\"18-May-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"18-May-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-May-2024\",\"Volume\":500,\"Revenue\":\"3288.00\",\"Quantity\":\"274\"},{\"Name\":\"CANDLES \",\"Date\":\"18-May-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-May-2024\",\"Volume\":500,\"Revenue\":\"9504.00\",\"Quantity\":\"792\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"20-May-2024\",\"Volume\":250,\"Revenue\":\"47900.00\",\"Quantity\":\"2395\"},{\"Name\":\"LEELA BC\",\"Date\":\"20-May-2024\",\"Volume\":500,\"Revenue\":\"7344.00\",\"Quantity\":\"612\"},{\"Name\":\"EVOMA\",\"Date\":\"21-May-2024\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"21-May-2024\",\"Volume\":750,\"Revenue\":\"19200.00\",\"Quantity\":\"480\"},{\"Name\":\"ACRE\",\"Date\":\"21-May-2024\",\"Volume\":750,\"Revenue\":\"23400.00\",\"Quantity\":\"600\"},{\"Name\":\"SALLY \",\"Date\":\"21-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"21-May-2024\",\"Volume\":500,\"Revenue\":\"5100.00\",\"Quantity\":\"425\"},{\"Name\":\"URU\",\"Date\":\"21-May-2024\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"22-May-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"ROXIE \",\"Date\":\"22-May-2024\",\"Volume\":750,\"Revenue\":\"37600.00\",\"Quantity\":\"940\"},{\"Name\":\"GEIST\",\"Date\":\"23-May-2024\",\"Volume\":750,\"Revenue\":\"42500.00\",\"Quantity\":\"1000\"},{\"Name\":\"UTK\",\"Date\":\"21-May-2024\",\"Volume\":500,\"Revenue\":\"13640.00\",\"Quantity\":\"440\"},{\"Name\":\"LONG BOAT \",\"Date\":\"22-May-2024\",\"Volume\":750,\"Revenue\":\"36480.00\",\"Quantity\":\"960\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"22-May-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"URVI \",\"Date\":\"23-May-2024\",\"Volume\":1000,\"Revenue\":\"1250.00\",\"Quantity\":\"100\"},{\"Name\":\"154 BC \",\"Date\":\"23-May-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"23-May-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"24-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"24-May-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"ROXIE \",\"Date\":\"24-May-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"24-May-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"260\"},{\"Name\":\"BOBS BAR\",\"Date\":\"25-May-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"25-May-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"25-May-2024\",\"Volume\":750,\"Revenue\":\"22960.00\",\"Quantity\":\"560\"},{\"Name\":\"ROXIE \",\"Date\":\"25-May-2024\",\"Volume\":750,\"Revenue\":\"9600.00\",\"Quantity\":\"240\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"25-May-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"SALLY \",\"Date\":\"25-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-May-2024\",\"Volume\":500,\"Revenue\":\"1224.00\",\"Quantity\":\"204\"},{\"Name\":\"154 BC \",\"Date\":\"27-May-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-May-2024\",\"Volume\":500,\"Revenue\":\"1224.00\",\"Quantity\":\"204\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"27-May-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"27-May-2024\",\"Volume\":750,\"Revenue\":\"37600.00\",\"Quantity\":\"940\"},{\"Name\":\"1625\",\"Date\":\"27-May-2024\",\"Volume\":750,\"Revenue\":\"78105.60\",\"Quantity\":\"1920\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-May-2024\",\"Volume\":500,\"Revenue\":\"534.00\",\"Quantity\":\"89\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-May-2024\",\"Volume\":500,\"Revenue\":\"738.00\",\"Quantity\":\"123\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-May-2024\",\"Volume\":500,\"Revenue\":\"1488.00\",\"Quantity\":\"248\"},{\"Name\":\"URVI \",\"Date\":\"28-May-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"28-May-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"28-May-2024\",\"Volume\":750,\"Revenue\":\"19320.00\",\"Quantity\":\"460\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"28-May-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"29-May-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"29-May-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"29-May-2024\",\"Volume\":750,\"Revenue\":\"15640.00\",\"Quantity\":\"340\"},{\"Name\":\"UTK\",\"Date\":\"29-May-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"MISMATCHED \",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"500\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"13120.00\",\"Quantity\":\"320\"},{\"Name\":\"GCBC \",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"21840.00\",\"Quantity\":\"520\"},{\"Name\":\"BYG\",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"17400.00\",\"Quantity\":\"700\"},{\"Name\":\"FISHERMAN\",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"ROXIE \",\"Date\":\"30-May-2024\",\"Volume\":750,\"Revenue\":\"26400.00\",\"Quantity\":\"660\"},{\"Name\":\"UTK\",\"Date\":\"31-May-2024\",\"Volume\":500,\"Revenue\":\"11780.00\",\"Quantity\":\"380\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-May-2024\",\"Volume\":500,\"Revenue\":\"6486.00\",\"Quantity\":\"1081\"},{\"Name\":\"CANDLES \",\"Date\":\"31-May-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-May-2024\",\"Volume\":500,\"Revenue\":\"9000.00\",\"Quantity\":\"1500\"},{\"Name\":\"TOPIC\",\"Date\":\"31-May-2024\",\"Volume\":750,\"Revenue\":\"50000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Jun-2024\",\"Volume\":500,\"Revenue\":\"3624.00\",\"Quantity\":\"604\"},{\"Name\":\"BYG\",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"240\"},{\"Name\":\"LONG BOAT \",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"18240.00\",\"Quantity\":\"480\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"01-Jun-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"153900.00\",\"Quantity\":\"3420\"},{\"Name\":\"BYG\",\"Date\":\"01-Jun-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"154 BC \",\"Date\":\"03-Jun-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"JUGNI\",\"Date\":\"03-Jun-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"180\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"03-Jun-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"240\"},{\"Name\":\"SALLY \",\"Date\":\"03-Jun-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"03-Jun-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"03-Jun-2024\",\"Volume\":750,\"Revenue\":\"21840.00\",\"Quantity\":\"520\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Jun-2024\",\"Volume\":500,\"Revenue\":\"5760.00\",\"Quantity\":\"960\"},{\"Name\":\"EVOMA\",\"Date\":\"04-Jun-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"04-Jun-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"LEELA BC\",\"Date\":\"04-Jun-2024\",\"Volume\":500,\"Revenue\":\"2808.00\",\"Quantity\":\"468\"},{\"Name\":\"TALES OF FLAMINGO\",\"Date\":\"04-Jun-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"04-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"04-Jun-2024\",\"Volume\":750,\"Revenue\":\"25000.00\",\"Quantity\":\"500\"},{\"Name\":\"ASHIRVAD PIPES \",\"Date\":\"04-Jun-2024\",\"Volume\":250,\"Revenue\":\"2240.00\",\"Quantity\":\"80\"},{\"Name\":\"FISHERMAN\",\"Date\":\"05-Jun-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"05-Jun-2024\",\"Volume\":750,\"Revenue\":\"3360.00\",\"Quantity\":\"80\"},{\"Name\":\"ACRE\",\"Date\":\"05-Jun-2024\",\"Volume\":750,\"Revenue\":\"15600.00\",\"Quantity\":\"400\"},{\"Name\":\"SUAY\",\"Date\":\"05-Jun-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Jun-2024\",\"Volume\":500,\"Revenue\":\"3744.00\",\"Quantity\":\"624\"},{\"Name\":\"GCBC \",\"Date\":\"06-Jun-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"06-Jun-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"URU\",\"Date\":\"06-Jun-2024\",\"Volume\":750,\"Revenue\":\"25800.00\",\"Quantity\":\"600\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"06-Jun-2024\",\"Volume\":500,\"Revenue\":\"15000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Jun-2024\",\"Volume\":500,\"Revenue\":\"3720.00\",\"Quantity\":\"620\"},{\"Name\":\"ASHIRVAD PIPES \",\"Date\":\"06-Jun-2024\",\"Volume\":250,\"Revenue\":\"2240.00\",\"Quantity\":\"80\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Jun-2024\",\"Volume\":500,\"Revenue\":\"6420.00\",\"Quantity\":\"1070\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"08-Jun-2024\",\"Volume\":750,\"Revenue\":\"27600.00\",\"Quantity\":\"600\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"08-Jun-2024\",\"Volume\":500,\"Revenue\":\"7700.00\",\"Quantity\":\"220\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"08-Jun-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"FISHERMAN\",\"Date\":\"08-Jun-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Jun-2024\",\"Volume\":500,\"Revenue\":\"3480.00\",\"Quantity\":\"580\"},{\"Name\":\"BOBS BAR\",\"Date\":\"08-Jun-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"10-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"10-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"EVOMA\",\"Date\":\"10-Jun-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"SALLY \",\"Date\":\"10-Jun-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"10-Jun-2024\",\"Volume\":500,\"Revenue\":\"6048.00\",\"Quantity\":\"1008\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"10-Jun-2024\",\"Volume\":500,\"Revenue\":\"15000.00\",\"Quantity\":\"1500\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"11-Jun-2024\",\"Volume\":750,\"Revenue\":\"32800.00\",\"Quantity\":\"800\"},{\"Name\":\"BYG\",\"Date\":\"11-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"11-Jun-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Jun-2024\",\"Volume\":500,\"Revenue\":\"5568.00\",\"Quantity\":\"928\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Jun-2024\",\"Volume\":500,\"Revenue\":\"3426.00\",\"Quantity\":\"571\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"12-Jun-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"ROXIE \",\"Date\":\"12-Jun-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Jun-2024\",\"Volume\":500,\"Revenue\":\"6696.00\",\"Quantity\":\"1116\"},{\"Name\":\"RECORD ROOM \",\"Date\":\"12-Jun-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Jun-2024\",\"Volume\":500,\"Revenue\":\"6048.00\",\"Quantity\":\"1008\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"13-Jun-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"13-Jun-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"13-Jun-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"13-Jun-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"14-Jun-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"14-Jun-2024\",\"Volume\":500,\"Revenue\":\"15500.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"14-Jun-2024\",\"Volume\":500,\"Revenue\":\"7224.00\",\"Quantity\":\"1204\"},{\"Name\":\"LEELA BC\",\"Date\":\"15-Jun-2024\",\"Volume\":500,\"Revenue\":\"4104.00\",\"Quantity\":\"684\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"15-Jun-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"GARDEN BY SU\",\"Date\":\"17-Jun-2024\",\"Volume\":750,\"Revenue\":\"47856.00\",\"Quantity\":\"997\"},{\"Name\":\"SUSMAFIA\",\"Date\":\"17-Jun-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"320\"},{\"Name\":\"BYG\",\"Date\":\"17-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"LEELA BC\",\"Date\":\"17-Jun-2024\",\"Volume\":500,\"Revenue\":\"3888.00\",\"Quantity\":\"648\"},{\"Name\":\"URU\",\"Date\":\"17-Jun-2024\",\"Volume\":750,\"Revenue\":\"12900.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"16-Jun-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BLR\",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"42000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BLR\",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"42000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BLR\",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"29400.00\",\"Quantity\":\"700\"},{\"Name\":\"BLR\",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"ROXIE \",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"53600.00\",\"Quantity\":\"1340\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"12750.00\",\"Quantity\":\"300\"},{\"Name\":\"FISHERMAN\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"SALLY \",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"22680.00\",\"Quantity\":\"540\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Jun-2024\",\"Volume\":500,\"Revenue\":\"8712.00\",\"Quantity\":\"1452\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"18-Jun-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"BLR\",\"Date\":\"18-Jun-2024\",\"Volume\":750,\"Revenue\":\"36120.00\",\"Quantity\":\"860\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"19-Jun-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"19-Jun-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"BYG\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BOBS BAR\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"19-Jun-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Jun-2024\",\"Volume\":500,\"Revenue\":\"1440.00\",\"Quantity\":\"240\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"20-Jun-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"20-Jun-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"20-Jun-2024\",\"Volume\":750,\"Revenue\":\"27600.00\",\"Quantity\":\"600\"},{\"Name\":\"EVOMA\",\"Date\":\"20-Jun-2024\",\"Volume\":750,\"Revenue\":\"14760.00\",\"Quantity\":\"580\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"20-Jun-2024\",\"Volume\":250,\"Revenue\":\"70000.00\",\"Quantity\":\"3500\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"21-Jun-2024\",\"Volume\":250,\"Revenue\":\"78000.00\",\"Quantity\":\"3900\"},{\"Name\":\"BYG\",\"Date\":\"21-Jun-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"21-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"21-Jun-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"FISHERMAN\",\"Date\":\"21-Jun-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"21-Jun-2024\",\"Volume\":500,\"Revenue\":\"9000.00\",\"Quantity\":\"900\"},{\"Name\":\"BEANLORE\",\"Date\":\"21-Jun-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"22-Jun-2024\",\"Volume\":500,\"Revenue\":\"12400.00\",\"Quantity\":\"400\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"22-Jun-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"240\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"22-Jun-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"22-Jun-2024\",\"Volume\":750,\"Revenue\":\"8200.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"23-Jun-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"23-Jun-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ACRE\",\"Date\":\"25-Jun-2024\",\"Volume\":750,\"Revenue\":\"31200.00\",\"Quantity\":\"800\"},{\"Name\":\"SALLY \",\"Date\":\"25-Jun-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"25-Jun-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"LONG BOAT \",\"Date\":\"25-Jun-2024\",\"Volume\":750,\"Revenue\":\"30400.00\",\"Quantity\":\"800\"},{\"Name\":\"BLR\",\"Date\":\"25-Jun-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"EVOMA\",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"JUGNI\",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"GEIST\",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"42500.00\",\"Quantity\":\"1000\"},{\"Name\":\"46 OUNCES\",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"32000.00\",\"Quantity\":\"800\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"26-Jun-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Jun-2024\",\"Volume\":500,\"Revenue\":\"7230.00\",\"Quantity\":\"1205\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"27-Jun-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"27-Jun-2024\",\"Volume\":750,\"Revenue\":\"3200.00\",\"Quantity\":\"80\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"27-Jun-2024\",\"Volume\":500,\"Revenue\":\"2100.00\",\"Quantity\":\"60\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"27-Jun-2024\",\"Volume\":250,\"Revenue\":\"88060.00\",\"Quantity\":\"4403\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"28-Jun-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"28-Jun-2024\",\"Volume\":250,\"Revenue\":\"10000.00\",\"Quantity\":\"500\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"28-Jun-2024\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"840\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"28-Jun-2024\",\"Volume\":750,\"Revenue\":\"14400.00\",\"Quantity\":\"360\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"29-Jun-2024\",\"Volume\":750,\"Revenue\":\"46510.80\",\"Quantity\":\"980\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"29-Jun-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"29-Jun-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"BYG\",\"Date\":\"29-Jun-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"FISHERMAN\",\"Date\":\"29-Jun-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"29-Jun-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"01-Jul-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"01-Jul-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"UTK\",\"Date\":\"01-Jul-2024\",\"Volume\":500,\"Revenue\":\"15500.00\",\"Quantity\":\"500\"},{\"Name\":\"URU\",\"Date\":\"01-Jul-2024\",\"Volume\":750,\"Revenue\":\"34400.00\",\"Quantity\":\"800\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"02-Jul-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"02-Jul-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"02-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"SALLY \",\"Date\":\"02-Jul-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"02-Jul-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"02-Jul-2024\",\"Volume\":250,\"Revenue\":\"100320.00\",\"Quantity\":\"5016\"},{\"Name\":\"BYG\",\"Date\":\"03-Jul-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"03-Jul-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"03-Jul-2024\",\"Volume\":500,\"Revenue\":\"9800.00\",\"Quantity\":\"980\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"03-Jul-2024\",\"Volume\":500,\"Revenue\":\"5346.00\",\"Quantity\":\"486\"},{\"Name\":\"GCBC \",\"Date\":\"04-Jul-2024\",\"Volume\":750,\"Revenue\":\"14280.00\",\"Quantity\":\"340\"},{\"Name\":\"FISHERMAN\",\"Date\":\"04-Jul-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BOBS BAR\",\"Date\":\"04-Jul-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"04-Jul-2024\",\"Volume\":750,\"Revenue\":\"13440.00\",\"Quantity\":\"320\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"04-Jul-2024\",\"Volume\":250,\"Revenue\":\"78720.00\",\"Quantity\":\"3936\"},{\"Name\":\"ROXIE \",\"Date\":\"04-Jul-2024\",\"Volume\":750,\"Revenue\":\"32800.00\",\"Quantity\":\"820\"},{\"Name\":\"GEIST\",\"Date\":\"06-Jul-2024\",\"Volume\":750,\"Revenue\":\"24650.00\",\"Quantity\":\"580\"},{\"Name\":\"BLR\",\"Date\":\"05-Jul-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"05-Jul-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Jul-2024\",\"Volume\":500,\"Revenue\":\"1164.00\",\"Quantity\":\"194\"},{\"Name\":\"SALLY \",\"Date\":\"05-Jul-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"05-Jul-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"BYG\",\"Date\":\"05-Jul-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"06-Jul-2024\",\"Volume\":750,\"Revenue\":\"10080.00\",\"Quantity\":\"280\"},{\"Name\":\"BYG\",\"Date\":\"06-Jul-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"05-Jul-2024\",\"Volume\":250,\"Revenue\":\"48960.00\",\"Quantity\":\"2448\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"05-Jul-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"06-Jul-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"06-Jul-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"06-Jul-2024\",\"Volume\":750,\"Revenue\":\"3360.00\",\"Quantity\":\"80\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Jul-2024\",\"Volume\":500,\"Revenue\":\"5616.00\",\"Quantity\":\"936\"},{\"Name\":\"BYG\",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"14440.00\",\"Quantity\":\"380\"},{\"Name\":\"EVOMA\",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"9680.00\",\"Quantity\":\"440\"},{\"Name\":\"EVOMA\",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"GCBC \",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"08-Jul-2024\",\"Volume\":750,\"Revenue\":\"23560.00\",\"Quantity\":\"620\"},{\"Name\":\"LEELA BC\",\"Date\":\"09-Jul-2024\",\"Volume\":500,\"Revenue\":\"852.00\",\"Quantity\":\"142\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"09-Jul-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"09-Jul-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BOBS BAR\",\"Date\":\"09-Jul-2024\",\"Volume\":750,\"Revenue\":\"9120.00\",\"Quantity\":\"240\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"09-Jul-2024\",\"Volume\":250,\"Revenue\":\"83040.00\",\"Quantity\":\"4152\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"10-Jul-2024\",\"Volume\":500,\"Revenue\":\"9800.00\",\"Quantity\":\"980\"},{\"Name\":\"BYG\",\"Date\":\"10-Jul-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"10-Jul-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"10-Jul-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"BLR\",\"Date\":\"11-Jul-2024\",\"Volume\":750,\"Revenue\":\"26040.00\",\"Quantity\":\"620\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"11-Jul-2024\",\"Volume\":750,\"Revenue\":\"12750.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"11-Jul-2024\",\"Volume\":750,\"Revenue\":\"26600.00\",\"Quantity\":\"700\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"11-Jul-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"11-Jul-2024\",\"Volume\":500,\"Revenue\":\"14880.00\",\"Quantity\":\"480\"},{\"Name\":\"LEELA BC\",\"Date\":\"11-Jul-2024\",\"Volume\":500,\"Revenue\":\"1410.00\",\"Quantity\":\"235\"},{\"Name\":\"154 BC \",\"Date\":\"12-Jul-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"SALLY \",\"Date\":\"12-Jul-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"12-Jul-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"12-Jul-2024\",\"Volume\":500,\"Revenue\":\"4296.00\",\"Quantity\":\"716\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"12-Jul-2024\",\"Volume\":750,\"Revenue\":\"78864.00\",\"Quantity\":\"1860\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"13-Jul-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"13-Jul-2024\",\"Volume\":500,\"Revenue\":\"8400.00\",\"Quantity\":\"280\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"13-Jul-2024\",\"Volume\":500,\"Revenue\":\"2800.00\",\"Quantity\":\"80\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"13-Jul-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"13-Jul-2024\",\"Volume\":250,\"Revenue\":\"62400.00\",\"Quantity\":\"3120\"},{\"Name\":\"GEIST\",\"Date\":\"13-Jul-2024\",\"Volume\":750,\"Revenue\":\"17000.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"13-Jul-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"EVOMA\",\"Date\":\"13-Jul-2024\",\"Volume\":750,\"Revenue\":\"4400.00\",\"Quantity\":\"200\"},{\"Name\":\"URVI \",\"Date\":\"13-Jul-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"15-Jul-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"15-Jul-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"JUGNI\",\"Date\":\"15-Jul-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ACRE\",\"Date\":\"15-Jul-2024\",\"Volume\":750,\"Revenue\":\"19500.00\",\"Quantity\":\"500\"},{\"Name\":\"TOPIC\",\"Date\":\"15-Jul-2024\",\"Volume\":750,\"Revenue\":\"25000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"16-Jul-2024\",\"Volume\":250,\"Revenue\":\"45600.00\",\"Quantity\":\"2280\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"16-Jul-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"16-Jul-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"EVOMA\",\"Date\":\"16-Jul-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"600\"},{\"Name\":\"FISHERMAN\",\"Date\":\"17-Jul-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"17-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"17-Jul-2024\",\"Volume\":250,\"Revenue\":\"31680.00\",\"Quantity\":\"1584\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"17-Jul-2024\",\"Volume\":500,\"Revenue\":\"10000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BLR\",\"Date\":\"18-Jul-2024\",\"Volume\":750,\"Revenue\":\"20160.00\",\"Quantity\":\"480\"},{\"Name\":\"BYG\",\"Date\":\"18-Jul-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"18-Jul-2024\",\"Volume\":250,\"Revenue\":\"66240.00\",\"Quantity\":\"3312\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"18-Jul-2024\",\"Volume\":500,\"Revenue\":\"4200.00\",\"Quantity\":\"120\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"18-Jul-2024\",\"Volume\":750,\"Revenue\":\"9200.00\",\"Quantity\":\"200\"},{\"Name\":\"LEELA BC\",\"Date\":\"18-Jul-2024\",\"Volume\":500,\"Revenue\":\"1560.00\",\"Quantity\":\"260\"},{\"Name\":\"BOBS BAR\",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"6080.00\",\"Quantity\":\"160\"},{\"Name\":\"BYG\",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"25536.00\",\"Quantity\":\"672\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Jul-2024\",\"Volume\":500,\"Revenue\":\"1800.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"22-Jul-2024\",\"Volume\":500,\"Revenue\":\"3888.00\",\"Quantity\":\"648\"},{\"Name\":\"LEELA BC\",\"Date\":\"19-Jul-2024\",\"Volume\":500,\"Revenue\":\"6264.00\",\"Quantity\":\"1044\"},{\"Name\":\"TIPSYBULL \",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"37600.00\",\"Quantity\":\"940\"},{\"Name\":\"GCBC \",\"Date\":\"22-Jul-2024\",\"Volume\":750,\"Revenue\":\"5040.00\",\"Quantity\":\"120\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"154 BC \",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"6480.00\",\"Quantity\":\"180\"},{\"Name\":\"SALLY \",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"19-Jul-2024\",\"Volume\":750,\"Revenue\":\"9120.00\",\"Quantity\":\"240\"},{\"Name\":\"SARTORIUS STEDIM\",\"Date\":\"20-Jul-2024\",\"Volume\":500,\"Revenue\":\"1275.00\",\"Quantity\":\"30\"},{\"Name\":\"BACKSTREET BREWERY\",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"42714.00\",\"Quantity\":\"900\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"20-Jul-2024\",\"Volume\":500,\"Revenue\":\"10080.00\",\"Quantity\":\"1008\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"11480.00\",\"Quantity\":\"280\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"300\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"20-Jul-2024\",\"Volume\":250,\"Revenue\":\"46560.00\",\"Quantity\":\"2328\"},{\"Name\":\"BLR\",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"UTK\",\"Date\":\"20-Jul-2024\",\"Volume\":500,\"Revenue\":\"13640.00\",\"Quantity\":\"440\"},{\"Name\":\"URU\",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"22-Jul-2024\",\"Volume\":250,\"Revenue\":\"41760.00\",\"Quantity\":\"2088\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"22-Jul-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"22-Jul-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"154 BC \",\"Date\":\"22-Jul-2024\",\"Volume\":750,\"Revenue\":\"6480.00\",\"Quantity\":\"180\"},{\"Name\":\"LEELA BC\",\"Date\":\"20-Jul-2024\",\"Volume\":500,\"Revenue\":\"4344.00\",\"Quantity\":\"724\"},{\"Name\":\"BYG\",\"Date\":\"20-Jul-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"23-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"23-Jul-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"23-Jul-2024\",\"Volume\":750,\"Revenue\":\"18000.00\",\"Quantity\":\"360\"},{\"Name\":\"EVOMA\",\"Date\":\"23-Jul-2024\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"23-Jul-2024\",\"Volume\":250,\"Revenue\":\"16320.00\",\"Quantity\":\"816\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Jul-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"504\"},{\"Name\":\"LEELA BC\",\"Date\":\"23-Jul-2024\",\"Volume\":500,\"Revenue\":\"5028.00\",\"Quantity\":\"838\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"23-Jul-2024\",\"Volume\":250,\"Revenue\":\"30240.00\",\"Quantity\":\"1512\"},{\"Name\":\"LONG BOAT \",\"Date\":\"24-Jul-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"GEIST\",\"Date\":\"24-Jul-2024\",\"Volume\":750,\"Revenue\":\"35700.00\",\"Quantity\":\"840\"},{\"Name\":\"LEELA BC\",\"Date\":\"24-Jul-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"504\"},{\"Name\":\"BLR\",\"Date\":\"24-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BEANLORE\",\"Date\":\"24-Jul-2024\",\"Volume\":750,\"Revenue\":\"1680.00\",\"Quantity\":\"40\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"24-Jul-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"BYG\",\"Date\":\"25-Jul-2024\",\"Volume\":750,\"Revenue\":\"30400.00\",\"Quantity\":\"800\"},{\"Name\":\"BLR\",\"Date\":\"25-Jul-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"SALLY \",\"Date\":\"25-Jul-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"BOBS BAR\",\"Date\":\"25-Jul-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"URVI \",\"Date\":\"25-Jul-2024\",\"Volume\":1000,\"Revenue\":\"2250.00\",\"Quantity\":\"180\"},{\"Name\":\"LEELA BC\",\"Date\":\"25-Jul-2024\",\"Volume\":500,\"Revenue\":\"1194.00\",\"Quantity\":\"199\"},{\"Name\":\"ROXIE \",\"Date\":\"25-Jul-2024\",\"Volume\":750,\"Revenue\":\"30400.00\",\"Quantity\":\"760\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"26-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"26-Jul-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"GCBC \",\"Date\":\"26-Jul-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"26-Jul-2024\",\"Volume\":250,\"Revenue\":\"24000.00\",\"Quantity\":\"1200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"26-Jul-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"26-Jul-2024\",\"Volume\":500,\"Revenue\":\"7044.00\",\"Quantity\":\"1174\"},{\"Name\":\"GEIST\",\"Date\":\"29-Jul-2024\",\"Volume\":750,\"Revenue\":\"12750.00\",\"Quantity\":\"300\"},{\"Name\":\"LEELA BC\",\"Date\":\"29-Jul-2024\",\"Volume\":500,\"Revenue\":\"7386.00\",\"Quantity\":\"1231\"},{\"Name\":\"BYG\",\"Date\":\"27-Jul-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Jul-2024\",\"Volume\":500,\"Revenue\":\"4674.00\",\"Quantity\":\"779\"},{\"Name\":\"BLR\",\"Date\":\"27-Jul-2024\",\"Volume\":750,\"Revenue\":\"11760.00\",\"Quantity\":\"280\"},{\"Name\":\"BYG\",\"Date\":\"27-Jul-2024\",\"Volume\":750,\"Revenue\":\"35112.00\",\"Quantity\":\"924\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"27-Jul-2024\",\"Volume\":250,\"Revenue\":\"60000.00\",\"Quantity\":\"3000\"},{\"Name\":\"LEELA BC\",\"Date\":\"27-Jul-2024\",\"Volume\":500,\"Revenue\":\"3018.00\",\"Quantity\":\"503\"},{\"Name\":\"EVOMA\",\"Date\":\"27-Jul-2024\",\"Volume\":750,\"Revenue\":\"4400.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"29-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"30-Jul-2024\",\"Volume\":250,\"Revenue\":\"39360.00\",\"Quantity\":\"1968\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"EVOMA\",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"11000.00\",\"Quantity\":\"500\"},{\"Name\":\"LEELA BC\",\"Date\":\"30-Jul-2024\",\"Volume\":500,\"Revenue\":\"4008.00\",\"Quantity\":\"668\"},{\"Name\":\"UTK\",\"Date\":\"30-Jul-2024\",\"Volume\":500,\"Revenue\":\"11780.00\",\"Quantity\":\"380\"},{\"Name\":\"ROXIE \",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"26400.00\",\"Quantity\":\"660\"},{\"Name\":\"FISHERMAN\",\"Date\":\"31-Jul-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"31-Jul-2024\",\"Volume\":250,\"Revenue\":\"48000.00\",\"Quantity\":\"2400\"},{\"Name\":\"LEELA BC\",\"Date\":\"31-Jul-2024\",\"Volume\":500,\"Revenue\":\"2286.00\",\"Quantity\":\"381\"},{\"Name\":\"URVI \",\"Date\":\"31-Jul-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"31-Jul-2024\",\"Volume\":250,\"Revenue\":\"31680.00\",\"Quantity\":\"1584\"},{\"Name\":\"OTERRA \",\"Date\":\"30-Jul-2024\",\"Volume\":750,\"Revenue\":\"27600.00\",\"Quantity\":\"690\"},{\"Name\":\"OTERRA \",\"Date\":\"30-Jul-2024\",\"Volume\":500,\"Revenue\":\"14620.00\",\"Quantity\":\"430\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"31-Jul-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"31-Jul-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"240\"},{\"Name\":\"ACRE\",\"Date\":\"31-Jul-2024\",\"Volume\":750,\"Revenue\":\"18720.00\",\"Quantity\":\"480\"},{\"Name\":\"TIPSYBULL \",\"Date\":\"31-Jul-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BOBS BAR\",\"Date\":\"31-Jul-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"01-Aug-2024\",\"Volume\":250,\"Revenue\":\"35040.00\",\"Quantity\":\"1752\"},{\"Name\":\"LEELA BC\",\"Date\":\"01-Aug-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"504\"},{\"Name\":\"LUNA \",\"Date\":\"01-Aug-2024\",\"Volume\":750,\"Revenue\":\"166000.00\",\"Quantity\":\"3320\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"15960.00\",\"Quantity\":\"420\"},{\"Name\":\"LEELA BC\",\"Date\":\"02-Aug-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"504\"},{\"Name\":\"URU\",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"12900.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"ROXIE \",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"02-Aug-2024\",\"Volume\":250,\"Revenue\":\"62880.00\",\"Quantity\":\"3144\"},{\"Name\":\"154 BC \",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"8640.00\",\"Quantity\":\"240\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"02-Aug-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"220\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"02-Aug-2024\",\"Volume\":500,\"Revenue\":\"3500.00\",\"Quantity\":\"100\"},{\"Name\":\"TALES OF FLAMINGO\",\"Date\":\"03-Aug-2024\",\"Volume\":750,\"Revenue\":\"11700.00\",\"Quantity\":\"300\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"03-Aug-2024\",\"Volume\":250,\"Revenue\":\"41280.00\",\"Quantity\":\"2064\"},{\"Name\":\"TIPSYBULL \",\"Date\":\"03-Aug-2024\",\"Volume\":500,\"Revenue\":\"29700.00\",\"Quantity\":\"900\"},{\"Name\":\"SALLY \",\"Date\":\"03-Aug-2024\",\"Volume\":750,\"Revenue\":\"4800.00\",\"Quantity\":\"120\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"03-Aug-2024\",\"Volume\":750,\"Revenue\":\"4400.00\",\"Quantity\":\"100\"},{\"Name\":\"GCBC \",\"Date\":\"03-Aug-2024\",\"Volume\":750,\"Revenue\":\"4200.00\",\"Quantity\":\"100\"},{\"Name\":\"LEELA BC\",\"Date\":\"03-Aug-2024\",\"Volume\":500,\"Revenue\":\"3000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"03-Aug-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"03-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"154 BC \",\"Date\":\"04-Aug-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"LEELA BC\",\"Date\":\"05-Aug-2024\",\"Volume\":500,\"Revenue\":\"6246.00\",\"Quantity\":\"1041\"},{\"Name\":\"BYG\",\"Date\":\"05-Aug-2024\",\"Volume\":750,\"Revenue\":\"21280.00\",\"Quantity\":\"560\"},{\"Name\":\"GEIST\",\"Date\":\"05-Aug-2024\",\"Volume\":750,\"Revenue\":\"26350.00\",\"Quantity\":\"620\"},{\"Name\":\"BLR\",\"Date\":\"05-Aug-2024\",\"Volume\":750,\"Revenue\":\"5880.00\",\"Quantity\":\"140\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"05-Aug-2024\",\"Volume\":500,\"Revenue\":\"12000.00\",\"Quantity\":\"1200\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"05-Aug-2024\",\"Volume\":250,\"Revenue\":\"41760.00\",\"Quantity\":\"2088\"},{\"Name\":\"JUGNI\",\"Date\":\"04-Aug-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"04-Aug-2024\",\"Volume\":750,\"Revenue\":\"6800.00\",\"Quantity\":\"160\"},{\"Name\":\"154 BC \",\"Date\":\"05-Aug-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"06-Aug-2024\",\"Volume\":750,\"Revenue\":\"31000.00\",\"Quantity\":\"620\"},{\"Name\":\"ROXIE \",\"Date\":\"06-Aug-2024\",\"Volume\":750,\"Revenue\":\"14400.00\",\"Quantity\":\"360\"},{\"Name\":\"BLR\",\"Date\":\"06-Aug-2024\",\"Volume\":750,\"Revenue\":\"26040.00\",\"Quantity\":\"620\"},{\"Name\":\"EVOMA\",\"Date\":\"06-Aug-2024\",\"Volume\":750,\"Revenue\":\"6160.00\",\"Quantity\":\"280\"},{\"Name\":\"LEELA BC\",\"Date\":\"06-Aug-2024\",\"Volume\":500,\"Revenue\":\"5184.00\",\"Quantity\":\"864\"},{\"Name\":\"BYG\",\"Date\":\"06-Aug-2024\",\"Volume\":750,\"Revenue\":\"16416.00\",\"Quantity\":\"432\"},{\"Name\":\"OTERRA \",\"Date\":\"07-Aug-2024\",\"Volume\":250,\"Revenue\":\"11664.00\",\"Quantity\":\"432\"},{\"Name\":\"SALLY \",\"Date\":\"07-Aug-2024\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"BLR\",\"Date\":\"07-Aug-2024\",\"Volume\":750,\"Revenue\":\"10920.00\",\"Quantity\":\"260\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"07-Aug-2024\",\"Volume\":250,\"Revenue\":\"41760.00\",\"Quantity\":\"2088\"},{\"Name\":\"LEELA BC\",\"Date\":\"07-Aug-2024\",\"Volume\":500,\"Revenue\":\"3024.00\",\"Quantity\":\"504\"},{\"Name\":\"UTK\",\"Date\":\"08-Aug-2024\",\"Volume\":500,\"Revenue\":\"18600.00\",\"Quantity\":\"600\"},{\"Name\":\"BLR\",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"15120.00\",\"Quantity\":\"360\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"22040.00\",\"Quantity\":\"580\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"11200.00\",\"Quantity\":\"280\"},{\"Name\":\"LEELA BC\",\"Date\":\"08-Aug-2024\",\"Volume\":500,\"Revenue\":\"3192.00\",\"Quantity\":\"532\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"14720.00\",\"Quantity\":\"320\"},{\"Name\":\"EVOMA\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"7480.00\",\"Quantity\":\"340\"},{\"Name\":\"JUGNI\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"4000.00\",\"Quantity\":\"100\"},{\"Name\":\"URVI \",\"Date\":\"09-Aug-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"11890.00\",\"Quantity\":\"290\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"08-Aug-2024\",\"Volume\":500,\"Revenue\":\"3500.00\",\"Quantity\":\"100\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"10400.00\",\"Quantity\":\"260\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"08-Aug-2024\",\"Volume\":750,\"Revenue\":\"15187.20\",\"Quantity\":\"320\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"6800.00\",\"Quantity\":\"160\"},{\"Name\":\"BYG\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"21432.00\",\"Quantity\":\"564\"},{\"Name\":\"BYG\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"16720.00\",\"Quantity\":\"440\"},{\"Name\":\"GCBC \",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"10920.00\",\"Quantity\":\"260\"},{\"Name\":\"BLR\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"URU\",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"12900.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"09-Aug-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"10-Aug-2024\",\"Volume\":250,\"Revenue\":\"39360.00\",\"Quantity\":\"1968\"},{\"Name\":\"BLR\",\"Date\":\"10-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"FISHERMAN\",\"Date\":\"10-Aug-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"10-Aug-2024\",\"Volume\":500,\"Revenue\":\"9120.00\",\"Quantity\":\"912\"},{\"Name\":\"GEIST\",\"Date\":\"10-Aug-2024\",\"Volume\":750,\"Revenue\":\"17000.00\",\"Quantity\":\"400\"},{\"Name\":\"OTERRA \",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"160.00\",\"Quantity\":\"4\"},{\"Name\":\"OTERRA \",\"Date\":\"12-Aug-2024\",\"Volume\":500,\"Revenue\":\"272.00\",\"Quantity\":\"8\"},{\"Name\":\"OTERRA \",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"200.00\",\"Quantity\":\"5\"},{\"Name\":\"154 BC \",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"6480.00\",\"Quantity\":\"180\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"LONG BOAT \",\"Date\":\"11-Aug-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"11-Aug-2024\",\"Volume\":750,\"Revenue\":\"6840.00\",\"Quantity\":\"180\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"11-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"11-Aug-2024\",\"Volume\":750,\"Revenue\":\"10944.00\",\"Quantity\":\"288\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"GO NATIVE\",\"Date\":\"12-Aug-2024\",\"Volume\":750,\"Revenue\":\"47940.00\",\"Quantity\":\"940\"},{\"Name\":\"EVOMA\",\"Date\":\"13-Aug-2024\",\"Volume\":750,\"Revenue\":\"2640.00\",\"Quantity\":\"120\"},{\"Name\":\"ROXIE \",\"Date\":\"13-Aug-2024\",\"Volume\":750,\"Revenue\":\"14400.00\",\"Quantity\":\"360\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"13-Aug-2024\",\"Volume\":750,\"Revenue\":\"23730.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"13-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BOBS BAR\",\"Date\":\"13-Aug-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"14-Aug-2024\",\"Volume\":750,\"Revenue\":\"86940.00\",\"Quantity\":\"1932\"},{\"Name\":\"BYG\",\"Date\":\"14-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"13-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"GEIST\",\"Date\":\"14-Aug-2024\",\"Volume\":750,\"Revenue\":\"18700.00\",\"Quantity\":\"440\"},{\"Name\":\"BLR\",\"Date\":\"14-Aug-2024\",\"Volume\":750,\"Revenue\":\"20160.00\",\"Quantity\":\"480\"},{\"Name\":\"FISHERMAN\",\"Date\":\"14-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"14-Aug-2024\",\"Volume\":500,\"Revenue\":\"10080.00\",\"Quantity\":\"1008\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"15-Aug-2024\",\"Volume\":750,\"Revenue\":\"39360.00\",\"Quantity\":\"960\"},{\"Name\":\"EVOMA\",\"Date\":\"15-Aug-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"15-Aug-2024\",\"Volume\":750,\"Revenue\":\"11040.00\",\"Quantity\":\"240\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"15-Aug-2024\",\"Volume\":500,\"Revenue\":\"8560.00\",\"Quantity\":\"856\"},{\"Name\":\"154 BC \",\"Date\":\"15-Aug-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"BLR\",\"Date\":\"15-Aug-2024\",\"Volume\":750,\"Revenue\":\"20160.00\",\"Quantity\":\"480\"},{\"Name\":\"SALLY \",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"GEIST\",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"20400.00\",\"Quantity\":\"480\"},{\"Name\":\"URU\",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"14620.00\",\"Quantity\":\"340\"},{\"Name\":\"LONG BOAT \",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"GCBC \",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"38304.00\",\"Quantity\":\"1008\"},{\"Name\":\"ROXIE \",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"21600.00\",\"Quantity\":\"540\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"16-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"11024.00\",\"Quantity\":\"260\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"17-Aug-2024\",\"Volume\":500,\"Revenue\":\"6300.00\",\"Quantity\":\"180\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"JUGNI\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"180\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"4500.00\",\"Quantity\":\"100\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"6300.00\",\"Quantity\":\"140\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"13440.00\",\"Quantity\":\"320\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"39856.00\",\"Quantity\":\"940\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"BLR\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"29400.00\",\"Quantity\":\"700\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"20500.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"FISHERMAN\",\"Date\":\"17-Aug-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"19-Aug-2024\",\"Volume\":500,\"Revenue\":\"16740.00\",\"Quantity\":\"540\"},{\"Name\":\"FISHERMAN\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"ACRE\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"19500.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"20500.00\",\"Quantity\":\"500\"},{\"Name\":\"BLR\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"20160.00\",\"Quantity\":\"480\"},{\"Name\":\"BEANLORE\",\"Date\":\"19-Aug-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"46 OUNCES\",\"Date\":\"20-Aug-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"440\"},{\"Name\":\"BYG\",\"Date\":\"20-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"20-Aug-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"SALLY \",\"Date\":\"20-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"URVI \",\"Date\":\"20-Aug-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"21-Aug-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"21-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"21-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"THE LEELA PALACE \",\"Date\":\"21-Aug-2024\",\"Volume\":250,\"Revenue\":\"24000.00\",\"Quantity\":\"1200\"},{\"Name\":\"GEIST\",\"Date\":\"21-Aug-2024\",\"Volume\":750,\"Revenue\":\"21250.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"21-Aug-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"400\"},{\"Name\":\"BLR\",\"Date\":\"21-Aug-2024\",\"Volume\":750,\"Revenue\":\"15960.00\",\"Quantity\":\"380\"},{\"Name\":\"ROXIE \",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"30400.00\",\"Quantity\":\"760\"},{\"Name\":\"BOBS BAR\",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"BOBS BAR\",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"15960.00\",\"Quantity\":\"380\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"400\"},{\"Name\":\"BOBS BAR\",\"Date\":\"22-Aug-2024\",\"Volume\":750,\"Revenue\":\"9880.00\",\"Quantity\":\"260\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"23-Aug-2024\",\"Volume\":750,\"Revenue\":\"28520.00\",\"Quantity\":\"620\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"23-Aug-2024\",\"Volume\":500,\"Revenue\":\"6300.00\",\"Quantity\":\"180\"},{\"Name\":\"SALLY \",\"Date\":\"23-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"GCBC \",\"Date\":\"23-Aug-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"23-Aug-2024\",\"Volume\":750,\"Revenue\":\"4920.00\",\"Quantity\":\"120\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"23-Aug-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"AURUM \",\"Date\":\"23-Aug-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"LONG BOAT \",\"Date\":\"24-Aug-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"GARDEN BY SU\",\"Date\":\"24-Aug-2024\",\"Volume\":750,\"Revenue\":\"18240.00\",\"Quantity\":\"380\"},{\"Name\":\"EVOMA\",\"Date\":\"24-Aug-2024\",\"Volume\":750,\"Revenue\":\"5720.00\",\"Quantity\":\"260\"},{\"Name\":\"BYG\",\"Date\":\"24-Aug-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"24-Aug-2024\",\"Volume\":500,\"Revenue\":\"7560.00\",\"Quantity\":\"756\"},{\"Name\":\"GEIST\",\"Date\":\"24-Aug-2024\",\"Volume\":750,\"Revenue\":\"14450.00\",\"Quantity\":\"340\"},{\"Name\":\"BLR\",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"GCBC \",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"7560.00\",\"Quantity\":\"180\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"26-Aug-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"UTK\",\"Date\":\"28-Aug-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"EVOMA\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"8600.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"28-Aug-2024\",\"Volume\":500,\"Revenue\":\"6300.00\",\"Quantity\":\"180\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"28-Aug-2024\",\"Volume\":500,\"Revenue\":\"10000.00\",\"Quantity\":\"1000\"},{\"Name\":\"GEIST\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"22100.00\",\"Quantity\":\"520\"},{\"Name\":\"UTK\",\"Date\":\"27-Aug-2024\",\"Volume\":500,\"Revenue\":\"10540.00\",\"Quantity\":\"340\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"SUAY\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"TAIKI\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"11280.00\",\"Quantity\":\"240\"},{\"Name\":\"TAIKI\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"SOCIETE RANGOON\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"11280.00\",\"Quantity\":\"240\"},{\"Name\":\"SOCIETE RANGOON\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"KOSH \",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"48960.00\",\"Quantity\":\"960\"},{\"Name\":\"IDYLLL\",\"Date\":\"28-Aug-2024\",\"Volume\":750,\"Revenue\":\"66150.00\",\"Quantity\":\"1500\"},{\"Name\":\"BYG\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"14720.00\",\"Quantity\":\"320\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"27-Aug-2024\",\"Volume\":750,\"Revenue\":\"14416.00\",\"Quantity\":\"340\"},{\"Name\":\"SALLY \",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"BOBS BAR\",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"ROXIE \",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"27200.00\",\"Quantity\":\"680\"},{\"Name\":\"GARDEN BY SU\",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"18240.00\",\"Quantity\":\"380\"},{\"Name\":\"KAKE DI HATTI \",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"98400.00\",\"Quantity\":\"2000\"},{\"Name\":\"AURUM \",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"70500.00\",\"Quantity\":\"1500\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"29-Aug-2024\",\"Volume\":750,\"Revenue\":\"42400.00\",\"Quantity\":\"1000\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"30-Aug-2024\",\"Volume\":750,\"Revenue\":\"14000.00\",\"Quantity\":\"350\"},{\"Name\":\"BYG\",\"Date\":\"30-Aug-2024\",\"Volume\":750,\"Revenue\":\"38304.00\",\"Quantity\":\"1008\"},{\"Name\":\"FISHERMAN\",\"Date\":\"30-Aug-2024\",\"Volume\":750,\"Revenue\":\"12800.00\",\"Quantity\":\"320\"},{\"Name\":\"GARDEN BY SU\",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"17280.00\",\"Quantity\":\"360\"},{\"Name\":\"Suruchi Properties Pvt Ltd\",\"Date\":\"30-Aug-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"1625\",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"81360.00\",\"Quantity\":\"2000\"},{\"Name\":\"Chin Lung \",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"BLR\",\"Date\":\"30-Aug-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"30-Aug-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"ACRE\",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"18720.00\",\"Quantity\":\"480\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"200\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"GCBC \",\"Date\":\"31-Aug-2024\",\"Volume\":750,\"Revenue\":\"31920.00\",\"Quantity\":\"760\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"02-Sep-2024\",\"Volume\":750,\"Revenue\":\"15960.00\",\"Quantity\":\"380\"},{\"Name\":\"BOBS BAR\",\"Date\":\"02-Sep-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"03-Sep-2024\",\"Volume\":750,\"Revenue\":\"14238.00\",\"Quantity\":\"300\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"03-Sep-2024\",\"Volume\":750,\"Revenue\":\"12750.00\",\"Quantity\":\"300\"},{\"Name\":\"URU\",\"Date\":\"03-Sep-2024\",\"Volume\":750,\"Revenue\":\"25800.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"03-Sep-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BYG\",\"Date\":\"03-Sep-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"EVOMA\",\"Date\":\"03-Sep-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"400\"},{\"Name\":\"URVI \",\"Date\":\"03-Sep-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"04-Sep-2024\",\"Volume\":750,\"Revenue\":\"45600.00\",\"Quantity\":\"1200\"},{\"Name\":\"JUGNI\",\"Date\":\"04-Sep-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"GEIST\",\"Date\":\"04-Sep-2024\",\"Volume\":750,\"Revenue\":\"26350.00\",\"Quantity\":\"620\"},{\"Name\":\"ROXIE \",\"Date\":\"04-Sep-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"05-Sep-2024\",\"Volume\":750,\"Revenue\":\"6300.00\",\"Quantity\":\"150\"},{\"Name\":\"154 BC \",\"Date\":\"05-Sep-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"154 BC \",\"Date\":\"05-Sep-2024\",\"Volume\":750,\"Revenue\":\"8640.00\",\"Quantity\":\"240\"},{\"Name\":\"BLR\",\"Date\":\"05-Sep-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"05-Sep-2024\",\"Volume\":750,\"Revenue\":\"33222.00\",\"Quantity\":\"700\"},{\"Name\":\"ROXIE \",\"Date\":\"05-Sep-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"06-Sep-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"600\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"06-Sep-2024\",\"Volume\":750,\"Revenue\":\"21320.00\",\"Quantity\":\"520\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"06-Sep-2024\",\"Volume\":750,\"Revenue\":\"42300.00\",\"Quantity\":\"940\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"06-Sep-2024\",\"Volume\":750,\"Revenue\":\"31000.00\",\"Quantity\":\"620\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"06-Sep-2024\",\"Volume\":500,\"Revenue\":\"7000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"07-Sep-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"440\"},{\"Name\":\"BYG\",\"Date\":\"07-Sep-2024\",\"Volume\":750,\"Revenue\":\"41952.00\",\"Quantity\":\"1104\"},{\"Name\":\"154 BC \",\"Date\":\"07-Sep-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"07-Sep-2024\",\"Volume\":750,\"Revenue\":\"4920.00\",\"Quantity\":\"120\"},{\"Name\":\"BOBS BAR\",\"Date\":\"07-Sep-2024\",\"Volume\":750,\"Revenue\":\"3800.00\",\"Quantity\":\"100\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"07-Sep-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"09-Sep-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"URVI \",\"Date\":\"09-Sep-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"ROXIE \",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"30000.00\",\"Quantity\":\"750\"},{\"Name\":\"WHITE GARDEN \",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"17600.00\",\"Quantity\":\"400\"},{\"Name\":\"BEANLORE\",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"UTK\",\"Date\":\"10-Sep-2024\",\"Volume\":500,\"Revenue\":\"18600.00\",\"Quantity\":\"600\"},{\"Name\":\"BLR\",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"BOBS BAR\",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"10-Sep-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"The Reservoire\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"26460.00\",\"Quantity\":\"600\"},{\"Name\":\"The Reservoire\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"37926.00\",\"Quantity\":\"860\"},{\"Name\":\"The Reservoire\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"0.00\",\"Quantity\":\"0\"},{\"Name\":\"WATSON'S\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"41454.00\",\"Quantity\":\"940\"},{\"Name\":\"22 Catering Co\",\"Date\":\"11-Sep-2024\",\"Volume\":250,\"Revenue\":\"14850.00\",\"Quantity\":\"500\"},{\"Name\":\"BOBS BAR\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"45000.00\",\"Quantity\":\"1000\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"11-Sep-2024\",\"Volume\":750,\"Revenue\":\"20500.00\",\"Quantity\":\"500\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"16112.00\",\"Quantity\":\"380\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"SALLY \",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"16112.00\",\"Quantity\":\"380\"},{\"Name\":\"BLR\",\"Date\":\"12-Sep-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"12-Sep-2024\",\"Volume\":250,\"Revenue\":\"24192.00\",\"Quantity\":\"1008\"},{\"Name\":\"ROXIE \",\"Date\":\"13-Sep-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"13-Sep-2024\",\"Volume\":500,\"Revenue\":\"10000.00\",\"Quantity\":\"1000\"},{\"Name\":\"GEIST\",\"Date\":\"13-Sep-2024\",\"Volume\":750,\"Revenue\":\"20400.00\",\"Quantity\":\"480\"},{\"Name\":\"SKYYE\",\"Date\":\"13-Sep-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"14-Sep-2024\",\"Volume\":500,\"Revenue\":\"7700.00\",\"Quantity\":\"220\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"14-Sep-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"LONG BOAT \",\"Date\":\"14-Sep-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"FISHERMAN\",\"Date\":\"14-Sep-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"Runway 27\",\"Date\":\"14-Sep-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"500\"},{\"Name\":\"URU\",\"Date\":\"16-Sep-2024\",\"Volume\":750,\"Revenue\":\"19780.00\",\"Quantity\":\"460\"},{\"Name\":\"BLR\",\"Date\":\"16-Sep-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"16-Sep-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"ACRE\",\"Date\":\"16-Sep-2024\",\"Volume\":750,\"Revenue\":\"6240.00\",\"Quantity\":\"160\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"16-Sep-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"17-Sep-2024\",\"Volume\":750,\"Revenue\":\"34200.00\",\"Quantity\":\"900\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"17-Sep-2024\",\"Volume\":750,\"Revenue\":\"6300.00\",\"Quantity\":\"140\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"17-Sep-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"160\"},{\"Name\":\"GEIST\",\"Date\":\"18-Sep-2024\",\"Volume\":750,\"Revenue\":\"23800.00\",\"Quantity\":\"560\"},{\"Name\":\"BOBS BAR\",\"Date\":\"18-Sep-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"18-Sep-2024\",\"Volume\":750,\"Revenue\":\"4240.00\",\"Quantity\":\"100\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"19-Sep-2024\",\"Volume\":750,\"Revenue\":\"35616.00\",\"Quantity\":\"840\"},{\"Name\":\"Chin Lung \",\"Date\":\"19-Sep-2024\",\"Volume\":750,\"Revenue\":\"20286.00\",\"Quantity\":\"460\"},{\"Name\":\"BYG\",\"Date\":\"19-Sep-2024\",\"Volume\":750,\"Revenue\":\"19608.00\",\"Quantity\":\"516\"},{\"Name\":\"154 BC \",\"Date\":\"20-Sep-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"20-Sep-2024\",\"Volume\":750,\"Revenue\":\"15264.00\",\"Quantity\":\"360\"},{\"Name\":\"BYG\",\"Date\":\"20-Sep-2024\",\"Volume\":750,\"Revenue\":\"38304.00\",\"Quantity\":\"1008\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"SALLY \",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"ROXIE \",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"21-Sep-2024\",\"Volume\":500,\"Revenue\":\"10080.00\",\"Quantity\":\"1008\"},{\"Name\":\"ACRE\",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"12480.00\",\"Quantity\":\"320\"},{\"Name\":\"BLR\",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"15960.00\",\"Quantity\":\"380\"},{\"Name\":\"UTK\",\"Date\":\"21-Sep-2024\",\"Volume\":500,\"Revenue\":\"13640.00\",\"Quantity\":\"440\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"6080.00\",\"Quantity\":\"160\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"21-Sep-2024\",\"Volume\":750,\"Revenue\":\"27000.00\",\"Quantity\":\"600\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"23-Sep-2024\",\"Volume\":750,\"Revenue\":\"35260.00\",\"Quantity\":\"860\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"23-Sep-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"23-Sep-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"23-Sep-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BOBS BAR\",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"9840.00\",\"Quantity\":\"240\"},{\"Name\":\"EVOMA\",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"5280.00\",\"Quantity\":\"240\"},{\"Name\":\"154 BC \",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"24-Sep-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"25-Sep-2024\",\"Volume\":750,\"Revenue\":\"19000.00\",\"Quantity\":\"500\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"25-Sep-2024\",\"Volume\":750,\"Revenue\":\"43200.00\",\"Quantity\":\"960\"},{\"Name\":\"GO NATIVE\",\"Date\":\"25-Sep-2024\",\"Volume\":750,\"Revenue\":\"14280.00\",\"Quantity\":\"280\"},{\"Name\":\"URVI \",\"Date\":\"25-Sep-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"25-Sep-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"AURUM \",\"Date\":\"25-Sep-2024\",\"Volume\":750,\"Revenue\":\"19740.00\",\"Quantity\":\"420\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"8400.00\",\"Quantity\":\"200\"},{\"Name\":\"AURUM \",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"3760.00\",\"Quantity\":\"80\"},{\"Name\":\"BOBS BAR\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"2280.00\",\"Quantity\":\"60\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"GEIST\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"12750.00\",\"Quantity\":\"300\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"23730.00\",\"Quantity\":\"500\"},{\"Name\":\"The Reservoire\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"35280.00\",\"Quantity\":\"800\"},{\"Name\":\"The Reservoire\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"17640.00\",\"Quantity\":\"400\"},{\"Name\":\"Chin Lung \",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"7938.00\",\"Quantity\":\"180\"},{\"Name\":\"TUK TUK THAI\",\"Date\":\"26-Sep-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"LA LOCA\",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"63600.00\",\"Quantity\":\"1500\"},{\"Name\":\"District 6\",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"106250.00\",\"Quantity\":\"2500\"},{\"Name\":\"TALL OAKS\",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"71250.00\",\"Quantity\":\"1500\"},{\"Name\":\"154 BC \",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"SALLY \",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"8500.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"18480.00\",\"Quantity\":\"440\"},{\"Name\":\"EVOMA\",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"4840.00\",\"Quantity\":\"220\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"23000.00\",\"Quantity\":\"500\"},{\"Name\":\"Chin Lung \",\"Date\":\"27-Sep-2024\",\"Volume\":750,\"Revenue\":\"16758.00\",\"Quantity\":\"380\"},{\"Name\":\"BYG\",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"UTK\",\"Date\":\"28-Sep-2024\",\"Volume\":500,\"Revenue\":\"14260.00\",\"Quantity\":\"460\"},{\"Name\":\"Float Brewery\",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"65250.00\",\"Quantity\":\"1500\"},{\"Name\":\"ROXIE \",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"36000.00\",\"Quantity\":\"900\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"4500.00\",\"Quantity\":\"100\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"2700.00\",\"Quantity\":\"60\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"28-Sep-2024\",\"Volume\":500,\"Revenue\":\"7700.00\",\"Quantity\":\"220\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"BLR\",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"26880.00\",\"Quantity\":\"640\"},{\"Name\":\"BLR\",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"15120.00\",\"Quantity\":\"360\"},{\"Name\":\"TALES OF FLAMINGO\",\"Date\":\"30-Sep-2024\",\"Volume\":750,\"Revenue\":\"12480.00\",\"Quantity\":\"320\"},{\"Name\":\"Runway 27\",\"Date\":\"30-Sep-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"500\"},{\"Name\":\"GroundUp Coffee\",\"Date\":\"30-Sep-2024\",\"Volume\":500,\"Revenue\":\"63600.00\",\"Quantity\":\"1500\"},{\"Name\":\"ACRE\",\"Date\":\"30-Sep-2024\",\"Volume\":750,\"Revenue\":\"10920.00\",\"Quantity\":\"280\"},{\"Name\":\"BACKSTREET BREWERY\",\"Date\":\"30-Sep-2024\",\"Volume\":750,\"Revenue\":\"23730.00\",\"Quantity\":\"500\"},{\"Name\":\" Boteco - Restaurante Brasileiro\",\"Date\":\"30-Sep-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"11680.00\",\"Quantity\":\"440\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"28-Sep-2024\",\"Volume\":750,\"Revenue\":\"24600.00\",\"Quantity\":\"600\"},{\"Name\":\"GEIST\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"13600.00\",\"Quantity\":\"320\"},{\"Name\":\"BOBS BAR\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"JUGNI\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"180\"},{\"Name\":\"BLR\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"19152.00\",\"Quantity\":\"504\"},{\"Name\":\"BYG\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"30552.00\",\"Quantity\":\"804\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"01-Oct-2024\",\"Volume\":750,\"Revenue\":\"13568.00\",\"Quantity\":\"320\"},{\"Name\":\"BYG\",\"Date\":\"03-Oct-2024\",\"Volume\":750,\"Revenue\":\"9500.00\",\"Quantity\":\"250\"},{\"Name\":\"BYG\",\"Date\":\"03-Oct-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"03-Oct-2024\",\"Volume\":500,\"Revenue\":\"8640.00\",\"Quantity\":\"864\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"03-Oct-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"03-Oct-2024\",\"Volume\":750,\"Revenue\":\"22400.00\",\"Quantity\":\"560\"},{\"Name\":\"Chin Lung \",\"Date\":\"03-Oct-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"UTK\",\"Date\":\"04-Oct-2024\",\"Volume\":500,\"Revenue\":\"15500.00\",\"Quantity\":\"500\"},{\"Name\":\"BLR\",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BLR\",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"GEIST\",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"21250.00\",\"Quantity\":\"500\"},{\"Name\":\"SALLY \",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"04-Oct-2024\",\"Volume\":500,\"Revenue\":\"9800.00\",\"Quantity\":\"280\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"16000.00\",\"Quantity\":\"400\"},{\"Name\":\"GEIST\",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"25500.00\",\"Quantity\":\"600\"},{\"Name\":\" The Scene\",\"Date\":\"04-Oct-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"05-Oct-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"05-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"05-Oct-2024\",\"Volume\":750,\"Revenue\":\"4400.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"05-Oct-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"05-Oct-2024\",\"Volume\":500,\"Revenue\":\"9600.00\",\"Quantity\":\"960\"},{\"Name\":\"ACRE\",\"Date\":\"05-Oct-2024\",\"Volume\":750,\"Revenue\":\"10920.00\",\"Quantity\":\"280\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"05-Oct-2024\",\"Volume\":750,\"Revenue\":\"36000.00\",\"Quantity\":\"800\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"06-Oct-2024\",\"Volume\":750,\"Revenue\":\"12720.00\",\"Quantity\":\"300\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"07-Oct-2024\",\"Volume\":750,\"Revenue\":\"19680.00\",\"Quantity\":\"480\"},{\"Name\":\"TOPIC\",\"Date\":\"08-Oct-2024\",\"Volume\":750,\"Revenue\":\"49000.00\",\"Quantity\":\"980\"},{\"Name\":\"TAIKI\",\"Date\":\"08-Oct-2024\",\"Volume\":750,\"Revenue\":\"11280.00\",\"Quantity\":\"240\"},{\"Name\":\"SOCIETE RANGOON\",\"Date\":\"08-Oct-2024\",\"Volume\":750,\"Revenue\":\"12220.00\",\"Quantity\":\"260\"},{\"Name\":\"FISHERMAN\",\"Date\":\"08-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"ROXIE \",\"Date\":\"08-Oct-2024\",\"Volume\":750,\"Revenue\":\"20800.00\",\"Quantity\":\"520\"},{\"Name\":\"EVOMA\",\"Date\":\"08-Oct-2024\",\"Volume\":750,\"Revenue\":\"14760.00\",\"Quantity\":\"580\"},{\"Name\":\"BYG\",\"Date\":\"09-Oct-2024\",\"Volume\":750,\"Revenue\":\"34200.00\",\"Quantity\":\"900\"},{\"Name\":\"BOBS BAR\",\"Date\":\"09-Oct-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"GO NATIVE\",\"Date\":\"09-Oct-2024\",\"Volume\":750,\"Revenue\":\"15300.00\",\"Quantity\":\"300\"},{\"Name\":\"Chin Lung \",\"Date\":\"09-Oct-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"09-Oct-2024\",\"Volume\":750,\"Revenue\":\"8480.00\",\"Quantity\":\"200\"},{\"Name\":\"AURUM \",\"Date\":\"09-Oct-2024\",\"Volume\":750,\"Revenue\":\"24440.00\",\"Quantity\":\"520\"},{\"Name\":\"BYG\",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"FISHERMAN\",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"22400.00\",\"Quantity\":\"560\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"9200.00\",\"Quantity\":\"200\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"24600.00\",\"Quantity\":\"600\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"17640.00\",\"Quantity\":\"420\"},{\"Name\":\"MISMATCHED \",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"500\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"10-Oct-2024\",\"Volume\":750,\"Revenue\":\"12720.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"11-Oct-2024\",\"Volume\":750,\"Revenue\":\"17480.00\",\"Quantity\":\"380\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"11-Oct-2024\",\"Volume\":750,\"Revenue\":\"16758.00\",\"Quantity\":\"399\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"11-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"11-Oct-2024\",\"Volume\":750,\"Revenue\":\"8500.00\",\"Quantity\":\"200\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"11-Oct-2024\",\"Volume\":750,\"Revenue\":\"25000.00\",\"Quantity\":\"500\"},{\"Name\":\"TIPSYBULL \",\"Date\":\"11-Oct-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"SALLY \",\"Date\":\"12-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"IDYLLL\",\"Date\":\"12-Oct-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"12-Oct-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BLR\",\"Date\":\"14-Oct-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"},{\"Name\":\"BOBS BAR\",\"Date\":\"14-Oct-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"14-Oct-2024\",\"Volume\":500,\"Revenue\":\"10800.00\",\"Quantity\":\"1080\"},{\"Name\":\"ACRE\",\"Date\":\"14-Oct-2024\",\"Volume\":750,\"Revenue\":\"17160.00\",\"Quantity\":\"440\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"14-Oct-2024\",\"Volume\":750,\"Revenue\":\"27526.80\",\"Quantity\":\"580\"},{\"Name\":\"154 BC \",\"Date\":\"14-Oct-2024\",\"Volume\":750,\"Revenue\":\"5760.00\",\"Quantity\":\"160\"},{\"Name\":\"UTK\",\"Date\":\"15-Oct-2024\",\"Volume\":500,\"Revenue\":\"7440.00\",\"Quantity\":\"240\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"15-Oct-2024\",\"Volume\":750,\"Revenue\":\"9200.00\",\"Quantity\":\"200\"},{\"Name\":\"BOBS BAR\",\"Date\":\"15-Oct-2024\",\"Volume\":750,\"Revenue\":\"9120.00\",\"Quantity\":\"240\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"16-Oct-2024\",\"Volume\":500,\"Revenue\":\"9320.00\",\"Quantity\":\"932\"},{\"Name\":\"ROXIE \",\"Date\":\"16-Oct-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"SALLY \",\"Date\":\"16-Oct-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"180\"},{\"Name\":\" The Scene\",\"Date\":\"16-Oct-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"16-Oct-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"600\"},{\"Name\":\"URVI \",\"Date\":\"17-Oct-2024\",\"Volume\":1000,\"Revenue\":\"2500.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"154 BC \",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"JUGNI\",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"3280.00\",\"Quantity\":\"80\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"8100.00\",\"Quantity\":\"180\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"5400.00\",\"Quantity\":\"120\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"42400.00\",\"Quantity\":\"1000\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"17-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"18-Oct-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"18-Oct-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"18-Oct-2024\",\"Volume\":500,\"Revenue\":\"3500.00\",\"Quantity\":\"100\"},{\"Name\":\"BLR\",\"Date\":\"18-Oct-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"BLR\",\"Date\":\"18-Oct-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"18-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"UTK\",\"Date\":\"19-Oct-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"19-Oct-2024\",\"Volume\":750,\"Revenue\":\"13600.00\",\"Quantity\":\"340\"},{\"Name\":\"BLR\",\"Date\":\"19-Oct-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"19-Oct-2024\",\"Volume\":750,\"Revenue\":\"14238.00\",\"Quantity\":\"300\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"19-Oct-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"34200.00\",\"Quantity\":\"900\"},{\"Name\":\"BLR\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"SALLY \",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"GEIST\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"25500.00\",\"Quantity\":\"600\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"ITC\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"40500.00\",\"Quantity\":\"900\"},{\"Name\":\"Chin Lung \",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"13230.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAYAM\",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"47500.00\",\"Quantity\":\"1000\"},{\"Name\":\"KAKE DI HATTI \",\"Date\":\"21-Oct-2024\",\"Volume\":750,\"Revenue\":\"98400.00\",\"Quantity\":\"2000\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"22-Oct-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"22-Oct-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"600\"},{\"Name\":\"The Reservoire\",\"Date\":\"22-Oct-2024\",\"Volume\":750,\"Revenue\":\"17640.00\",\"Quantity\":\"400\"},{\"Name\":\"The Reservoire\",\"Date\":\"22-Oct-2024\",\"Volume\":750,\"Revenue\":\"15876.00\",\"Quantity\":\"360\"},{\"Name\":\"Suruchi Properties Pvt Ltd\",\"Date\":\"23-Oct-2024\",\"Volume\":250,\"Revenue\":\"16950.00\",\"Quantity\":\"500\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"23-Oct-2024\",\"Volume\":750,\"Revenue\":\"18400.00\",\"Quantity\":\"400\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"23-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"23-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"23-Oct-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"154 BC \",\"Date\":\"24-Oct-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"GEIST\",\"Date\":\"24-Oct-2024\",\"Volume\":750,\"Revenue\":\"25500.00\",\"Quantity\":\"600\"},{\"Name\":\"Travancore Tasties\",\"Date\":\"24-Oct-2024\",\"Volume\":250,\"Revenue\":\"12750.00\",\"Quantity\":\"500\"},{\"Name\":\"OTERRA \",\"Date\":\"25-Oct-2024\",\"Volume\":750,\"Revenue\":\"26000.00\",\"Quantity\":\"650\"},{\"Name\":\"OTERRA \",\"Date\":\"25-Oct-2024\",\"Volume\":500,\"Revenue\":\"8500.00\",\"Quantity\":\"250\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"25-Oct-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\" The Scene\",\"Date\":\"25-Oct-2024\",\"Volume\":750,\"Revenue\":\"17640.00\",\"Quantity\":\"400\"},{\"Name\":\"Hyatt centric hebbal \",\"Date\":\"25-Oct-2024\",\"Volume\":250,\"Revenue\":\"20000.00\",\"Quantity\":\"800\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"25-Oct-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"Hyatt centric hebbal \",\"Date\":\"25-Oct-2024\",\"Volume\":250,\"Revenue\":\"25000.00\",\"Quantity\":\"1000\"},{\"Name\":\"TALL OAKS\",\"Date\":\"26-Oct-2024\",\"Volume\":750,\"Revenue\":\"6350.00\",\"Quantity\":\"250\"},{\"Name\":\"Chin Lung \",\"Date\":\"26-Oct-2024\",\"Volume\":750,\"Revenue\":\"4410.00\",\"Quantity\":\"100\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"26-Oct-2024\",\"Volume\":500,\"Revenue\":\"7700.00\",\"Quantity\":\"220\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"26-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"26-Oct-2024\",\"Volume\":750,\"Revenue\":\"12300.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"26-Oct-2024\",\"Volume\":750,\"Revenue\":\"37392.00\",\"Quantity\":\"984\"},{\"Name\":\"Runway 27\",\"Date\":\"26-Oct-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"500\"},{\"Name\":\"Travancore Tasties\",\"Date\":\"27-Oct-2024\",\"Volume\":250,\"Revenue\":\"6375.00\",\"Quantity\":\"250\"},{\"Name\":\"HYATT \",\"Date\":\"28-Oct-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"Chin Lung \",\"Date\":\"28-Oct-2024\",\"Volume\":750,\"Revenue\":\"22050.00\",\"Quantity\":\"500\"},{\"Name\":\"URU\",\"Date\":\"28-Oct-2024\",\"Volume\":750,\"Revenue\":\"6880.00\",\"Quantity\":\"160\"},{\"Name\":\"UTK\",\"Date\":\"28-Oct-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"28-Oct-2024\",\"Volume\":750,\"Revenue\":\"40000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE ASIAN CURRY HOUSE \",\"Date\":\"28-Oct-2024\",\"Volume\":750,\"Revenue\":\"4500.00\",\"Quantity\":\"100\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"28-Oct-2024\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"720\"},{\"Name\":\"TALL OAKS\",\"Date\":\"28-Oct-2024\",\"Volume\":750,\"Revenue\":\"47500.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"BOBS BAR\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"BYG\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"9880.00\",\"Quantity\":\"260\"},{\"Name\":\"BYG\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"ACRE\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"19500.00\",\"Quantity\":\"500\"},{\"Name\":\"EVOMA\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"600\"},{\"Name\":\"FISHERMAN\",\"Date\":\"29-Oct-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"30-Oct-2024\",\"Volume\":500,\"Revenue\":\"10080.00\",\"Quantity\":\"1008\"},{\"Name\":\"ROXIE \",\"Date\":\"30-Oct-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"BOBS BAR\",\"Date\":\"30-Oct-2024\",\"Volume\":750,\"Revenue\":\"7600.00\",\"Quantity\":\"200\"},{\"Name\":\"WATSON'S\",\"Date\":\"30-Oct-2024\",\"Volume\":750,\"Revenue\":\"44100.00\",\"Quantity\":\"1000\"},{\"Name\":\"SALLY \",\"Date\":\"30-Oct-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"30-Oct-2024\",\"Volume\":750,\"Revenue\":\"15640.00\",\"Quantity\":\"340\"},{\"Name\":\"UTK\",\"Date\":\"30-Oct-2024\",\"Volume\":500,\"Revenue\":\"15500.00\",\"Quantity\":\"500\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"30-Oct-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"URU\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"25800.00\",\"Quantity\":\"600\"},{\"Name\":\"The Reservoire\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"26460.00\",\"Quantity\":\"600\"},{\"Name\":\"BOBS BAR\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"154 BC \",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"3600.00\",\"Quantity\":\"100\"},{\"Name\":\"154 BC \",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"BLR\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\" The Scene\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"12348.00\",\"Quantity\":\"280\"},{\"Name\":\"TBL \",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"20500.00\",\"Quantity\":\"500\"},{\"Name\":\"BLR\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"14280.00\",\"Quantity\":\"340\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"02-Nov-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"02-Nov-2024\",\"Volume\":250,\"Revenue\":\"7626.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"04-Nov-2024\",\"Volume\":750,\"Revenue\":\"38000.00\",\"Quantity\":\"1000\"},{\"Name\":\"154 BC \",\"Date\":\"04-Nov-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"JUGNI\",\"Date\":\"04-Nov-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"BROTHER BARLEY\",\"Date\":\"04-Nov-2024\",\"Volume\":750,\"Revenue\":\"8500.00\",\"Quantity\":\"200\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"04-Nov-2024\",\"Volume\":750,\"Revenue\":\"36080.00\",\"Quantity\":\"880\"},{\"Name\":\"BLR\",\"Date\":\"04-Nov-2024\",\"Volume\":750,\"Revenue\":\"16800.00\",\"Quantity\":\"400\"},{\"Name\":\"LONG BOAT \",\"Date\":\"05-Nov-2024\",\"Volume\":750,\"Revenue\":\"15200.00\",\"Quantity\":\"400\"},{\"Name\":\"EVOMA\",\"Date\":\"05-Nov-2024\",\"Volume\":750,\"Revenue\":\"13200.00\",\"Quantity\":\"600\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"05-Nov-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"Float Brewery\",\"Date\":\"05-Nov-2024\",\"Volume\":750,\"Revenue\":\"22620.00\",\"Quantity\":\"520\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"45000.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"16400.00\",\"Quantity\":\"400\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"4500.00\",\"Quantity\":\"100\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"4500.00\",\"Quantity\":\"100\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"13800.00\",\"Quantity\":\"300\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"12720.00\",\"Quantity\":\"300\"},{\"Name\":\"ROXIE \",\"Date\":\"06-Nov-2024\",\"Volume\":750,\"Revenue\":\"38400.00\",\"Quantity\":\"960\"},{\"Name\":\"IIMB Innovations, NSRCEL\",\"Date\":\"07-Nov-2024\",\"Volume\":250,\"Revenue\":\"1200.00\",\"Quantity\":\"40\"},{\"Name\":\"Jolly Gunj \",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"29640.00\",\"Quantity\":\"780\"},{\"Name\":\"The Mannheim Craft Beverage Co.\",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"26100.00\",\"Quantity\":\"600\"},{\"Name\":\"The Mannheim Craft Beverage Co.\",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"13050.00\",\"Quantity\":\"300\"},{\"Name\":\"Chin Lung \",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"13230.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"12160.00\",\"Quantity\":\"320\"},{\"Name\":\" The Scene\",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"13230.00\",\"Quantity\":\"300\"},{\"Name\":\"Float Brewery\",\"Date\":\"07-Nov-2024\",\"Volume\":750,\"Revenue\":\"26970.00\",\"Quantity\":\"620\"},{\"Name\":\"GEIST\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"21250.00\",\"Quantity\":\"500\"},{\"Name\":\"BYG\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"53200.00\",\"Quantity\":\"1400\"},{\"Name\":\"BLR\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"BLR\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"8000.00\",\"Quantity\":\"200\"},{\"Name\":\"WATSON'S\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"44982.00\",\"Quantity\":\"1020\"},{\"Name\":\"FISHERMAN\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"GEIST\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"21250.00\",\"Quantity\":\"500\"},{\"Name\":\"ROYAL ORCHID\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"12600.00\",\"Quantity\":\"300\"},{\"Name\":\"BYG\",\"Date\":\"08-Nov-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"FAST COFFEE\",\"Date\":\"09-Nov-2024\",\"Volume\":750,\"Revenue\":\"15240.00\",\"Quantity\":\"300\"},{\"Name\":\"FAST COFFEE\",\"Date\":\"09-Nov-2024\",\"Volume\":750,\"Revenue\":\"10160.00\",\"Quantity\":\"200\"},{\"Name\":\"HOD - House Of Dopamine\",\"Date\":\"11-Nov-2024\",\"Volume\":750,\"Revenue\":\"47500.00\",\"Quantity\":\"1000\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"09-Nov-2024\",\"Volume\":750,\"Revenue\":\"8280.00\",\"Quantity\":\"180\"},{\"Name\":\"AURUM \",\"Date\":\"09-Nov-2024\",\"Volume\":750,\"Revenue\":\"22560.00\",\"Quantity\":\"480\"},{\"Name\":\"UTK\",\"Date\":\"11-Nov-2024\",\"Volume\":500,\"Revenue\":\"9300.00\",\"Quantity\":\"300\"},{\"Name\":\"GO NATIVE\",\"Date\":\"11-Nov-2024\",\"Volume\":750,\"Revenue\":\"12240.00\",\"Quantity\":\"240\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"11-Nov-2024\",\"Volume\":750,\"Revenue\":\"4100.00\",\"Quantity\":\"100\"},{\"Name\":\"Chin Lung \",\"Date\":\"11-Nov-2024\",\"Volume\":750,\"Revenue\":\"13230.00\",\"Quantity\":\"300\"},{\"Name\":\"SALLY \",\"Date\":\"11-Nov-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"180\"},{\"Name\":\"KAKE DI HATTI\",\"Date\":\"12-Nov-2024\",\"Volume\":750,\"Revenue\":\"21200.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"12-Nov-2024\",\"Volume\":750,\"Revenue\":\"28000.00\",\"Quantity\":\"700\"},{\"Name\":\"154 BC \",\"Date\":\"12-Nov-2024\",\"Volume\":750,\"Revenue\":\"10800.00\",\"Quantity\":\"300\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"12-Nov-2024\",\"Volume\":750,\"Revenue\":\"22500.00\",\"Quantity\":\"500\"},{\"Name\":\"BLR\",\"Date\":\"12-Nov-2024\",\"Volume\":750,\"Revenue\":\"33600.00\",\"Quantity\":\"800\"},{\"Name\":\"EVOMA\",\"Date\":\"12-Nov-2024\",\"Volume\":750,\"Revenue\":\"8800.00\",\"Quantity\":\"400\"},{\"Name\":\"BYG\",\"Date\":\"13-Nov-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"The Reservoire\",\"Date\":\"13-Nov-2024\",\"Volume\":750,\"Revenue\":\"15876.00\",\"Quantity\":\"360\"},{\"Name\":\" The Scene\",\"Date\":\"13-Nov-2024\",\"Volume\":750,\"Revenue\":\"13230.00\",\"Quantity\":\"300\"},{\"Name\":\"BOMBAY BRASSERIE \",\"Date\":\"13-Nov-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"TRAVELLARS BUNGALOW\",\"Date\":\"13-Nov-2024\",\"Volume\":500,\"Revenue\":\"3500.00\",\"Quantity\":\"100\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"13-Nov-2024\",\"Volume\":750,\"Revenue\":\"19516.00\",\"Quantity\":\"476\"},{\"Name\":\"BYG\",\"Date\":\"14-Nov-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"UTK\",\"Date\":\"14-Nov-2024\",\"Volume\":500,\"Revenue\":\"12400.00\",\"Quantity\":\"400\"},{\"Name\":\"KHMER KITCHEN\",\"Date\":\"14-Nov-2024\",\"Volume\":750,\"Revenue\":\"30000.00\",\"Quantity\":\"600\"},{\"Name\":\"PAUL JOHN\",\"Date\":\"14-Nov-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"ROYAL ORCHID \",\"Date\":\"14-Nov-2024\",\"Volume\":750,\"Revenue\":\"7560.00\",\"Quantity\":\"180\"},{\"Name\":\"TAIKI\",\"Date\":\"14-Nov-2024\",\"Volume\":750,\"Revenue\":\"14100.00\",\"Quantity\":\"300\"},{\"Name\":\"BOBS BAR\",\"Date\":\"15-Nov-2024\",\"Volume\":750,\"Revenue\":\"11400.00\",\"Quantity\":\"300\"},{\"Name\":\"THE ROYALE SENATE \",\"Date\":\"15-Nov-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"THE LONDON CURRY HOUSE \",\"Date\":\"15-Nov-2024\",\"Volume\":750,\"Revenue\":\"9000.00\",\"Quantity\":\"200\"},{\"Name\":\"ACRE\",\"Date\":\"15-Nov-2024\",\"Volume\":750,\"Revenue\":\"15600.00\",\"Quantity\":\"400\"},{\"Name\":\" The Scene\",\"Date\":\"15-Nov-2024\",\"Volume\":750,\"Revenue\":\"4410.00\",\"Quantity\":\"100\"},{\"Name\":\"AIOLI BBQ AND GRILL\",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"38175.00\",\"Quantity\":\"750\"},{\"Name\":\"BYG\",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"41952.00\",\"Quantity\":\"1104\"},{\"Name\":\"BLR\",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"21000.00\",\"Quantity\":\"500\"},{\"Name\":\"MAIZE AND MALT\",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"22500.00\",\"Quantity\":\"500\"},{\"Name\":\"ROXIE \",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"20000.00\",\"Quantity\":\"500\"},{\"Name\":\"TORO BREWHOUSE KITCHEN\",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"16960.00\",\"Quantity\":\"400\"},{\"Name\":\"THE 13TH FLOOR \",\"Date\":\"16-Nov-2024\",\"Volume\":750,\"Revenue\":\"23920.00\",\"Quantity\":\"520\"},{\"Name\":\"CITRUS HOTEL\",\"Date\":\"16-Nov-2024\",\"Volume\":500,\"Revenue\":\"7200.00\",\"Quantity\":\"720\"},{\"Name\":\"154 BC \",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"7200.00\",\"Quantity\":\"200\"},{\"Name\":\"JAMMING GOAT\",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"23780.00\",\"Quantity\":\"580\"},{\"Name\":\"FISHERMAN\",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"24000.00\",\"Quantity\":\"600\"},{\"Name\":\"SALLY \",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"12000.00\",\"Quantity\":\"300\"},{\"Name\":\"GEIST\",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"21250.00\",\"Quantity\":\"500\"},{\"Name\":\"Chin Lung \",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"13230.00\",\"Quantity\":\"300\"},{\"Name\":\" The Scene\",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"8820.00\",\"Quantity\":\"200\"},{\"Name\":\"THE BIER LIBRARY \",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"20500.00\",\"Quantity\":\"500\"},{\"Name\":\"DECK OF BREWS\",\"Date\":\"18-Nov-2024\",\"Volume\":750,\"Revenue\":\"23730.00\",\"Quantity\":\"500\"},{\"Name\":\"Roto \",\"Date\":\"19-Nov-2024\",\"Volume\":750,\"Revenue\":\"42400.00\",\"Quantity\":\"1000\"},{\"Name\":\"BYG\",\"Date\":\"19-Nov-2024\",\"Volume\":750,\"Revenue\":\"22800.00\",\"Quantity\":\"600\"},{\"Name\":\"LONG BOAT \",\"Date\":\"19-Nov-2024\",\"Volume\":750,\"Revenue\":\"20520.00\",\"Quantity\":\"540\"},{\"Name\":\"EVOMA\",\"Date\":\"19-Nov-2024\",\"Volume\":750,\"Revenue\":\"6600.00\",\"Quantity\":\"300\"},{\"Name\":\"PUMP HOUSE\",\"Date\":\"19-Nov-2024\",\"Volume\":750,\"Revenue\":\"41000.00\",\"Quantity\":\"1000\"},{\"Name\":\"BLR\",\"Date\":\"19-Nov-2024\",\"Volume\":750,\"Revenue\":\"25200.00\",\"Quantity\":\"600\"}]"
-        //const rawData = result;
+    const result = `[{
+    "Name": "Alpha Brews",
+    "Date": "02-Jun-2024",
+    "Volume": 750,
+    "Revenue": "24554.10",
+    "Quantity": "499"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "03-Jun-2024",
+    "Volume": 500,
+    "Revenue": "43146.96",
+    "Quantity": "887"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "04-Jun-2024",
+    "Volume": 750,
+    "Revenue": "47346.60",
+    "Quantity": "1088"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "05-Jun-2024",
+    "Volume": 500,
+    "Revenue": "55887.85",
+    "Quantity": "1186"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "06-Jun-2024",
+    "Volume": 750,
+    "Revenue": "51710.21",
+    "Quantity": "1255"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "07-Jun-2024",
+    "Volume": 500,
+    "Revenue": "80742.03",
+    "Quantity": "1741"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "08-Jun-2024",
+    "Volume": 750,
+    "Revenue": "83381.26",
+    "Quantity": "1710"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "09-Jun-2024",
+    "Volume": 500,
+    "Revenue": "53595.90",
+    "Quantity": "1146"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "10-Jun-2024",
+    "Volume": 750,
+    "Revenue": "72539.76",
+    "Quantity": "1664"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "11-Jun-2024",
+    "Volume": 500,
+    "Revenue": "35361.28",
+    "Quantity": "721"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "12-Jun-2024",
+    "Volume": 750,
+    "Revenue": "37892.54",
+    "Quantity": "920"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "13-Jun-2024",
+    "Volume": 500,
+    "Revenue": "18457.46",
+    "Quantity": "371"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "14-Jun-2024",
+    "Volume": 750,
+    "Revenue": "29037.65",
+    "Quantity": "691"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "15-Jun-2024",
+    "Volume": 500,
+    "Revenue": "41206.31",
+    "Quantity": "1017"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "16-Jun-2024",
+    "Volume": 750,
+    "Revenue": "43057.98",
+    "Quantity": "939"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "17-Jun-2024",
+    "Volume": 500,
+    "Revenue": "32051.53",
+    "Quantity": "725"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "18-Jun-2024",
+    "Volume": 750,
+    "Revenue": "71722.72",
+    "Quantity": "1630"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "19-Jun-2024",
+    "Volume": 500,
+    "Revenue": "44224.40",
+    "Quantity": "1024"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "20-Jun-2024",
+    "Volume": 750,
+    "Revenue": "56504.10",
+    "Quantity": "1154"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "21-Jun-2024",
+    "Volume": 500,
+    "Revenue": "19711.04",
+    "Quantity": "457"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "22-Jun-2024",
+    "Volume": 750,
+    "Revenue": "23004.15",
+    "Quantity": "512"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "23-Jun-2024",
+    "Volume": 500,
+    "Revenue": "52406.21",
+    "Quantity": "1060"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "24-Jun-2024",
+    "Volume": 750,
+    "Revenue": "82893.32",
+    "Quantity": "1672"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "25-Jun-2024",
+    "Volume": 500,
+    "Revenue": "49775.64",
+    "Quantity": "1006"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "26-Jun-2024",
+    "Volume": 750,
+    "Revenue": "14709.72",
+    "Quantity": "357"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "27-Jun-2024",
+    "Volume": 500,
+    "Revenue": "64192.48",
+    "Quantity": "1319"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "28-Jun-2024",
+    "Volume": 750,
+    "Revenue": "36107.60",
+    "Quantity": "756"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "29-Jun-2024",
+    "Volume": 500,
+    "Revenue": "42100.39",
+    "Quantity": "905"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "30-Jun-2024",
+    "Volume": 750,
+    "Revenue": "82421.39",
+    "Quantity": "1670"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "01-Jul-2024",
+    "Volume": 500,
+    "Revenue": "23078.12",
+    "Quantity": "574"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "02-Jul-2024",
+    "Volume": 750,
+    "Revenue": "21092.97",
+    "Quantity": "437"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "03-Jul-2024",
+    "Volume": 500,
+    "Revenue": "24449.95",
+    "Quantity": "532"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "04-Jul-2024",
+    "Volume": 750,
+    "Revenue": "18941.60",
+    "Quantity": "473"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "05-Jul-2024",
+    "Volume": 500,
+    "Revenue": "62247.24",
+    "Quantity": "1380"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "06-Jul-2024",
+    "Volume": 750,
+    "Revenue": "31430.65",
+    "Quantity": "679"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "07-Jul-2024",
+    "Volume": 500,
+    "Revenue": "12512.42",
+    "Quantity": "301"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "08-Jul-2024",
+    "Volume": 750,
+    "Revenue": "50207.94",
+    "Quantity": "1175"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "09-Jul-2024",
+    "Volume": 500,
+    "Revenue": "71324.03",
+    "Quantity": "1441"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "10-Jul-2024",
+    "Volume": 750,
+    "Revenue": "43944.84",
+    "Quantity": "990"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "11-Jul-2024",
+    "Volume": 500,
+    "Revenue": "80276.88",
+    "Quantity": "1769"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "12-Jul-2024",
+    "Volume": 750,
+    "Revenue": "59874.79",
+    "Quantity": "1446"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "13-Jul-2024",
+    "Volume": 500,
+    "Revenue": "71132.99",
+    "Quantity": "1609"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "14-Jul-2024",
+    "Volume": 750,
+    "Revenue": "84315.23",
+    "Quantity": "1742"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "15-Jul-2024",
+    "Volume": 500,
+    "Revenue": "22262.01",
+    "Quantity": "510"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "16-Jul-2024",
+    "Volume": 750,
+    "Revenue": "15587.30",
+    "Quantity": "350"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "17-Jul-2024",
+    "Volume": 500,
+    "Revenue": "62982.69",
+    "Quantity": "1374"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "18-Jul-2024",
+    "Volume": 750,
+    "Revenue": "48500.00",
+    "Quantity": "971"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "19-Jul-2024",
+    "Volume": 500,
+    "Revenue": "24007.19",
+    "Quantity": "561"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "20-Jul-2024",
+    "Volume": 750,
+    "Revenue": "49697.31",
+    "Quantity": "995"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "21-Jul-2024",
+    "Volume": 500,
+    "Revenue": "69912.99",
+    "Quantity": "1575"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "22-Jul-2024",
+    "Volume": 750,
+    "Revenue": "66287.72",
+    "Quantity": "1505"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "23-Jul-2024",
+    "Volume": 500,
+    "Revenue": "16137.26",
+    "Quantity": "327"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "24-Jul-2024",
+    "Volume": 750,
+    "Revenue": "46278.19",
+    "Quantity": "1092"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "25-Jul-2024",
+    "Volume": 500,
+    "Revenue": "34502.06",
+    "Quantity": "822"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "26-Jul-2024",
+    "Volume": 750,
+    "Revenue": "43763.21",
+    "Quantity": "968"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "27-Jul-2024",
+    "Volume": 500,
+    "Revenue": "16944.99",
+    "Quantity": "369"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "28-Jul-2024",
+    "Volume": 750,
+    "Revenue": "66847.83",
+    "Quantity": "1407"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "29-Jul-2024",
+    "Volume": 500,
+    "Revenue": "19186.19",
+    "Quantity": "404"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "30-Jul-2024",
+    "Volume": 750,
+    "Revenue": "32523.15",
+    "Quantity": "802"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "31-Jul-2024",
+    "Volume": 500,
+    "Revenue": "44955.94",
+    "Quantity": "919"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "01-Aug-2024",
+    "Volume": 750,
+    "Revenue": "67957.74",
+    "Quantity": "1632"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "02-Aug-2024",
+    "Volume": 500,
+    "Revenue": "54362.11",
+    "Quantity": "1306"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "03-Aug-2024",
+    "Volume": 750,
+    "Revenue": "16385.38",
+    "Quantity": "404"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "04-Aug-2024",
+    "Volume": 500,
+    "Revenue": "33242.99",
+    "Quantity": "816"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "05-Aug-2024",
+    "Volume": 750,
+    "Revenue": "73993.45",
+    "Quantity": "1499"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "06-Aug-2024",
+    "Volume": 500,
+    "Revenue": "54864.46",
+    "Quantity": "1286"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "07-Aug-2024",
+    "Volume": 750,
+    "Revenue": "40246.74",
+    "Quantity": "953"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "08-Aug-2024",
+    "Volume": 500,
+    "Revenue": "74611.46",
+    "Quantity": "1588"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "09-Aug-2024",
+    "Volume": 750,
+    "Revenue": "69822.67",
+    "Quantity": "1715"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "10-Aug-2024",
+    "Volume": 500,
+    "Revenue": "58248.44",
+    "Quantity": "1281"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "11-Aug-2024",
+    "Volume": 750,
+    "Revenue": "43513.74",
+    "Quantity": "980"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "12-Aug-2024",
+    "Volume": 500,
+    "Revenue": "18263.26",
+    "Quantity": "370"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "13-Aug-2024",
+    "Volume": 750,
+    "Revenue": "67221.43",
+    "Quantity": "1537"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "14-Aug-2024",
+    "Volume": 500,
+    "Revenue": "77866.80",
+    "Quantity": "1646"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "15-Aug-2024",
+    "Volume": 750,
+    "Revenue": "54808.60",
+    "Quantity": "1169"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "16-Aug-2024",
+    "Volume": 500,
+    "Revenue": "63919.78",
+    "Quantity": "1496"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "17-Aug-2024",
+    "Volume": 750,
+    "Revenue": "46322.84",
+    "Quantity": "1061"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "18-Aug-2024",
+    "Volume": 500,
+    "Revenue": "36158.48",
+    "Quantity": "903"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "19-Aug-2024",
+    "Volume": 750,
+    "Revenue": "44435.21",
+    "Quantity": "1000"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "20-Aug-2024",
+    "Volume": 500,
+    "Revenue": "60900.80",
+    "Quantity": "1246"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "21-Aug-2024",
+    "Volume": 750,
+    "Revenue": "41290.96",
+    "Quantity": "999"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "22-Aug-2024",
+    "Volume": 500,
+    "Revenue": "31629.95",
+    "Quantity": "722"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "23-Aug-2024",
+    "Volume": 750,
+    "Revenue": "28147.56",
+    "Quantity": "699"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "24-Aug-2024",
+    "Volume": 500,
+    "Revenue": "18711.71",
+    "Quantity": "375"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "25-Aug-2024",
+    "Volume": 750,
+    "Revenue": "62774.19",
+    "Quantity": "1524"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "26-Aug-2024",
+    "Volume": 500,
+    "Revenue": "71684.58",
+    "Quantity": "1681"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "27-Aug-2024",
+    "Volume": 750,
+    "Revenue": "67780.58",
+    "Quantity": "1627"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "28-Aug-2024",
+    "Volume": 500,
+    "Revenue": "67034.75",
+    "Quantity": "1509"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "29-Aug-2024",
+    "Volume": 750,
+    "Revenue": "71353.17",
+    "Quantity": "1504"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "30-Aug-2024",
+    "Volume": 500,
+    "Revenue": "22548.44",
+    "Quantity": "533"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "31-Aug-2024",
+    "Volume": 750,
+    "Revenue": "44651.09",
+    "Quantity": "896"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "01-Sep-2024",
+    "Volume": 500,
+    "Revenue": "33165.67",
+    "Quantity": "765"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "02-Sep-2024",
+    "Volume": 750,
+    "Revenue": "80027.85",
+    "Quantity": "1795"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "03-Sep-2024",
+    "Volume": 500,
+    "Revenue": "22296.34",
+    "Quantity": "512"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "04-Sep-2024",
+    "Volume": 750,
+    "Revenue": "60545.30",
+    "Quantity": "1270"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "05-Sep-2024",
+    "Volume": 500,
+    "Revenue": "23888.15",
+    "Quantity": "481"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "06-Sep-2024",
+    "Volume": 750,
+    "Revenue": "23048.60",
+    "Quantity": "546"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "07-Sep-2024",
+    "Volume": 500,
+    "Revenue": "59153.17",
+    "Quantity": "1333"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "08-Sep-2024",
+    "Volume": 750,
+    "Revenue": "13725.88",
+    "Quantity": "325"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "09-Sep-2024",
+    "Volume": 500,
+    "Revenue": "73506.40",
+    "Quantity": "1676"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "10-Sep-2024",
+    "Volume": 750,
+    "Revenue": "78325.55",
+    "Quantity": "1680"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "11-Sep-2024",
+    "Volume": 500,
+    "Revenue": "25921.09",
+    "Quantity": "627"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "12-Sep-2024",
+    "Volume": 750,
+    "Revenue": "22511.59",
+    "Quantity": "468"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "13-Sep-2024",
+    "Volume": 500,
+    "Revenue": "85563.81",
+    "Quantity": "1753"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "14-Sep-2024",
+    "Volume": 750,
+    "Revenue": "37514.55",
+    "Quantity": "928"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "15-Sep-2024",
+    "Volume": 500,
+    "Revenue": "50182.74",
+    "Quantity": "1224"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "16-Sep-2024",
+    "Volume": 750,
+    "Revenue": "13435.46",
+    "Quantity": "309"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "17-Sep-2024",
+    "Volume": 500,
+    "Revenue": "21935.86",
+    "Quantity": "469"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "18-Sep-2024",
+    "Volume": 750,
+    "Revenue": "66838.58",
+    "Quantity": "1541"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "19-Sep-2024",
+    "Volume": 500,
+    "Revenue": "64627.30",
+    "Quantity": "1399"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "20-Sep-2024",
+    "Volume": 750,
+    "Revenue": "30629.62",
+    "Quantity": "632"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "21-Sep-2024",
+    "Volume": 500,
+    "Revenue": "50197.71",
+    "Quantity": "1121"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "22-Sep-2024",
+    "Volume": 750,
+    "Revenue": "30474.57",
+    "Quantity": "754"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "23-Sep-2024",
+    "Volume": 500,
+    "Revenue": "16507.56",
+    "Quantity": "400"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "24-Sep-2024",
+    "Volume": 750,
+    "Revenue": "40765.55",
+    "Quantity": "979"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "25-Sep-2024",
+    "Volume": 500,
+    "Revenue": "63635.23",
+    "Quantity": "1393"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "26-Sep-2024",
+    "Volume": 750,
+    "Revenue": "58111.90",
+    "Quantity": "1342"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "27-Sep-2024",
+    "Volume": 500,
+    "Revenue": "13373.44",
+    "Quantity": "317"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "28-Sep-2024",
+    "Volume": 750,
+    "Revenue": "70125.17",
+    "Quantity": "1475"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "29-Sep-2024",
+    "Volume": 500,
+    "Revenue": "63660.65",
+    "Quantity": "1553"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "30-Sep-2024",
+    "Volume": 750,
+    "Revenue": "52546.75",
+    "Quantity": "1207"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "01-Oct-2024",
+    "Volume": 500,
+    "Revenue": "75288.99",
+    "Quantity": "1730"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "02-Oct-2024",
+    "Volume": 750,
+    "Revenue": "28853.76",
+    "Quantity": "635"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "03-Oct-2024",
+    "Volume": 500,
+    "Revenue": "64281.41",
+    "Quantity": "1563"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "04-Oct-2024",
+    "Volume": 750,
+    "Revenue": "65229.69",
+    "Quantity": "1361"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "05-Oct-2024",
+    "Volume": 500,
+    "Revenue": "69214.20",
+    "Quantity": "1433"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "06-Oct-2024",
+    "Volume": 750,
+    "Revenue": "47497.46",
+    "Quantity": "1046"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "07-Oct-2024",
+    "Volume": 500,
+    "Revenue": "76721.77",
+    "Quantity": "1775"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "08-Oct-2024",
+    "Volume": 750,
+    "Revenue": "38211.18",
+    "Quantity": "899"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "09-Oct-2024",
+    "Volume": 500,
+    "Revenue": "31640.54",
+    "Quantity": "761"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "10-Oct-2024",
+    "Volume": 750,
+    "Revenue": "61169.72",
+    "Quantity": "1281"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "11-Oct-2024",
+    "Volume": 500,
+    "Revenue": "58909.58",
+    "Quantity": "1359"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "12-Oct-2024",
+    "Volume": 750,
+    "Revenue": "56952.70",
+    "Quantity": "1206"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "13-Oct-2024",
+    "Volume": 500,
+    "Revenue": "32045.00",
+    "Quantity": "695"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "14-Oct-2024",
+    "Volume": 750,
+    "Revenue": "28171.66",
+    "Quantity": "650"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "15-Oct-2024",
+    "Volume": 500,
+    "Revenue": "42055.73",
+    "Quantity": "1001"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "16-Oct-2024",
+    "Volume": 750,
+    "Revenue": "73940.98",
+    "Quantity": "1549"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "17-Oct-2024",
+    "Volume": 500,
+    "Revenue": "52636.51",
+    "Quantity": "1229"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "18-Oct-2024",
+    "Volume": 750,
+    "Revenue": "63969.36",
+    "Quantity": "1485"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "19-Oct-2024",
+    "Volume": 500,
+    "Revenue": "20646.41",
+    "Quantity": "414"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "20-Oct-2024",
+    "Volume": 750,
+    "Revenue": "44575.38",
+    "Quantity": "1029"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "21-Oct-2024",
+    "Volume": 500,
+    "Revenue": "26859.09",
+    "Quantity": "620"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "22-Oct-2024",
+    "Volume": 750,
+    "Revenue": "46453.78",
+    "Quantity": "1080"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "23-Oct-2024",
+    "Volume": 500,
+    "Revenue": "21851.38",
+    "Quantity": "462"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "24-Oct-2024",
+    "Volume": 750,
+    "Revenue": "52625.20",
+    "Quantity": "1292"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "25-Oct-2024",
+    "Volume": 500,
+    "Revenue": "56781.00",
+    "Quantity": "1344"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "26-Oct-2024",
+    "Volume": 750,
+    "Revenue": "47836.19",
+    "Quantity": "980"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "27-Oct-2024",
+    "Volume": 500,
+    "Revenue": "50312.71",
+    "Quantity": "1013"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "28-Oct-2024",
+    "Volume": 750,
+    "Revenue": "16405.93",
+    "Quantity": "377"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "29-Oct-2024",
+    "Volume": 500,
+    "Revenue": "26115.00",
+    "Quantity": "568"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "30-Oct-2024",
+    "Volume": 750,
+    "Revenue": "24111.49",
+    "Quantity": "559"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "31-Oct-2024",
+    "Volume": 500,
+    "Revenue": "51910.63",
+    "Quantity": "1045"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "01-Nov-2024",
+    "Volume": 750,
+    "Revenue": "26540.30",
+    "Quantity": "620"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "02-Nov-2024",
+    "Volume": 500,
+    "Revenue": "38478.06",
+    "Quantity": "781"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "03-Nov-2024",
+    "Volume": 750,
+    "Revenue": "79941.45",
+    "Quantity": "1688"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "04-Nov-2024",
+    "Volume": 500,
+    "Revenue": "78995.83",
+    "Quantity": "1800"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "05-Nov-2024",
+    "Volume": 750,
+    "Revenue": "25169.57",
+    "Quantity": "528"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "06-Nov-2024",
+    "Volume": 500,
+    "Revenue": "57076.22",
+    "Quantity": "1326"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "07-Nov-2024",
+    "Volume": 750,
+    "Revenue": "60648.46",
+    "Quantity": "1276"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "08-Nov-2024",
+    "Volume": 500,
+    "Revenue": "54414.26",
+    "Quantity": "1197"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "09-Nov-2024",
+    "Volume": 750,
+    "Revenue": "64801.80",
+    "Quantity": "1479"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "10-Nov-2024",
+    "Volume": 500,
+    "Revenue": "36036.84",
+    "Quantity": "845"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "11-Nov-2024",
+    "Volume": 750,
+    "Revenue": "49384.01",
+    "Quantity": "1233"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "12-Nov-2024",
+    "Volume": 500,
+    "Revenue": "13773.07",
+    "Quantity": "302"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "13-Nov-2024",
+    "Volume": 750,
+    "Revenue": "20272.70",
+    "Quantity": "445"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "14-Nov-2024",
+    "Volume": 500,
+    "Revenue": "69726.06",
+    "Quantity": "1513"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "15-Nov-2024",
+    "Volume": 750,
+    "Revenue": "75267.95",
+    "Quantity": "1667"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "16-Nov-2024",
+    "Volume": 500,
+    "Revenue": "80914.32",
+    "Quantity": "1730"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "17-Nov-2024",
+    "Volume": 750,
+    "Revenue": "35761.23",
+    "Quantity": "725"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "18-Nov-2024",
+    "Volume": 500,
+    "Revenue": "71306.80",
+    "Quantity": "1550"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "19-Nov-2024",
+    "Volume": 750,
+    "Revenue": "69024.78",
+    "Quantity": "1469"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "20-Nov-2024",
+    "Volume": 500,
+    "Revenue": "14141.27",
+    "Quantity": "315"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "21-Nov-2024",
+    "Volume": 750,
+    "Revenue": "49544.52",
+    "Quantity": "1115"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "22-Nov-2024",
+    "Volume": 500,
+    "Revenue": "15719.04",
+    "Quantity": "368"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "23-Nov-2024",
+    "Volume": 750,
+    "Revenue": "21752.96",
+    "Quantity": "485"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "24-Nov-2024",
+    "Volume": 500,
+    "Revenue": "48023.59",
+    "Quantity": "1160"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "25-Nov-2024",
+    "Volume": 750,
+    "Revenue": "26151.66",
+    "Quantity": "546"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "26-Nov-2024",
+    "Volume": 500,
+    "Revenue": "64677.07",
+    "Quantity": "1437"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "27-Nov-2024",
+    "Volume": 750,
+    "Revenue": "45415.38",
+    "Quantity": "1000"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "28-Nov-2024",
+    "Volume": 500,
+    "Revenue": "14161.97",
+    "Quantity": "315"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "29-Nov-2024",
+    "Volume": 750,
+    "Revenue": "68559.71",
+    "Quantity": "1476"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "30-Nov-2024",
+    "Volume": 500,
+    "Revenue": "47425.61",
+    "Quantity": "1115"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "01-Dec-2024",
+    "Volume": 750,
+    "Revenue": "55819.84",
+    "Quantity": "1395"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "02-Dec-2024",
+    "Volume": 500,
+    "Revenue": "79849.36",
+    "Quantity": "1648"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "03-Dec-2024",
+    "Volume": 750,
+    "Revenue": "68230.71",
+    "Quantity": "1448"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "04-Dec-2024",
+    "Volume": 500,
+    "Revenue": "64920.84",
+    "Quantity": "1325"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "05-Dec-2024",
+    "Volume": 750,
+    "Revenue": "48704.15",
+    "Quantity": "1181"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "06-Dec-2024",
+    "Volume": 500,
+    "Revenue": "56175.58",
+    "Quantity": "1217"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "07-Dec-2024",
+    "Volume": 750,
+    "Revenue": "25408.46",
+    "Quantity": "581"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "08-Dec-2024",
+    "Volume": 500,
+    "Revenue": "12839.73",
+    "Quantity": "312"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "09-Dec-2024",
+    "Volume": 750,
+    "Revenue": "34458.52",
+    "Quantity": "705"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "10-Dec-2024",
+    "Volume": 500,
+    "Revenue": "25271.87",
+    "Quantity": "516"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "11-Dec-2024",
+    "Volume": 750,
+    "Revenue": "14240.66",
+    "Quantity": "339"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "12-Dec-2024",
+    "Volume": 500,
+    "Revenue": "49000.18",
+    "Quantity": "1074"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "13-Dec-2024",
+    "Volume": 750,
+    "Revenue": "24627.88",
+    "Quantity": "539"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "14-Dec-2024",
+    "Volume": 500,
+    "Revenue": "73793.32",
+    "Quantity": "1587"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "15-Dec-2024",
+    "Volume": 750,
+    "Revenue": "26756.07",
+    "Quantity": "537"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "16-Dec-2024",
+    "Volume": 500,
+    "Revenue": "13130.02",
+    "Quantity": "323"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "17-Dec-2024",
+    "Volume": 750,
+    "Revenue": "49929.97",
+    "Quantity": "1025"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "18-Dec-2024",
+    "Volume": 500,
+    "Revenue": "41470.72",
+    "Quantity": "1020"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "19-Dec-2024",
+    "Volume": 750,
+    "Revenue": "79260.01",
+    "Quantity": "1758"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "20-Dec-2024",
+    "Volume": 500,
+    "Revenue": "14247.45",
+    "Quantity": "318"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "21-Dec-2024",
+    "Volume": 750,
+    "Revenue": "48175.89",
+    "Quantity": "994"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "22-Dec-2024",
+    "Volume": 500,
+    "Revenue": "73351.67",
+    "Quantity": "1482"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "23-Dec-2024",
+    "Volume": 750,
+    "Revenue": "75233.73",
+    "Quantity": "1570"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "24-Dec-2024",
+    "Volume": 500,
+    "Revenue": "32139.02",
+    "Quantity": "779"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "25-Dec-2024",
+    "Volume": 750,
+    "Revenue": "65113.17",
+    "Quantity": "1320"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "26-Dec-2024",
+    "Volume": 500,
+    "Revenue": "32328.32",
+    "Quantity": "666"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "27-Dec-2024",
+    "Volume": 750,
+    "Revenue": "83640.90",
+    "Quantity": "1796"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "28-Dec-2024",
+    "Volume": 500,
+    "Revenue": "47361.02",
+    "Quantity": "957"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "29-Dec-2024",
+    "Volume": 750,
+    "Revenue": "40047.22",
+    "Quantity": "972"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "30-Dec-2024",
+    "Volume": 500,
+    "Revenue": "67164.05",
+    "Quantity": "1348"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "31-Dec-2024",
+    "Volume": 750,
+    "Revenue": "71463.04",
+    "Quantity": "1713"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "01-Jan-2025",
+    "Volume": 500,
+    "Revenue": "53367.47",
+    "Quantity": "1161"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "02-Jan-2025",
+    "Volume": 750,
+    "Revenue": "42113.30",
+    "Quantity": "894"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "03-Jan-2025",
+    "Volume": 500,
+    "Revenue": "59251.18",
+    "Quantity": "1454"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "04-Jan-2025",
+    "Volume": 750,
+    "Revenue": "71020.48",
+    "Quantity": "1632"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "05-Jan-2025",
+    "Volume": 500,
+    "Revenue": "50229.69",
+    "Quantity": "1203"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "06-Jan-2025",
+    "Volume": 750,
+    "Revenue": "64106.21",
+    "Quantity": "1417"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "07-Jan-2025",
+    "Volume": 500,
+    "Revenue": "47040.77",
+    "Quantity": "1041"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "08-Jan-2025",
+    "Volume": 750,
+    "Revenue": "20359.88",
+    "Quantity": "487"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "09-Jan-2025",
+    "Volume": 500,
+    "Revenue": "29660.99",
+    "Quantity": "638"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "10-Jan-2025",
+    "Volume": 750,
+    "Revenue": "28268.12",
+    "Quantity": "618"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "11-Jan-2025",
+    "Volume": 500,
+    "Revenue": "29331.13",
+    "Quantity": "711"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "12-Jan-2025",
+    "Volume": 750,
+    "Revenue": "74758.14",
+    "Quantity": "1676"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "13-Jan-2025",
+    "Volume": 500,
+    "Revenue": "13064.09",
+    "Quantity": "317"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "14-Jan-2025",
+    "Volume": 750,
+    "Revenue": "21896.86",
+    "Quantity": "466"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "15-Jan-2025",
+    "Volume": 500,
+    "Revenue": "41312.50",
+    "Quantity": "984"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "16-Jan-2025",
+    "Volume": 750,
+    "Revenue": "24754.14",
+    "Quantity": "576"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "17-Jan-2025",
+    "Volume": 500,
+    "Revenue": "55845.07",
+    "Quantity": "1297"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "18-Jan-2025",
+    "Volume": 750,
+    "Revenue": "26870.42",
+    "Quantity": "585"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "19-Jan-2025",
+    "Volume": 500,
+    "Revenue": "45039.50",
+    "Quantity": "1013"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "20-Jan-2025",
+    "Volume": 750,
+    "Revenue": "44938.73",
+    "Quantity": "924"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "21-Jan-2025",
+    "Volume": 500,
+    "Revenue": "82480.68",
+    "Quantity": "1791"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "22-Jan-2025",
+    "Volume": 750,
+    "Revenue": "38271.50",
+    "Quantity": "882"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "23-Jan-2025",
+    "Volume": 500,
+    "Revenue": "83342.07",
+    "Quantity": "1782"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "24-Jan-2025",
+    "Volume": 750,
+    "Revenue": "12907.79",
+    "Quantity": "314"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "25-Jan-2025",
+    "Volume": 500,
+    "Revenue": "15445.06",
+    "Quantity": "351"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "26-Jan-2025",
+    "Volume": 750,
+    "Revenue": "32192.59",
+    "Quantity": "722"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "27-Jan-2025",
+    "Volume": 500,
+    "Revenue": "72192.48",
+    "Quantity": "1459"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "28-Jan-2025",
+    "Volume": 750,
+    "Revenue": "70722.83",
+    "Quantity": "1694"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "29-Jan-2025",
+    "Volume": 500,
+    "Revenue": "69612.99",
+    "Quantity": "1684"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "30-Jan-2025",
+    "Volume": 750,
+    "Revenue": "29329.32",
+    "Quantity": "678"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "31-Jan-2025",
+    "Volume": 500,
+    "Revenue": "15660.37",
+    "Quantity": "342"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "01-Feb-2025",
+    "Volume": 750,
+    "Revenue": "46192.81",
+    "Quantity": "983"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "02-Feb-2025",
+    "Volume": 500,
+    "Revenue": "15886.84",
+    "Quantity": "386"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "03-Feb-2025",
+    "Volume": 750,
+    "Revenue": "50706.08",
+    "Quantity": "1016"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "04-Feb-2025",
+    "Volume": 500,
+    "Revenue": "52123.86",
+    "Quantity": "1300"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "05-Feb-2025",
+    "Volume": 750,
+    "Revenue": "67803.03",
+    "Quantity": "1503"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "06-Feb-2025",
+    "Volume": 500,
+    "Revenue": "74471.33",
+    "Quantity": "1514"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "07-Feb-2025",
+    "Volume": 750,
+    "Revenue": "14979.39",
+    "Quantity": "365"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "08-Feb-2025",
+    "Volume": 500,
+    "Revenue": "80880.35",
+    "Quantity": "1742"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "09-Feb-2025",
+    "Volume": 750,
+    "Revenue": "63390.97",
+    "Quantity": "1361"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "10-Feb-2025",
+    "Volume": 500,
+    "Revenue": "21533.35",
+    "Quantity": "455"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "11-Feb-2025",
+    "Volume": 750,
+    "Revenue": "26322.76",
+    "Quantity": "556"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "12-Feb-2025",
+    "Volume": 500,
+    "Revenue": "62239.13",
+    "Quantity": "1368"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "13-Feb-2025",
+    "Volume": 750,
+    "Revenue": "24430.56",
+    "Quantity": "500"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "14-Feb-2025",
+    "Volume": 500,
+    "Revenue": "27975.41",
+    "Quantity": "638"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "15-Feb-2025",
+    "Volume": 750,
+    "Revenue": "47481.81",
+    "Quantity": "1123"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "16-Feb-2025",
+    "Volume": 500,
+    "Revenue": "25892.92",
+    "Quantity": "635"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "17-Feb-2025",
+    "Volume": 750,
+    "Revenue": "40516.13",
+    "Quantity": "964"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "18-Feb-2025",
+    "Volume": 500,
+    "Revenue": "62912.47",
+    "Quantity": "1540"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "19-Feb-2025",
+    "Volume": 750,
+    "Revenue": "47591.83",
+    "Quantity": "1187"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "20-Feb-2025",
+    "Volume": 500,
+    "Revenue": "42726.12",
+    "Quantity": "1053"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "21-Feb-2025",
+    "Volume": 750,
+    "Revenue": "39055.96",
+    "Quantity": "905"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "22-Feb-2025",
+    "Volume": 500,
+    "Revenue": "44333.41",
+    "Quantity": "993"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "23-Feb-2025",
+    "Volume": 750,
+    "Revenue": "17982.36",
+    "Quantity": "445"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "24-Feb-2025",
+    "Volume": 500,
+    "Revenue": "62117.02",
+    "Quantity": "1280"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "25-Feb-2025",
+    "Volume": 750,
+    "Revenue": "64595.96",
+    "Quantity": "1404"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "26-Feb-2025",
+    "Volume": 500,
+    "Revenue": "25727.81",
+    "Quantity": "623"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "27-Feb-2025",
+    "Volume": 750,
+    "Revenue": "21092.96",
+    "Quantity": "519"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "28-Feb-2025",
+    "Volume": 500,
+    "Revenue": "41349.59",
+    "Quantity": "921"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "01-Mar-2025",
+    "Volume": 750,
+    "Revenue": "48988.06",
+    "Quantity": "984"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "02-Mar-2025",
+    "Volume": 500,
+    "Revenue": "22738.58",
+    "Quantity": "499"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "03-Mar-2025",
+    "Volume": 750,
+    "Revenue": "53645.46",
+    "Quantity": "1112"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "04-Mar-2025",
+    "Volume": 500,
+    "Revenue": "51225.96",
+    "Quantity": "1266"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "05-Mar-2025",
+    "Volume": 750,
+    "Revenue": "22579.35",
+    "Quantity": "535"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "06-Mar-2025",
+    "Volume": 500,
+    "Revenue": "41616.27",
+    "Quantity": "885"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "07-Mar-2025",
+    "Volume": 750,
+    "Revenue": "17750.12",
+    "Quantity": "426"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "08-Mar-2025",
+    "Volume": 500,
+    "Revenue": "46496.11",
+    "Quantity": "1062"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "09-Mar-2025",
+    "Volume": 750,
+    "Revenue": "66162.80",
+    "Quantity": "1429"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "10-Mar-2025",
+    "Volume": 500,
+    "Revenue": "69521.25",
+    "Quantity": "1594"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "11-Mar-2025",
+    "Volume": 750,
+    "Revenue": "40715.13",
+    "Quantity": "974"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "12-Mar-2025",
+    "Volume": 500,
+    "Revenue": "59098.57",
+    "Quantity": "1246"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "13-Mar-2025",
+    "Volume": 750,
+    "Revenue": "61322.41",
+    "Quantity": "1364"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "14-Mar-2025",
+    "Volume": 500,
+    "Revenue": "61291.49",
+    "Quantity": "1465"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "15-Mar-2025",
+    "Volume": 750,
+    "Revenue": "54157.24",
+    "Quantity": "1148"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "16-Mar-2025",
+    "Volume": 500,
+    "Revenue": "66867.93",
+    "Quantity": "1356"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "17-Mar-2025",
+    "Volume": 750,
+    "Revenue": "40647.22",
+    "Quantity": "850"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "18-Mar-2025",
+    "Volume": 500,
+    "Revenue": "61698.83",
+    "Quantity": "1527"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "19-Mar-2025",
+    "Volume": 750,
+    "Revenue": "15638.43",
+    "Quantity": "340"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "20-Mar-2025",
+    "Volume": 500,
+    "Revenue": "15558.41",
+    "Quantity": "378"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "21-Mar-2025",
+    "Volume": 750,
+    "Revenue": "23428.44",
+    "Quantity": "569"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "22-Mar-2025",
+    "Volume": 500,
+    "Revenue": "64348.25",
+    "Quantity": "1410"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "23-Mar-2025",
+    "Volume": 750,
+    "Revenue": "17341.37",
+    "Quantity": "375"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "24-Mar-2025",
+    "Volume": 500,
+    "Revenue": "47259.05",
+    "Quantity": "968"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "25-Mar-2025",
+    "Volume": 750,
+    "Revenue": "14663.19",
+    "Quantity": "345"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "26-Mar-2025",
+    "Volume": 500,
+    "Revenue": "78637.52",
+    "Quantity": "1651"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "27-Mar-2025",
+    "Volume": 750,
+    "Revenue": "81716.63",
+    "Quantity": "1717"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "28-Mar-2025",
+    "Volume": 500,
+    "Revenue": "59368.71",
+    "Quantity": "1454"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "29-Mar-2025",
+    "Volume": 750,
+    "Revenue": "77159.19",
+    "Quantity": "1723"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "30-Mar-2025",
+    "Volume": 500,
+    "Revenue": "82640.36",
+    "Quantity": "1688"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "31-Mar-2025",
+    "Volume": 750,
+    "Revenue": "13384.04",
+    "Quantity": "328"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "01-Apr-2025",
+    "Volume": 500,
+    "Revenue": "40649.97",
+    "Quantity": "893"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "02-Apr-2025",
+    "Volume": 750,
+    "Revenue": "35168.60",
+    "Quantity": "866"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "03-Apr-2025",
+    "Volume": 500,
+    "Revenue": "59922.05",
+    "Quantity": "1383"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "04-Apr-2025",
+    "Volume": 750,
+    "Revenue": "28606.17",
+    "Quantity": "632"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "05-Apr-2025",
+    "Volume": 500,
+    "Revenue": "27811.06",
+    "Quantity": "561"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "06-Apr-2025",
+    "Volume": 750,
+    "Revenue": "22389.25",
+    "Quantity": "532"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "07-Apr-2025",
+    "Volume": 500,
+    "Revenue": "57336.22",
+    "Quantity": "1166"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "08-Apr-2025",
+    "Volume": 750,
+    "Revenue": "44128.32",
+    "Quantity": "891"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "09-Apr-2025",
+    "Volume": 500,
+    "Revenue": "69701.89",
+    "Quantity": "1601"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "10-Apr-2025",
+    "Volume": 750,
+    "Revenue": "27346.42",
+    "Quantity": "611"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "11-Apr-2025",
+    "Volume": 500,
+    "Revenue": "53034.02",
+    "Quantity": "1230"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "12-Apr-2025",
+    "Volume": 750,
+    "Revenue": "54186.06",
+    "Quantity": "1146"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "13-Apr-2025",
+    "Volume": 500,
+    "Revenue": "59018.73",
+    "Quantity": "1207"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "14-Apr-2025",
+    "Volume": 750,
+    "Revenue": "54258.28",
+    "Quantity": "1184"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "15-Apr-2025",
+    "Volume": 500,
+    "Revenue": "34861.14",
+    "Quantity": "792"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "16-Apr-2025",
+    "Volume": 750,
+    "Revenue": "50233.98",
+    "Quantity": "1062"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "17-Apr-2025",
+    "Volume": 500,
+    "Revenue": "18660.84",
+    "Quantity": "413"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "18-Apr-2025",
+    "Volume": 750,
+    "Revenue": "70833.18",
+    "Quantity": "1530"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "19-Apr-2025",
+    "Volume": 500,
+    "Revenue": "32341.51",
+    "Quantity": "807"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "20-Apr-2025",
+    "Volume": 750,
+    "Revenue": "19721.93",
+    "Quantity": "489"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "21-Apr-2025",
+    "Volume": 500,
+    "Revenue": "59497.36",
+    "Quantity": "1232"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "22-Apr-2025",
+    "Volume": 750,
+    "Revenue": "19745.03",
+    "Quantity": "484"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "23-Apr-2025",
+    "Volume": 500,
+    "Revenue": "65753.30",
+    "Quantity": "1332"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "24-Apr-2025",
+    "Volume": 750,
+    "Revenue": "18507.36",
+    "Quantity": "404"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "25-Apr-2025",
+    "Volume": 500,
+    "Revenue": "62565.12",
+    "Quantity": "1276"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "26-Apr-2025",
+    "Volume": 750,
+    "Revenue": "51336.05",
+    "Quantity": "1126"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "27-Apr-2025",
+    "Volume": 500,
+    "Revenue": "29347.00",
+    "Quantity": "706"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "28-Apr-2025",
+    "Volume": 750,
+    "Revenue": "56164.43",
+    "Quantity": "1139"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "29-Apr-2025",
+    "Volume": 500,
+    "Revenue": "54932.96",
+    "Quantity": "1348"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "30-Apr-2025",
+    "Volume": 750,
+    "Revenue": "21102.86",
+    "Quantity": "475"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "01-May-2025",
+    "Volume": 500,
+    "Revenue": "35645.26",
+    "Quantity": "824"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "02-May-2025",
+    "Volume": 750,
+    "Revenue": "28416.91",
+    "Quantity": "606"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "03-May-2025",
+    "Volume": 500,
+    "Revenue": "79920.28",
+    "Quantity": "1604"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "04-May-2025",
+    "Volume": 750,
+    "Revenue": "74743.39",
+    "Quantity": "1626"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "05-May-2025",
+    "Volume": 500,
+    "Revenue": "70619.93",
+    "Quantity": "1466"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "06-May-2025",
+    "Volume": 750,
+    "Revenue": "64269.46",
+    "Quantity": "1409"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "07-May-2025",
+    "Volume": 500,
+    "Revenue": "50445.28",
+    "Quantity": "1010"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "08-May-2025",
+    "Volume": 750,
+    "Revenue": "38186.29",
+    "Quantity": "881"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "09-May-2025",
+    "Volume": 500,
+    "Revenue": "69469.50",
+    "Quantity": "1428"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "10-May-2025",
+    "Volume": 750,
+    "Revenue": "74402.65",
+    "Quantity": "1614"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "11-May-2025",
+    "Volume": 500,
+    "Revenue": "27677.31",
+    "Quantity": "624"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "12-May-2025",
+    "Volume": 750,
+    "Revenue": "25641.10",
+    "Quantity": "576"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "13-May-2025",
+    "Volume": 500,
+    "Revenue": "37575.82",
+    "Quantity": "803"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "14-May-2025",
+    "Volume": 750,
+    "Revenue": "46844.58",
+    "Quantity": "1023"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "15-May-2025",
+    "Volume": 500,
+    "Revenue": "16710.09",
+    "Quantity": "348"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "16-May-2025",
+    "Volume": 750,
+    "Revenue": "80527.16",
+    "Quantity": "1644"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "17-May-2025",
+    "Volume": 500,
+    "Revenue": "46380.08",
+    "Quantity": "1015"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "18-May-2025",
+    "Volume": 750,
+    "Revenue": "57095.40",
+    "Quantity": "1284"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "19-May-2025",
+    "Volume": 500,
+    "Revenue": "57820.12",
+    "Quantity": "1341"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "20-May-2025",
+    "Volume": 750,
+    "Revenue": "42840.73",
+    "Quantity": "1053"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "21-May-2025",
+    "Volume": 500,
+    "Revenue": "45393.22",
+    "Quantity": "984"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "22-May-2025",
+    "Volume": 750,
+    "Revenue": "55236.79",
+    "Quantity": "1301"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "23-May-2025",
+    "Volume": 500,
+    "Revenue": "20943.00",
+    "Quantity": "455"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "24-May-2025",
+    "Volume": 750,
+    "Revenue": "69675.24",
+    "Quantity": "1649"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "25-May-2025",
+    "Volume": 500,
+    "Revenue": "58594.34",
+    "Quantity": "1234"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "26-May-2025",
+    "Volume": 750,
+    "Revenue": "49066.34",
+    "Quantity": "1195"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "27-May-2025",
+    "Volume": 500,
+    "Revenue": "65172.92",
+    "Quantity": "1619"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "28-May-2025",
+    "Volume": 750,
+    "Revenue": "64872.79",
+    "Quantity": "1339"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "29-May-2025",
+    "Volume": 500,
+    "Revenue": "33466.08",
+    "Quantity": "822"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "30-May-2025",
+    "Volume": 750,
+    "Revenue": "59859.33",
+    "Quantity": "1294"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "31-May-2025",
+    "Volume": 500,
+    "Revenue": "31695.10",
+    "Quantity": "713"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "01-Jun-2025",
+    "Volume": 750,
+    "Revenue": "34428.12",
+    "Quantity": "782"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "02-Jun-2025",
+    "Volume": 500,
+    "Revenue": "48260.18",
+    "Quantity": "1185"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "03-Jun-2025",
+    "Volume": 750,
+    "Revenue": "23290.90",
+    "Quantity": "471"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "04-Jun-2025",
+    "Volume": 500,
+    "Revenue": "69671.16",
+    "Quantity": "1568"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "05-Jun-2025",
+    "Volume": 750,
+    "Revenue": "13759.20",
+    "Quantity": "304"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "06-Jun-2025",
+    "Volume": 500,
+    "Revenue": "35941.72",
+    "Quantity": "835"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "07-Jun-2025",
+    "Volume": 750,
+    "Revenue": "61532.52",
+    "Quantity": "1366"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "08-Jun-2025",
+    "Volume": 500,
+    "Revenue": "29004.94",
+    "Quantity": "581"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "09-Jun-2025",
+    "Volume": 750,
+    "Revenue": "20689.83",
+    "Quantity": "459"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "10-Jun-2025",
+    "Volume": 500,
+    "Revenue": "57100.37",
+    "Quantity": "1342"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "11-Jun-2025",
+    "Volume": 750,
+    "Revenue": "20455.75",
+    "Quantity": "477"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "12-Jun-2025",
+    "Volume": 500,
+    "Revenue": "80606.90",
+    "Quantity": "1793"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "13-Jun-2025",
+    "Volume": 750,
+    "Revenue": "88642.84",
+    "Quantity": "1800"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "14-Jun-2025",
+    "Volume": 500,
+    "Revenue": "73036.02",
+    "Quantity": "1762"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "15-Jun-2025",
+    "Volume": 750,
+    "Revenue": "26172.80",
+    "Quantity": "583"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "16-Jun-2025",
+    "Volume": 500,
+    "Revenue": "70573.71",
+    "Quantity": "1757"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "17-Jun-2025",
+    "Volume": 750,
+    "Revenue": "14875.67",
+    "Quantity": "371"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "18-Jun-2025",
+    "Volume": 500,
+    "Revenue": "19043.38",
+    "Quantity": "388"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "19-Jun-2025",
+    "Volume": 750,
+    "Revenue": "17408.81",
+    "Quantity": "355"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "20-Jun-2025",
+    "Volume": 500,
+    "Revenue": "24663.96",
+    "Quantity": "611"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "21-Jun-2025",
+    "Volume": 750,
+    "Revenue": "51347.97",
+    "Quantity": "1144"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "22-Jun-2025",
+    "Volume": 500,
+    "Revenue": "43998.64",
+    "Quantity": "923"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "23-Jun-2025",
+    "Volume": 750,
+    "Revenue": "76678.47",
+    "Quantity": "1571"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "24-Jun-2025",
+    "Volume": 500,
+    "Revenue": "41387.36",
+    "Quantity": "947"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "25-Jun-2025",
+    "Volume": 750,
+    "Revenue": "61641.37",
+    "Quantity": "1290"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "26-Jun-2025",
+    "Volume": 500,
+    "Revenue": "39468.24",
+    "Quantity": "873"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "27-Jun-2025",
+    "Volume": 750,
+    "Revenue": "72597.04",
+    "Quantity": "1674"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "28-Jun-2025",
+    "Volume": 500,
+    "Revenue": "15646.74",
+    "Quantity": "336"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "29-Jun-2025",
+    "Volume": 750,
+    "Revenue": "47659.74",
+    "Quantity": "972"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "30-Jun-2025",
+    "Volume": 500,
+    "Revenue": "56734.80",
+    "Quantity": "1297"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "01-Jul-2025",
+    "Volume": 750,
+    "Revenue": "68449.53",
+    "Quantity": "1685"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "02-Jul-2025",
+    "Volume": 500,
+    "Revenue": "42366.71",
+    "Quantity": "996"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "03-Jul-2025",
+    "Volume": 750,
+    "Revenue": "47783.71",
+    "Quantity": "972"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "04-Jul-2025",
+    "Volume": 500,
+    "Revenue": "69025.42",
+    "Quantity": "1394"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "05-Jul-2025",
+    "Volume": 750,
+    "Revenue": "79523.36",
+    "Quantity": "1777"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "06-Jul-2025",
+    "Volume": 500,
+    "Revenue": "59122.49",
+    "Quantity": "1361"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "07-Jul-2025",
+    "Volume": 750,
+    "Revenue": "48911.45",
+    "Quantity": "1023"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "08-Jul-2025",
+    "Volume": 500,
+    "Revenue": "21846.37",
+    "Quantity": "535"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "09-Jul-2025",
+    "Volume": 750,
+    "Revenue": "34130.48",
+    "Quantity": "768"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "10-Jul-2025",
+    "Volume": 500,
+    "Revenue": "45254.97",
+    "Quantity": "993"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "11-Jul-2025",
+    "Volume": 750,
+    "Revenue": "16679.00",
+    "Quantity": "383"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "12-Jul-2025",
+    "Volume": 500,
+    "Revenue": "35155.41",
+    "Quantity": "791"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "13-Jul-2025",
+    "Volume": 750,
+    "Revenue": "36097.64",
+    "Quantity": "832"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "14-Jul-2025",
+    "Volume": 500,
+    "Revenue": "22839.94",
+    "Quantity": "532"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "15-Jul-2025",
+    "Volume": 750,
+    "Revenue": "19533.84",
+    "Quantity": "400"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "16-Jul-2025",
+    "Volume": 500,
+    "Revenue": "16151.94",
+    "Quantity": "349"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "17-Jul-2025",
+    "Volume": 750,
+    "Revenue": "33433.83",
+    "Quantity": "742"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "18-Jul-2025",
+    "Volume": 500,
+    "Revenue": "71453.52",
+    "Quantity": "1577"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "19-Jul-2025",
+    "Volume": 750,
+    "Revenue": "66452.44",
+    "Quantity": "1452"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "20-Jul-2025",
+    "Volume": 500,
+    "Revenue": "87368.51",
+    "Quantity": "1797"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "21-Jul-2025",
+    "Volume": 750,
+    "Revenue": "31743.42",
+    "Quantity": "689"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "22-Jul-2025",
+    "Volume": 500,
+    "Revenue": "76671.94",
+    "Quantity": "1695"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "23-Jul-2025",
+    "Volume": 750,
+    "Revenue": "25051.88",
+    "Quantity": "612"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "24-Jul-2025",
+    "Volume": 500,
+    "Revenue": "72589.01",
+    "Quantity": "1559"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "25-Jul-2025",
+    "Volume": 750,
+    "Revenue": "33539.28",
+    "Quantity": "768"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "26-Jul-2025",
+    "Volume": 500,
+    "Revenue": "48124.12",
+    "Quantity": "1095"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "27-Jul-2025",
+    "Volume": 750,
+    "Revenue": "78219.84",
+    "Quantity": "1748"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "28-Jul-2025",
+    "Volume": 500,
+    "Revenue": "51828.77",
+    "Quantity": "1143"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "29-Jul-2025",
+    "Volume": 750,
+    "Revenue": "39851.81",
+    "Quantity": "850"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "30-Jul-2025",
+    "Volume": 500,
+    "Revenue": "19464.68",
+    "Quantity": "451"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "31-Jul-2025",
+    "Volume": 750,
+    "Revenue": "22505.21",
+    "Quantity": "513"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "01-Aug-2025",
+    "Volume": 500,
+    "Revenue": "75733.65",
+    "Quantity": "1570"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "02-Aug-2025",
+    "Volume": 750,
+    "Revenue": "34438.65",
+    "Quantity": "696"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "03-Aug-2025",
+    "Volume": 500,
+    "Revenue": "18771.85",
+    "Quantity": "415"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "04-Aug-2025",
+    "Volume": 750,
+    "Revenue": "23191.63",
+    "Quantity": "538"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "05-Aug-2025",
+    "Volume": 500,
+    "Revenue": "71382.51",
+    "Quantity": "1457"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "06-Aug-2025",
+    "Volume": 750,
+    "Revenue": "69265.09",
+    "Quantity": "1457"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "07-Aug-2025",
+    "Volume": 500,
+    "Revenue": "62980.15",
+    "Quantity": "1475"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "08-Aug-2025",
+    "Volume": 750,
+    "Revenue": "16999.43",
+    "Quantity": "375"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "09-Aug-2025",
+    "Volume": 500,
+    "Revenue": "30373.83",
+    "Quantity": "707"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "10-Aug-2025",
+    "Volume": 750,
+    "Revenue": "67141.51",
+    "Quantity": "1641"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "11-Aug-2025",
+    "Volume": 500,
+    "Revenue": "62059.94",
+    "Quantity": "1432"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "12-Aug-2025",
+    "Volume": 750,
+    "Revenue": "58800.02",
+    "Quantity": "1211"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "13-Aug-2025",
+    "Volume": 500,
+    "Revenue": "14441.50",
+    "Quantity": "306"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "14-Aug-2025",
+    "Volume": 750,
+    "Revenue": "66144.05",
+    "Quantity": "1382"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "15-Aug-2025",
+    "Volume": 500,
+    "Revenue": "16904.15",
+    "Quantity": "347"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "16-Aug-2025",
+    "Volume": 750,
+    "Revenue": "85068.00",
+    "Quantity": "1750"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "17-Aug-2025",
+    "Volume": 500,
+    "Revenue": "69328.54",
+    "Quantity": "1589"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "18-Aug-2025",
+    "Volume": 750,
+    "Revenue": "57259.93",
+    "Quantity": "1420"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "19-Aug-2025",
+    "Volume": 500,
+    "Revenue": "15993.22",
+    "Quantity": "341"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "20-Aug-2025",
+    "Volume": 750,
+    "Revenue": "43577.25",
+    "Quantity": "1064"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "21-Aug-2025",
+    "Volume": 500,
+    "Revenue": "29584.30",
+    "Quantity": "683"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "22-Aug-2025",
+    "Volume": 750,
+    "Revenue": "32871.51",
+    "Quantity": "723"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "23-Aug-2025",
+    "Volume": 500,
+    "Revenue": "20650.73",
+    "Quantity": "486"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "24-Aug-2025",
+    "Volume": 750,
+    "Revenue": "26220.95",
+    "Quantity": "557"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "25-Aug-2025",
+    "Volume": 500,
+    "Revenue": "23407.68",
+    "Quantity": "553"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "26-Aug-2025",
+    "Volume": 750,
+    "Revenue": "19406.17",
+    "Quantity": "449"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "27-Aug-2025",
+    "Volume": 500,
+    "Revenue": "48626.74",
+    "Quantity": "1120"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "28-Aug-2025",
+    "Volume": 750,
+    "Revenue": "78577.51",
+    "Quantity": "1673"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "29-Aug-2025",
+    "Volume": 500,
+    "Revenue": "39226.71",
+    "Quantity": "803"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "30-Aug-2025",
+    "Volume": 750,
+    "Revenue": "23315.85",
+    "Quantity": "487"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "31-Aug-2025",
+    "Volume": 500,
+    "Revenue": "47887.14",
+    "Quantity": "1088"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "01-Sep-2025",
+    "Volume": 750,
+    "Revenue": "47234.09",
+    "Quantity": "980"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "02-Sep-2025",
+    "Volume": 500,
+    "Revenue": "24197.36",
+    "Quantity": "527"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "03-Sep-2025",
+    "Volume": 750,
+    "Revenue": "25382.00",
+    "Quantity": "510"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "04-Sep-2025",
+    "Volume": 500,
+    "Revenue": "40893.80",
+    "Quantity": "819"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "05-Sep-2025",
+    "Volume": 750,
+    "Revenue": "66373.18",
+    "Quantity": "1364"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "06-Sep-2025",
+    "Volume": 500,
+    "Revenue": "14948.22",
+    "Quantity": "325"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "07-Sep-2025",
+    "Volume": 750,
+    "Revenue": "32259.68",
+    "Quantity": "707"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "08-Sep-2025",
+    "Volume": 500,
+    "Revenue": "24085.39",
+    "Quantity": "554"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "09-Sep-2025",
+    "Volume": 750,
+    "Revenue": "18711.60",
+    "Quantity": "377"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "10-Sep-2025",
+    "Volume": 500,
+    "Revenue": "14692.02",
+    "Quantity": "335"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "11-Sep-2025",
+    "Volume": 750,
+    "Revenue": "72480.17",
+    "Quantity": "1717"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "12-Sep-2025",
+    "Volume": 500,
+    "Revenue": "24331.94",
+    "Quantity": "581"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "13-Sep-2025",
+    "Volume": 750,
+    "Revenue": "69418.88",
+    "Quantity": "1670"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "14-Sep-2025",
+    "Volume": 500,
+    "Revenue": "52573.91",
+    "Quantity": "1264"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "15-Sep-2025",
+    "Volume": 750,
+    "Revenue": "82416.53",
+    "Quantity": "1728"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "16-Sep-2025",
+    "Volume": 500,
+    "Revenue": "73408.79",
+    "Quantity": "1565"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "17-Sep-2025",
+    "Volume": 750,
+    "Revenue": "88554.38",
+    "Quantity": "1775"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "18-Sep-2025",
+    "Volume": 500,
+    "Revenue": "12580.41",
+    "Quantity": "303"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "19-Sep-2025",
+    "Volume": 750,
+    "Revenue": "42292.43",
+    "Quantity": "997"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "20-Sep-2025",
+    "Volume": 500,
+    "Revenue": "49996.66",
+    "Quantity": "1121"
+  },
+  {
+    "Name": "Phi Retail",
+    "Date": "21-Sep-2025",
+    "Volume": 750,
+    "Revenue": "27853.00",
+    "Quantity": "647"
+  },
+  {
+    "Name": "Chi Wholesalers",
+    "Date": "22-Sep-2025",
+    "Volume": 500,
+    "Revenue": "58913.12",
+    "Quantity": "1211"
+  },
+  {
+    "Name": "Psi Vendors",
+    "Date": "23-Sep-2025",
+    "Volume": 750,
+    "Revenue": "29255.92",
+    "Quantity": "605"
+  },
+  {
+    "Name": "Omega Supplies",
+    "Date": "24-Sep-2025",
+    "Volume": 500,
+    "Revenue": "29832.45",
+    "Quantity": "601"
+  },
+  {
+    "Name": "Alpha Brews",
+    "Date": "25-Sep-2025",
+    "Volume": 750,
+    "Revenue": "29711.99",
+    "Quantity": "639"
+  },
+  {
+    "Name": "Beta Beverages",
+    "Date": "26-Sep-2025",
+    "Volume": 500,
+    "Revenue": "46538.49",
+    "Quantity": "1016"
+  },
+  {
+    "Name": "Gamma Drinks",
+    "Date": "27-Sep-2025",
+    "Volume": 750,
+    "Revenue": "69763.01",
+    "Quantity": "1722"
+  },
+  {
+    "Name": "Delta Distributors",
+    "Date": "28-Sep-2025",
+    "Volume": 500,
+    "Revenue": "45101.93",
+    "Quantity": "991"
+  },
+  {
+    "Name": "Epsilon Supplies",
+    "Date": "29-Sep-2025",
+    "Volume": 750,
+    "Revenue": "30917.41",
+    "Quantity": "711"
+  },
+  {
+    "Name": "Zeta Logistics",
+    "Date": "30-Sep-2025",
+    "Volume": 500,
+    "Revenue": "73018.06",
+    "Quantity": "1591"
+  },
+  {
+    "Name": "Eta Services",
+    "Date": "01-Oct-2025",
+    "Volume": 750,
+    "Revenue": "71824.11",
+    "Quantity": "1470"
+  },
+  {
+    "Name": "Theta Retail",
+    "Date": "02-Oct-2025",
+    "Volume": 500,
+    "Revenue": "38180.22",
+    "Quantity": "786"
+  },
+  {
+    "Name": "Iota Traders",
+    "Date": "03-Oct-2025",
+    "Volume": 750,
+    "Revenue": "51576.77",
+    "Quantity": "1180"
+  },
+  {
+    "Name": "Kappa Wholesalers",
+    "Date": "04-Oct-2025",
+    "Volume": 500,
+    "Revenue": "79567.81",
+    "Quantity": "1721"
+  },
+  {
+    "Name": "Lambda Vendors",
+    "Date": "05-Oct-2025",
+    "Volume": 750,
+    "Revenue": "17188.18",
+    "Quantity": "402"
+  },
+  {
+    "Name": "Mu Suppliers",
+    "Date": "06-Oct-2025",
+    "Volume": 500,
+    "Revenue": "14272.89",
+    "Quantity": "309"
+  },
+  {
+    "Name": "Nu Goods",
+    "Date": "07-Oct-2025",
+    "Volume": 750,
+    "Revenue": "53442.16",
+    "Quantity": "1186"
+  },
+  {
+    "Name": "Xi Merchants",
+    "Date": "08-Oct-2025",
+    "Volume": 500,
+    "Revenue": "23473.56",
+    "Quantity": "586"
+  },
+  {
+    "Name": "Omicron Providers",
+    "Date": "09-Oct-2025",
+    "Volume": 750,
+    "Revenue": "43591.10",
+    "Quantity": "904"
+  },
+  {
+    "Name": "Pi Distributors",
+    "Date": "10-Oct-2025",
+    "Volume": 500,
+    "Revenue": "70487.56",
+    "Quantity": "1558"
+  },
+  {
+    "Name": "Rho Beverages",
+    "Date": "11-Oct-2025",
+    "Volume": 750,
+    "Revenue": "75029.51",
+    "Quantity": "1551"
+  },
+  {
+    "Name": "Sigma Drinks",
+    "Date": "12-Oct-2025",
+    "Volume": 500,
+    "Revenue": "16723.87",
+    "Quantity": "388"
+  },
+  {
+    "Name": "Tau Services",
+    "Date": "13-Oct-2025",
+    "Volume": 750,
+    "Revenue": "51996.51",
+    "Quantity": "1132"
+  },
+  {
+    "Name": "Upsilon Logistics",
+    "Date": "14-Oct-2025",
+    "Volume": 500,
+    "Revenue": "46319.92",
+    "Quantity": "1080"
+  }
+]`
+const rawData = result;
 
         if (typeof rawData === "string") {
             console.log("Data is string, attempting to parse...");
@@ -730,7 +4229,7 @@
                 req.session.loggedIn = true;
                 res.redirect('/dashboard');
             } else {
-                res.send('Invalid Credentials');
+              res.send('Invalid Credentials');
             }
         } catch (error) {
             res.status(500).send('Internal Server Error');
